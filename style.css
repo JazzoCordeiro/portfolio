@@ -2,33 +2,32 @@
 
 /* Definindo variáveis para as cores */
 :root {
-    --bg-dark: #010d29; /* Cor de fundo escura */
-    --bg-light: #f3fcff; /* Cor de fundo clara */
-    --letter-b-light: #62d8ff; /* Cor de letras claras */
-    --letter-b-bright: #3badd3; /* Cor de letras brilhantes */
-    --pinkish: #d81c5c; /* Cor rosa */
-    --letter-b-dark: #010d29; /* Cor de letras escuras */
+    --bg-dark: #010d29;
+    --bg-light: #f3fcff;
+    --letter-b-light: #62d8ff;
+    --letter-b-bright: #3badd3;
+    --pinkish: #d81c5c;
+    --letter-b-dark: #010d29;
 }
 
 /* Regras gerais para todos os elementos */
 * {
-    margin: 0; /* Remove margem */
-    padding: 0; /* Remove padding */
-    outline: none; /* Remove outline */
-    border: 0; /* Remove borda */
-    text-decoration: none; /* Remove sublinhado */
-    transition: 0.2s linear; /* Transição suave para mudanças de estado */
-    font-family: "Roboto", sans-serif; /* Define a fonte */
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: 0;
+    text-decoration: none;
+    transition: 0.2s linear;
+    font-family: "Roboto", sans-serif;
 }
 
 /* Estilização do corpo da página */
 body {
-     /* Centraliza os elementos verticalmente */
-    width: 100vw; /* largura de 100% da tela */
+    width: 100vw;
     height: 100vh;
-    background-color: var(--bg-dark); /* Cor de fundo escura */
-    color: var(--bg-light); /* Cor das letras claras */
-    transition: 0.3s; /* Transição suave para mudanças de tema */
+    background-color: var(--bg-dark);
+    color: var(--bg-light);
+    transition: 0.3s;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,261 +35,243 @@ body {
 
 /* Estilizando a área principal da página */
 main {
-    padding-top: 18vh;/* Espaçamento superior, relativo à altura da tela */
-    padding-bottom: 3vh; /* Espaçamento inferior */
+    padding-top: 18vh;
+    padding-bottom: 3vh;
     max-width: 65%;
-   
 }
 
 /* Estilos para links */
 a {
-    color: var(--letter-b-bright); /* Cor dos links */
-    text-decoration: none; /* Remove o sublinhado dos links */
+    color: var(--letter-b-bright);
+    text-decoration: none;
 }
 
-/* Estilo para links visitados */
 a:visited {
-    color: var(--bg-light); /* Cor dos links após serem visitados */
+    color: var(--bg-light);
 }
 
-/* Estilo para links ao passar o mouse */
 a:hover {
-    color: var(--pinkish); /* Cor ao passar o mouse sobre o link */
+    color: var(--pinkish);
 }
 
 /* Estilos para o modo claro (light mode) */
 body.light {
-    background-color: var(--bg-light); /* Cor de fundo clara */
-    color: var(--bg-dark); /* Cor das letras escuras */
+    background-color: var(--bg-light);
+    color: var(--bg-dark);
 }
 
-/* Estilos para links no modo claro */
 body.light a {
-    color: var(--bg-dark); /* Cor dos links no modo claro */
+    color: var(--bg-dark);
 }
 
-/* Estilo para links no modo claro ao passar o mouse */
 body.light a:hover {
-    color: var(--pinkish); /* Cor dos links ao passar o mouse no modo claro */
+    color: var(--pinkish);
 }
 
-/* Estilos para o cabeçalho no modo claro */
 body.light .header {
-    color: var(--bg-dark); /* Cor do texto no cabeçalho */
-    background-color: var(--letter-b-light); /* Cor de fundo do cabeçalho */
+    color: var(--bg-dark);
+    background-color: var(--letter-b-light);
 }
 
-/* Estilos para o cabeçalho em geral */
+/* Estilos para o cabeçalho */
 .header {
-    position: fixed; /* Cabeçalho fixo no topo da página */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 99; /* Garante que o cabeçalho fique acima de outros elementos */
-    background-color: var(--bg-dark); /* Cor de fundo escura */
-    width: 100vw; /* Largura de 100% da tela */
+    z-index: 99;
+    background-color: var(--bg-dark);
+    width: 100vw;
 }
 
-/* Adiciona uma linha de gradiente no cabeçalho */
 .header::after {
-    content: ''; /* Cria um pseudo-elemento */
+    content: '';
     display: block;
-    height: 1px; /* Altura de 1 pixel */
-    margin: 0 auto; /* Centraliza horizontalmente */
-    background: linear-gradient(to right, transparent, var(--pinkish), transparent); /* Gradiente */
+    height: 1px;
+    margin: 0 auto;
+    background: linear-gradient(to right, transparent, var(--pinkish), transparent);
 }
 
-/* Estilos para o grupo do cabeçalho (logo + links de navegação) */
 .groupHead {
     display: flex;
-    align-items: center; /* Alinha verticalmente */
-    justify-content: space-between; /* Espaça igualmente os elementos */
-    padding: 0 3rem; /* Adiciona espaçamento interno */
-    max-width: 95%; /* Limita a largura máxima */
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    max-width: 95%;
 }
 
-/* Estilo para o logo */
 .mylogo {
-    margin-right: 2rem; /* Espaço à direita da logo */
-    max-width: 80px; /* Limita a largura máxima do logo */
+    margin-right: 2rem;
+    max-width: 80px;
 }
 
-/* Estilos para a barra de navegação */
 .navbar {
     display: flex;
-    justify-content: center; /* Centraliza os itens da barra */
-    gap: 2rem; /* Espaçamento entre os itens */
-    flex-grow: 1; /* A barra de navegação ocupa o espaço restante */
-    list-style: none; /* Remove marcadores da lista */
+    justify-content: center;
+    gap: 2rem;
+    flex-grow: 1;
+    list-style: none;
 }
 
-/* Estilo para o separador entre os links */
 .separador {
-    color: var(--pinkish); /* Cor do separador */
+    color: var(--pinkish);
 }
 
-/* Estilos para o botão de modo (light/dark) */
+/* Modo dark/light corrigido */
 .mode {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 8px; /* Tamanho de fonte pequeno */
+    margin-left: 2rem;
 }
 
-/* Estilo para o controle deslizante (modo claro/escuro) */
+.mode h1 {
+    font-size: 0.7rem;
+    margin-bottom: 0.25rem;
+    font-weight: normal;
+}
+
 .trilho {
-    width: 50px; /* Largura do trilho */
-    height: 25px; /* Altura do trilho */
-    background-color: var(--letter-b-light); /* Cor de fundo */
-    border-radius: 20px; /* Bordas arredondadas */
-    position: relative; /* Necessário para o posicionamento do indicador */
-    cursor: pointer; /* Indica que é interativo */
+    width: 50px;
+    height: 25px;
+    background-color: var(--letter-b-light);
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
 }
 
-/* Estilos para o trilho no modo claro */
 .trilho.light {
-    background-color: var(--letter-b-bright); /* Cor do trilho no modo claro */
+    background-color: var(--letter-b-bright);
 }
 
-/* Estilo para o indicador dentro do trilho */
 .trilho .indicador {
-    width: 30px; /* Largura do indicador */
-    height: 25px; /* Altura do indicador */
-    background-color: var(--bg-dark); /* Cor de fundo do indicador */
-    border-radius: 50%; /* Forma circular */
-    transform: scale(.8); /* Reduz o tamanho do indicador */
-    position: absolute; /* Posicionamento absoluto */
-    left: 0; /* Inicia no lado esquerdo */
-    transition: 0.4s; /* Transição suave para o movimento */
+    width: 30px;
+    height: 25px;
+    background-color: var(--bg-dark);
+    border-radius: 50%;
+    transform: scale(.8);
+    position: absolute;
+    left: 0;
+    transition: 0.4s;
 }
 
-/* Estilo para o indicador no modo claro */
 .trilho.light .indicador {
-    left: 19px; /* Move o indicador para a direita */
-    background-color: var(--bg-light); /* Cor do indicador no modo claro */
+    left: 19px;
+    background-color: var(--bg-light);
 }
 
-/* Estilos para os ícones (presumivelmente no rodapé) */
 .icons {
     display: flex;
     margin-top: 0;
 }
 
-/* Estilos para o rodapé */
+/* Footer corrigido */
 footer {
     padding-top: 0.1rem;
-    position: relative; /* Necessário para o ::before */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
 }
 
-/* Adiciona uma linha de gradiente no rodapé */
 footer::before {
     content: '';
     position: absolute;
-    top: 0; /* Alinha no topo do rodapé */
-    left: 50%; /* Centraliza horizontalmente */
-    transform: translateX(-50%); /* Ajuste para centralizar */
-    width: 100vw; /* Largura ajustável */
-    height: 1px; /* Altura de 1 pixel */
-    background: linear-gradient(to right, transparent, var(--pinkish), transparent); /* Gradiente */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--pinkish), transparent);
 }
 
-/* Estilo para o parágrafo no rodapé */
 footer p {
-    text-align: left; /* Alinha o texto à esquerda */
+    text-align: center;
 }
 
-/* Margem superior do parágrafo no rodapé */
 .footerP {
     margin-top: 2rem;
 }
 
-/* Estilos para o contêiner principal da página inicial */
+/* Estilos para o contêiner principal */
 .homeContainer {
     display: flex;
-    flex-direction: row; /* Organiza os elementos em linha */
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-
+    margin-top: 1rem;
 }
 
-/* Estilos para um contêiner genérico */
 .container {
     display: flex;
-    flex-direction: column; /* Organiza os itens em coluna */
+    flex-direction: column;
     justify-content: center;
-    text-align: justify; /* Justifica o texto */;
+    text-align: justify;
 }
 
-/* Estilo para fotos pessoais */
+/* Título h2 corrigido */
+.h2 {
+    color: var(--letter-b-bright);
+    text-align: center;
+    width: 100%;
+    margin: 1rem 0;
+    transform: none !important;
+}
+
 .personalPhoto {
-    max-width: 200px; /* Limita a largura da imagem */
+    max-width: 200px;
     max-height: auto;
-    margin-bottom: 2rem; /* Espaçamento abaixo da imagem */
-    margin-right: 2rem; /* Espaçamento à direita da imagem */
+    margin-bottom: 2rem;
+    margin-right: 2rem;
     margin-top: 0;
-    transform: translateY(0.9rem); /* Move ligeiramente a imagem para baixo */
+    transform: translateY(-0.2rem);
 }
 
-/* Estilos para artigos */
 article {
     display: flex;
-    flex-direction: column; /* Organiza os itens em coluna */
-    align-items: center; /* Centraliza horizontalmente */
-    justify-content: center; /* Centraliza verticalmente */
-    text-align: justify; /* Justifica o texto */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
 }
 
-/* Estilo para o título principal (h1) */
 .h1 {
-    font-size: 1.75rem; /* Tamanho maior para h1 */
-    color: var(--letter-b-bright); /* Cor do título */
-    align-self: flex-start; /* Alinha à esquerda */
- 
+    font-size: 1.75rem;
+    color: var(--letter-b-bright);
+    align-self: flex-start;
 }
 
-/* Estilo para o subtítulo (h2) */
-.h2 {
-    justify-content: center; /* Centraliza o subtítulo */
-    color: var(--letter-b-bright); /* Cor do subtítulo */
-    transform: translateX(14.5rem); /* Move o título para a direita */
-}
-
-/* Estilos para o terceiro nível de título (h3) */
 h3 {
     justify-content: center;
     text-align: center;
 }
 
-/* Estilos para os parágrafos */
 .paragraph {
-    margin-top: 1rem; /* Espaço superior */
+    margin-top: 1rem;
 }
 
-/* Estilos para a tooltip (mensagem de ajuda) */
 .tooltip {
-    display: none; /* Inicialmente escondido */
-    position: absolute; /* Posicionamento absoluto */
-    pointer-events: none; /* Impede interação com a tooltip */
-    font-size: 0.75rem; /* Tamanho de fonte pequeno */
-    color: var(--letter-b-light); /* Cor do texto */
+    display: none;
+    position: absolute;
+    pointer-events: none;
+    font-size: 0.75rem;
+    color: var(--letter-b-light);
 }
 
-/* Estilos para a tooltip no modo claro */
 body.light .tooltip {
-    color: var(--bg-dark); /* Cor do texto no modo claro */
+    color: var(--bg-dark);
 }
 
-/* Exibe a tooltip quando a imagem é hover */
 .img1:hover + .tooltip1,
 .img2:hover + .tooltip2,
 .img3:hover + .tooltip3 {
-    display: block; /* Torna a tooltip visível */
+    display: block;
 }
 
-
-/*  ------- Modo claro/escuro -------- */
-
-  .bigBox {
+/* Portfolio section */
+.bigBox {
     place-items: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -298,88 +279,74 @@ body.light .tooltip {
     gap: 1rem;
     margin: 0;
     padding: 0;
-  }
-  
-  .portName {
+}
+
+.portName {
     margin-bottom: 2rem;
     margin-top: 1rem;
-    font-size: 1.75rem; /* Tamanho maior para h1 */
-    color: var(--letter-b-bright); /* Cor do título */
+    font-size: 1.75rem;
+    color: var(--letter-b-bright);
     text-align: center;
     margin-bottom: 2rem;
     transform: translateX(-1rem);
+}
 
-  }
-  
-  .projects {
+.projects {
     text-align: center;
-  color: var(--letter-b-bright);
-  
-  }
-  
-  
-  .project1 {
+    color: var(--letter-b-bright);
+}
+
+.project1, .project2 {
     text-align: center;
     margin-bottom: 1rem;
-  }
-  
-  .project2 {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  
-  
+}
 
-  
-  .car {
-      display: none;
-      width: 70%;
-      overflow: hidden;
-      background-color: var(--bg-dark);
-      color: var(--letter-b-light);
-      padding: 10px;
-      position: relative;
-      left: 13.8%;
-      border: 4px solid;
-      border-color: var(--pinkish);
-      border-radius: 15px;
-      margin-top: 2%;
-      z-index: 1;
-  }
-  
-  .car.active {
-      display: block;
-      background-color: var(--bg-dark);
-  
-  
-  }
-  
-  
-    #prev1, #next1 {
-      position: absolute;
-      background-color: var(--letter-b-bright);
-      color: var(--bg-dark);
-      top: 55%;
-      transform: translateY(-50%); 
-      width: 50px;
-      height: 50px;
-      font-size:2.5rem;
-      font-weight:bolder;
-      border-radius: 50%;
-      cursor: pointer;
-      font-family: Arial, Helvetica, sans-serif;
-      z-index: 99;
-    }
-  
-    #prev1 {
-      left: 98px;
-    }
-    #next1 {
-      right: 100px;
-    }
-  
-  
-  .carro {
+.car {
+    display: none;
+    width: 70%;
+    overflow: hidden;
+    background-color: var(--bg-dark);
+    color: var(--letter-b-light);
+    padding: 10px;
+    position: relative;
+    left: 13.8%;
+    border: 4px solid;
+    border-color: var(--pinkish);
+    border-radius: 15px;
+    margin-top: 2%;
+    z-index: 1;
+}
+
+.car.active {
+    display: block;
+    background-color: var(--bg-dark);
+}
+
+#prev1, #next1 {
+    position: absolute;
+    background-color: var(--letter-b-bright);
+    color: var(--bg-dark);
+    top: 55%;
+    transform: translateY(-50%); 
+    width: 50px;
+    height: 50px;
+    font-size:2.5rem;
+    font-weight:bolder;
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 99;
+}
+
+#prev1 {
+    left: 98px;
+}
+
+#next1 {
+    right: 100px;
+}
+
+.carro {
     display: none;
     width: 70%;
     overflow: hidden;
@@ -392,71 +359,69 @@ body.light .tooltip {
     border-color: var(--pinkish);
     border-radius: 15px;
     margin-top: 2%;
-  }
-  
-  .carro.active2 {
-      display: block;
-      background-color: var(--bg-dark);
-  }
-  
-  
-    #prev2, #next2 {
-        position: absolute;
-        background-color: var(--letter-b-bright);
-        color: var(--bg-dark);
-        top: 55%;
-        transform: translateY(-50%); 
-        width: 50px;
-        height: 50px;
-        font-size:2.5rem;
-        font-weight:bolder;
-        border-radius: 50%;
-        cursor: pointer;
-        font-family: Arial, Helvetica, sans-serif;
-        z-index: 99;
-    }
-  
-    #prev2 {
-      left: 100px;
-    }
-    #next2 {
-      right: 100px;
-    }
-  
-  
-    #modal1, #modal2 {
-        width: 80%;
-        max-height: 80%;
-        background-color: var(--letter-b-dark);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: none; /* Adicionando display flex para centralizar conteúdo */
-        flex-direction: column; /* Organiza os elementos na coluna */
-        justify-content: center; /* Alinha o conteúdo verticalmente */
-        align-items: center; /* Alinha o conteúdo horizontalmente */
-        padding: 20px;
-        animation: animate;
-        animation-duration: 0.9s;
-  }
-  
- 
-  @keyframes animate {
-      from{opacity: 1;}
-      from{opacity: 0;}
-  }
-  
-    .portImg {
+}
+
+.carro.active2 {
+    display: block;
+    background-color: var(--bg-dark);
+}
+
+#prev2, #next2 {
+    position: absolute;
+    background-color: var(--letter-b-bright);
+    color: var(--bg-dark);
+    top: 55%;
+    transform: translateY(-50%); 
+    width: 50px;
+    height: 50px;
+    font-size:2.5rem;
+    font-weight:bolder;
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 99;
+}
+
+#prev2 {
+    left: 100px;
+}
+
+#next2 {
+    right: 100px;
+}
+
+#modal1, #modal2 {
+    width: 80%;
+    max-height: 80%;
+    background-color: var(--letter-b-dark);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: animate;
+    animation-duration: 0.9s;
+}
+
+@keyframes animate {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+.portImg {
     max-height: 250px;
     min-height: 250px;
     width: auto;
     padding-bottom: 20px;
-    display: block; /* Garante que a imagem será tratada como um bloco */
-    margin: 0 auto; /* Centraliza a imagem horizontalmente */
-  }
-  
-  #openButton, #openButton2, #closeModal, #closeModal2 {
+    display: block;
+    margin: 0 auto;
+}
+
+#openButton, #openButton2, #closeModal, #closeModal2 {
     cursor: pointer;
     background-color: var(--pinkish);
     color: var(--bg-dark);
@@ -464,24 +429,21 @@ body.light .tooltip {
     border-radius: 10px;
     width: 120px;
     height: 30px;
+}
 
-  }
-  
-  #openButton:hover, #openButton2:hover, #closeModal:hover, #closeModal2:hover {
+#openButton:hover, #openButton2:hover, #closeModal:hover, #closeModal2:hover {
     background-color: var(--pinkish);
     color: var(--bg-dark);
     font-size: 1.25rem;
     width: 125px;
     height: 32px;
-  }
-  
-  .description {
-    margin-bottom: 1rem;
-  }
-  
-  
-  /*  ---------- contact ---------- */
+}
 
+.description {
+    margin-bottom: 1rem;
+}
+
+/* Contact section */
 .big-contact {
     display: flex; 
     flex-direction: column; 
@@ -492,7 +454,6 @@ body.light .tooltip {
     display: flex; 
     flex-direction: row; 
     gap: 3.5rem;
-    
 }
 
 .social p {
@@ -506,65 +467,58 @@ body.light .tooltip {
 
 .socialMedia {
     text-align: center; 
-    max-width: 60vw; /* Define uma largura máxima para o h1, se necessário */
+    max-width: 60vw;
     font-size: 2rem;
     margin-top: 1rem;
 }
 
-
-/* ---------- about --------- */
-
+/* About section */
 .bigContainer {
     display: flex;
     flex-direction: row;
     margin-top: 1rem;
-    padding-top: 1rem;
     padding-top: 0;
-
 }
 
 .aboutPic {
     max-width: 200px;
-    max-height: auto;
+    height: 100%;
     margin-left: 0;
     margin-right: 2rem;
 }
 
-
-
 #botao {
-    border: none;        /* Remove a borda */
-    background: none;    /* Remove o fundo */
-    padding: 0;          /* Remove qualquer espaçamento interno */
-    cursor: pointer;    /* Garante que o cursor se torne um ponteiro */
-    display: inline-block; /* Evita que o botão ocupe toda a largura */
-    width: auto;         /* Tamanho automático */
-    height: auto;        /* Tamanho automático */
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+    width: auto;
+    height: auto;
 }
 
 #botao:focus {
-    outline: none;       /* Remove o contorno de foco */
-    box-shadow: none;    /* Remove qualquer sombra de foco */
+    outline: none;
+    box-shadow: none;
 }
 
 #botao img {
-    width: 48px;         /* Tamanho da imagem do botão */
-    height: 48px;        /* Ajuste a altura da imagem */
-    display: block;      /* Garante que a imagem se comporte como um bloco */
+    width: 48px;
+    height: 48px;
+    display: block;
     transform: translateY(-1%);
     max-height: 30px;
     max-width: 30px;
 }
 
-
 .iconsMe img {
     margin: 0;
     margin-top: 1rem;
-    width: 40px;  /* Certifique-se de que os ícones estão com o mesmo tamanho */
+    width: 40px;
     height: 40px;
     vertical-align: middle;
-    
 }
+
 .iconsMe {
     margin-bottom: 1rem;
 }
@@ -576,11 +530,10 @@ body.light .tooltip {
     padding: 0;
 }
 
-.namePlay{
-    display: flex; /* Alinha h1 e o botão lado a lado */
-    align-items: center; /* Alinha verticalmente os itens */
-    gap: 0.5rem; /* Adiciona um espaçamento de 1rem entre o h1 e o botão */
-
+.namePlay {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .title {
@@ -596,7 +549,6 @@ body.light .tooltip {
     padding-top: 0;
     color: var(--letter-b-bright);
     margin-bottom: 1rem;
-    
 }
 
 .title2 {
@@ -629,49 +581,39 @@ body.light .tooltip {
 
 .highlight {
     color: var(--letter-b-bright);
-    font-weight: bold; /* Negrito opcional */
+    font-weight: bold;
 }
 
-.aboutPic {
-    max-width: 220px;
-    max-height: auto;
-}
-
-
-/* -------- artigos -------- */
-
-
+/* Articles section */
 .articlesH1 {
     text-align: center; 
     margin-bottom: 1rem;
     margin-top: 1rem;
     color: var(--letter-b-bright);
-    font-size: 1.75rem; /* Tamanho maior para h1 */
+    font-size: 1.75rem;
 }
 
 .articleP {
     margin-top: 0;
     margin-left: 0;
     margin-bottom: 1rem;
-
 }
 
 .listArticles {
     padding-left: 1rem;
 }
 
-
 .titulo {
-    font-size: x-large; /* Tamanho maior para h1 */
-    color: var(--letter-b-bright); /* Cor do título */
+    font-size: x-large;
+    color: var(--letter-b-bright);
     text-align: center;
     margin-top: 1rem;
     margin-bottom: 1.5rem;
 }
 
 .subtitulo {
-    font-size: 1.5rem; /* Tamanho maior para h1 */
-    color: var(--letter-b-bright); /* Cor do título */
+    font-size: 1.5rem;
+    color: var(--letter-b-bright);
     text-align: center; 
     margin-top: 3rem;
     margin-bottom: 1.5rem;
@@ -679,8 +621,9 @@ body.light .tooltip {
 
 .comum {
     margin-bottom: 1rem;
-    text-align: center, justify;
+    text-align: justify;
 }
+
 .lista {
     transform: translateX(1rem);
 }
@@ -696,164 +639,188 @@ body.light .tooltip {
 }
 
 .highlight-word.highlighted {
-    color: #d81c5c; /* Cor de destaque */
+    color: #d81c5c;
 }
 
-/* Para telas de até 1024px */
+/* Media Queries */
 @media (max-width: 1024px) {
     .groupHead {
-        padding: 0 2rem; /* Reduz o padding do cabeçalho */
+        padding: 0 2rem;
     }
 
     .mylogo {
-        max-width: 60px; /* Reduz o tamanho do logo */
+        max-width: 60px;
     }
 
     .navbar {
-        gap: 1.5rem; /* Reduz o espaçamento entre os itens */
+        gap: 1.5rem;
     }
 
     .homeContainer {
-        flex-direction: column; /* Muda de linha para coluna em telas menores */
+        flex-direction: column;
     }
 
     .personalPhoto {
-        max-width: 150px; /* Ajusta o tamanho da imagem */
-        margin-bottom: 1rem; /* Ajusta o espaçamento */
+        max-width: 150px;
+        margin-bottom: 1rem;
     }
 
     .h1 {
-        font-size: 1.5rem; /* Reduz o tamanho da fonte do título */
+        font-size: 1.5rem;
     }
 
     .h2 {
-        transform: translateX(0); /* Ajusta o subtítulo */
+        transform: none;
     }
 
     .aboutPic {
-        max-width: 180px; /* Reduz o tamanho da imagem na seção "about" */
+        max-width: 180px;
     }
 
     .social {
-        gap: 2rem; /* Reduz o espaçamento entre ícones de redes sociais */
+        gap: 2rem;
     }
 
     .bigContainer {
-        flex-direction: column; /* Muda a direção de linha para coluna */
+        flex-direction: column;
     }
 
     .big-contact {
-        padding-top: 2rem; /* Ajusta o padding do contato */
+        padding-top: 2rem;
+    }
+    
+    .portImg {
+        max-width: 350px;
     }
 }
 
-/* Para telas de até 768px */
 @media (max-width: 768px) {
     .groupHead {
-        padding: 0 1.5rem; /* Reduz o padding */
+        padding: 0 1.5rem;
+    }
+
+    #prev1, #next1, #prev2, #next2 {
+        width: 35px;
+        height: 35px;
+        font-size: 2rem;
+        margin-left: -4rem;
+        margin-right: -5.5rem;
     }
 
     .navbar {
-        gap: 1rem; /* Reduz o espaçamento entre os itens */
+        gap: 1rem;
     }
 
     .mylogo {
-        max-width: 50px; /* Reduz ainda mais o tamanho do logo */
+        max-width: 50px;
     }
 
     .homeContainer {
-        flex-direction: column; /* Muda a direção de linha para coluna */
-        justify-content: center; /* Centraliza os elementos */
+        flex-direction: column;
+        justify-content: center;
     }
 
     .personalPhoto {
-        max-width: 130px; /* Ajusta o tamanho da imagem */
+        max-width: 130px;
     }
 
     .h1 {
-        font-size: 1.5rem; /* Ajusta o tamanho do título */
+        font-size: 1.5rem;
     }
 
     .h2 {
-        transform: translateX(0); /* Ajusta a posição do subtítulo */
+        transform: none;
     }
 
     .aboutPic {
-        max-width: 150px; /* Ajusta o tamanho da imagem */
+        max-width: 150px;
     }
 
     .bigContainer {
-        flex-direction: column; /* Muda a direção de linha para coluna */
+        flex-direction: column;
     }
 
     .social {
-        gap: 1.5rem; /* Reduz o espaçamento entre os ícones */
+        gap: 1.5rem;
     }
 
     .socialMedia {
-        font-size: 1.5rem; /* Reduz o tamanho da fonte */
+        font-size: 1.5rem;
     }
 
     .social p {
-        margin-top: 0.5rem; /* Ajusta o espaçamento dos textos */
+        margin-top: 0.5rem;
+    }
+    
+    .portImg {
+        max-width: 350px;
     }
 }
 
-/* Para telas de até 480px */
 @media (max-width: 480px) {
     body {
-        font-size: 0.9rem; /* Ajusta o tamanho da fonte para telas muito pequenas */
+        font-size: 0.9rem;
+    }
+
+    .bigBox {
+        grid-template-columns: 1fr;
+    }
+
+    #prev1, #next1, #prev2, #next2 {
+        width: 30px;
+        height: 30px;
+        font-size: 1.5rem;
+        margin-left: -4rem;
+        margin-right: -5.5rem;
     }
 
     .groupHead {
-        padding: 0 1rem; /* Ajusta o padding do cabeçalho */
+        padding: 0 1rem;
     }
 
     .mylogo {
-        max-width: 40px; /* Reduz o tamanho do logo */
+        max-width: 40px;
     }
 
     .navbar {
-        gap: 0.5rem; /* Reduz ainda mais o espaçamento */
+        gap: 0.5rem;
     }
 
     .homeContainer {
-        flex-direction: column; /* Muda a direção de linha para coluna */
-        justify-content: center; /* Centraliza os elementos */
+        flex-direction: column;
+        justify-content: center;
     }
 
     .personalPhoto {
-        max-width: 120px; /* Ajusta o tamanho da imagem */
-        margin-bottom: 1rem; /* Ajusta o espaçamento */
+        max-width: 120px;
+        margin-bottom: 1rem;
     }
 
-    .h1 {
-        font-size: 1.25rem; /* Ajusta o tamanho do título */
-    }
-
-    .h2 {
-        font-size: 1.25rem; /* Ajusta o tamanho do subtítulo */
-    }
-
-    .aboutPic {
-        max-width: 120px; /* Ajusta o tamanho da imagem */
+    .h1, .h2, .articlesH1, .portName {
+        font-size: 1.25rem;
     }
 
     .social {
-        gap: 1rem; /* Reduz o espaçamento entre os ícones */
+        gap: 1rem;
     }
 
     .socialMedia {
-        font-size: 1.25rem; /* Ajusta o tamanho da fonte */
+        font-size: 1.25rem;
     }
 
     .social p {
-        font-size: 0.9rem; /* Ajusta o tamanho do texto */
+        font-size: 0.9rem;
     }
 
     .footerP {
-        font-size: 0.9rem; /* Ajusta o tamanho da fonte no rodapé */
+        font-size: 0.9rem;
+    }
+
+    .aboutPic {
+        max-width: 120px;
+    }
+    
+    .portImg {
+        max-width: 250px;
     }
 }
- 
-/*teste apenas para comitar.
