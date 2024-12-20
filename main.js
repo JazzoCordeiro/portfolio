@@ -1,4 +1,25 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.querySelector('.hamburger');
+    const navbar = document.querySelector('.navbar');
+
+    console.log('hamburger element:', hamburger);
+    console.log('Navbar element:', navbar);
+
+    if (hamburger && navbar) {
+        hamburger.addEventListener('click', () => {
+            console.log('hamburger clicked!');
+            navbar.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            console.log('Navbar active class:', navbar.classList.contains('active'));
+            console.log('Hamburger active class:', hamburger.classList.contains('active'));
+        });
+    } else {
+        console.log('Hamburger or Navbar element not found!');
+    }
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
     let trilho = document.getElementById('trilho');
     
     if (!trilho) {

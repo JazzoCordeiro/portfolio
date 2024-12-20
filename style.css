@@ -642,18 +642,102 @@ body.light .tooltip {
     color: #d81c5c;
 }
 
-/* Media Queries */
-@media (max-width: 1024px) {
+/* Estilos para telas menores - Menu Hamburguer */
+@media (max-width: 768px) {
     .groupHead {
-        padding: 0 2rem;
-    }
-
-    .mylogo {
-        max-width: 60px;
+        position: relative; /* Importante para posicionar o navbar absolutamente dentro dele */
+        padding: 0 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .navbar {
-        gap: 1.5rem;
+        display: none;
+        position: absolute;
+        top: 100%; /* Posiciona abaixo do groupHead */
+        left: 0;
+        right: 0;
+        background-color: var(--bg-dark);
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        gap: 0.5rem;
+        z-index: 100;
+    }
+
+    .navbar.active {
+        display: flex; /* Correto para exibir o menu */
+    }
+
+    .navbar a {
+        padding: 0.75rem 1.5rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar .separador {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 25px;
+        cursor: pointer;
+        z-index: 101;
+        margin-left: 1rem; /* Adiciona margem para separá-lo dos ícones */
+    }
+
+    .hamburger .line {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: var(--letter-b-bright);
+        margin: 5px 0;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    .hamburger.active .line1 {
+        transform: translateY(10px) rotate(45deg);
+    }
+
+    .hamburger.active .line2 {
+        opacity: 0;
+    }
+
+    .hamburger.active .line3 {
+        transform: translateY(-10px) rotate(-45deg);
+    }
+
+    .mode {
+        margin-left: 1rem;
+    }
+
+    .icons {
+        display: flex; /* Exibe os ícones novamente */
+        margin-top: 0;
+        gap: 0.5rem; /* Adiciona um pequeno espaço entre os ícones */
+    }
+
+    .icons img {
+        width: 30px; /* Reduz o tamanho dos ícones */
+        height: 32px;
+    }
+
+    .tooltip {
+        font-size: 0.65rem; /* Reduz o tamanho do tooltip */
+    }
+
+    .mylogo {
+        max-width: 50px;
+    }
+
+    main {
+        max-width: 90%;
+        padding-top: 14vh;
     }
 
     .homeContainer {
@@ -663,103 +747,11 @@ body.light .tooltip {
     .personalPhoto {
         max-width: 150px;
         margin-bottom: 1rem;
+        margin-right: 0;
     }
 
-    .h1 {
+    .h1, .h2, .articlesH1, .portName {
         font-size: 1.5rem;
-    }
-
-    .h2 {
-        transform: none;
-    }
-
-    .aboutPic {
-        max-width: 180px;
-    }
-
-    .social {
-        gap: 2rem;
-    }
-
-    .bigContainer {
-        flex-direction: column;
-    }
-
-    .big-contact {
-        padding-top: 2rem;
-    }
-    
-    .portImg {
-        max-width: 350px;
-    }
-}
-
-@media (max-width: 768px) {
-    .groupHead {
-        padding: 0 1.5rem;
-    }
-
-    #prev1, #next1, #prev2, #next2 {
-        width: 35px;
-        height: 35px;
-        font-size: 2rem;
-        margin-left: -4rem;
-        margin-right: -5.5rem;
-    }
-
-    .navbar {
-        gap: 1rem;
-    }
-
-    .mylogo {
-        max-width: 50px;
-    }
-
-    .homeContainer {
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .personalPhoto {
-        max-width: 130px;
-    }
-
-    .h1 {
-        font-size: 1.5rem;
-    }
-
-    .h2 {
-        transform: none;
-    }
-
-    .aboutPic {
-        max-width: 150px;
-    }
-
-    .bigContainer {
-        flex-direction: column;
-    }
-
-    .social {
-        gap: 1.5rem;
-    }
-
-    .socialMedia {
-        font-size: 1.5rem;
-    }
-
-    .social p {
-        margin-top: 0.5rem;
-    }
-    
-    .portImg {
-        max-width: 350px;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        font-size: 0.9rem;
     }
 
     .bigBox {
@@ -767,11 +759,65 @@ body.light .tooltip {
     }
 
     #prev1, #next1, #prev2, #next2 {
-        width: 30px;
-        height: 30px;
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, -50%);
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .car, .carro {
+        left: 5%;
+        width: 90%;
+    }
+
+    #modal1, #modal2 {
+        width: 95%;
+    }
+
+    .bigContainer {
+        flex-direction: column;
+    }
+
+    .aboutPic {
+        max-width: 150px;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .social {
+        gap: 1.5rem;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .socialMedia {
         font-size: 1.5rem;
-        margin-left: -4rem;
-        margin-right: -5.5rem;
+        text-align: center;
+    }
+
+    .social p {
+        font-size: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    .footerP {
+        font-size: 1rem;
+    }
+
+    .columnize {
+        grid-template-columns: 1fr;
+    }
+
+    .portImg {
+        max-width: 90%;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 0.85rem;
     }
 
     .groupHead {
@@ -782,30 +828,45 @@ body.light .tooltip {
         max-width: 40px;
     }
 
-    .navbar {
-        gap: 0.5rem;
+    .mode {
+        margin-left: 0.5rem;
     }
 
-    .homeContainer {
-        flex-direction: column;
-        justify-content: center;
+    .icons {
+        gap: 0.3rem; /* Reduz ainda mais o espaço entre os ícones */
     }
 
-    .personalPhoto {
-        max-width: 120px;
-        margin-bottom: 1rem;
+    .icons img {
+        width: 25px; /* Reduz ainda mais o tamanho dos ícones */
+        height: 27px;
+    }
+
+    .tooltip {
+        display: none !important; /* Oculta os tooltips em telas muito pequenas */
+    }
+
+    .hamburger {
+        width: 25px;
+        height: 20px;
+        right: 1rem;
+        margin-left: 0.5rem; /* Ajusta a margem para equilibrar */
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .hamburger .line {
+        margin: 4px 0;
+        height: 2px;
     }
 
     .h1, .h2, .articlesH1, .portName {
-        font-size: 1.25rem;
-    }
-
-    .social {
-        gap: 1rem;
+        font-size: 1.3rem;
     }
 
     .socialMedia {
-        font-size: 1.25rem;
+        font-size: 1.3rem;
     }
 
     .social p {
@@ -816,10 +877,39 @@ body.light .tooltip {
         font-size: 0.9rem;
     }
 
+    .bigBox {
+        grid-template-columns: 1fr;
+    }
+
+    #prev1, #next1, #prev2, #next2 {
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, -50%);
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .car, .carro {
+        left: 5%;
+        width: 90%;
+    }
+
+    #modal1, #modal2 {
+        width: 95%;
+    }
+
     .aboutPic {
         max-width: 120px;
     }
-    
+
+    .social {
+        gap: 1rem;
+    }
+
+    .columnize {
+        grid-template-columns: 1fr;
+    }
+
     .portImg {
         max-width: 250px;
     }
