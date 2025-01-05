@@ -2,915 +2,1042 @@
 
 /* Definindo variáveis para as cores */
 :root {
-    --bg-dark: #010d29;
-    --bg-light: #f3fcff;
-    --letter-b-light: #62d8ff;
-    --letter-b-bright: #3badd3;
-    --pinkish: #d81c5c;
-    --letter-b-dark: #010d29;
+	--bg-dark: #010d29;
+	--bg-light: #f3fcff;
+	--letter-b-light: #62d8ff;
+	--letter-b-bright: #3badd3;
+	--pinkish: #d81c5c;
+	--letter-b-dark: #010d29;
 }
 
 /* Regras gerais para todos os elementos */
 * {
-    margin: 0;
-    padding: 0;
-    outline: none;
-    border: 0;
-    text-decoration: none;
-    transition: 0.2s linear;
-    font-family: "Roboto", sans-serif;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: 0;
+	text-decoration: none;
+	transition: 0.2s linear;
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box; /* Adicionado para melhor controle do box model */
 }
 
 /* Estilização do corpo da página */
 body {
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--bg-dark);
-    color: var(--bg-light);
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	width: 100vw;
+	height: auto; /* Alterado para auto para se ajustar ao conteúdo */
+	background-color: var(--bg-dark);
+	color: var(--bg-light);
+	transition: 0.3s;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 /* Estilizando a área principal da página */
 main {
-    padding-top: 18vh;
-    padding-bottom: 3vh;
-    max-width: 65%;
+	padding-top: 12vh; /* Ajustei o padding-top para melhor visualização inicial */
+	padding-bottom: 3vh;
+	max-width: 95%; /* Aumentei a largura máxima para melhor leitura em telas maiores */
 }
 
 /* Estilos para links */
 a {
-    color: var(--letter-b-bright);
-    text-decoration: none;
+	color: var(--letter-b-bright);
+	text-decoration: none;
 }
 
 a:visited {
-    color: var(--bg-light);
+	color: var(--bg-light);
 }
 
 a:hover {
-    color: var(--pinkish);
+	color: var(--pinkish);
 }
 
 /* Estilos para o modo claro (light mode) */
 body.light {
-    background-color: var(--bg-light);
-    color: var(--bg-dark);
+	background-color: var(--bg-light);
+	color: var(--bg-dark);
 }
 
 body.light a {
-    color: var(--bg-dark);
+	color: var(--bg-dark);
 }
 
 body.light a:hover {
-    color: var(--pinkish);
+	color: var(--pinkish);
 }
 
 body.light .header {
-    color: var(--bg-dark);
-    background-color: var(--letter-b-light);
+	color: var(--bg-dark);
+	background-color: var(--letter-b-light);
 }
 
 /* Estilos para o cabeçalho */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 99;
-    background-color: var(--bg-dark);
-    width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 99;
+	background-color: var(--bg-dark);
+	width: 100vw;
 }
 
 .header::after {
-    content: '';
-    display: block;
-    height: 1px;
-    margin: 0 auto;
-    background: linear-gradient(to right, transparent, var(--pinkish), transparent);
+	content: '';
+	display: block;
+	height: 1px;
+	margin: 0 auto;
+	background: linear-gradient(to right, transparent, var(--pinkish), transparent);
 }
 
 .groupHead {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 3rem;
-    max-width: 95%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 1.5rem; /* Reduzi o padding padrão para melhor comportamento em telas menores */
+	max-width: 95%;
+	margin: 0 auto; /* Centraliza o conteúdo do header */
 }
 
 .mylogo {
-    margin-right: 2rem;
-    max-width: 80px;
+	margin-right: 1rem; /* Reduzi a margem para melhor espaço em telas menores */
+	max-width: 80px;
 }
 
 .navbar {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-grow: 1;
-    list-style: none;
+	display: flex;
+	justify-content: center;
+	gap: 1rem; /* Reduzi o gap para melhor espaço em telas menores */
+	flex-grow: 1;
+	list-style: none;
 }
 
 .separador {
-    color: var(--pinkish);
+	color: var(--pinkish);
 }
 
 /* Modo dark/light corrigido */
 .mode {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 1rem; /* Reduzi a margem para melhor espaço em telas menores */
 }
 
 .mode h1 {
-    font-size: 0.7rem;
-    margin-bottom: 0.25rem;
-    font-weight: normal;
+	font-size: 0.7rem;
+	margin-bottom: 0.25rem;
+	font-weight: normal;
 }
 
 .trilho {
-    width: 50px;
-    height: 25px;
-    background-color: var(--letter-b-light);
-    border-radius: 20px;
-    position: relative;
-    cursor: pointer;
+	width: 50px;
+	height: 25px;
+	background-color: var(--letter-b-light);
+	border-radius: 20px;
+	position: relative;
+	cursor: pointer;
 }
 
 .trilho.light {
-    background-color: var(--letter-b-bright);
+	background-color: var(--letter-b-bright);
 }
 
 .trilho .indicador {
-    width: 30px;
-    height: 25px;
-    background-color: var(--bg-dark);
-    border-radius: 50%;
-    transform: scale(.8);
-    position: absolute;
-    left: 0;
-    transition: 0.4s;
+	width: 30px;
+	height: 25px;
+	background-color: var(--bg-dark);
+	border-radius: 50%;
+	transform: scale(.8);
+	position: absolute;
+	left: 0;
+	transition: 0.4s;
 }
 
 .trilho.light .indicador {
-    left: 19px;
-    background-color: var(--bg-light);
+	left: 19px;
+	background-color: var(--bg-light);
 }
 
 .icons {
-    display: flex;
-    margin-top: 0;
+	display: flex;
+	margin-top: 0;
+	margin-left: 1rem; /* Adicionei margem para separar do modo switch em telas maiores */
+}
+
+.icons img {
+	width: 30px;
+	height: 32px;
+	vertical-align: middle;
 }
 
 /* Footer corrigido */
 footer {
-    padding-top: 0.1rem;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
+	padding-top: 0.1rem;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	width: 100%;
 }
 
 footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--pinkish), transparent);
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100vw;
+	height: 1px;
+	background: linear-gradient(to right, transparent, var(--pinkish), transparent);
 }
 
 footer p {
-    text-align: center;
+	text-align: center;
 }
 
 .footerP {
-    margin-top: 2rem;
+	margin-top: 2rem;
 }
 
 /* Estilos para o contêiner principal */
 .homeContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin-top: 1rem;
+	padding: 0 1.5rem; /* Adicionei padding horizontal */
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: justify;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: justify;
+	padding: 0 1.5rem; /* Adicionei padding horizontal */
 }
 
 /* Título h2 corrigido */
 .h2 {
-    color: var(--letter-b-bright);
-    text-align: center;
-    width: 100%;
-    margin: 1rem 0;
-    transform: none !important;
+	color: var(--letter-b-bright);
+	text-align: center;
+	width: 100%;
+	margin: 1rem 0;
+	transform: none !important;
 }
 
 .personalPhoto {
-    max-width: 200px;
-    max-height: auto;
-    margin-bottom: 2rem;
-    margin-right: 2rem;
-    margin-top: 0;
-    transform: translateY(-0.2rem);
+	max-width: 200px;
+	max-height: auto;
+	margin-bottom: 1rem; /* Reduzi a margem */
+	margin-right: 1rem; /* Reduzi a margem */
+	margin-top: 0;
+	transform: translateY(-0.2rem);
 }
 
 article {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: justify;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: justify;
 }
 
 .h1 {
-    font-size: 1.75rem;
-    color: var(--letter-b-bright);
-    align-self: flex-start;
+	font-size: 1.75rem;
+	color: var(--letter-b-bright);
+	align-self: flex-start;
 }
 
 h3 {
-    justify-content: center;
-    text-align: center;
+	justify-content: center;
+	text-align: center;
 }
 
 .paragraph {
-    margin-top: 1rem;
+	margin-top: 1rem;
+	line-height: 1.6; /* Melhora a legibilidade do texto */
 }
 
 .tooltip {
-    display: none;
-    position: absolute;
-    pointer-events: none;
-    font-size: 0.75rem;
-    color: var(--letter-b-light);
+	display: none;
+	position: absolute;
+	pointer-events: none;
+	font-size: 0.75rem;
+	color: var(--letter-b-light);
+	background-color: rgba(0, 0, 0, 0.8); /* Adicionei um fundo para melhor contraste */
+	padding: 0.25rem 0.5rem;
+	border-radius: 5px;
+	z-index: 102; /* Garante que o tooltip fique acima de outros elementos */
 }
 
 body.light .tooltip {
-    color: var(--bg-dark);
+	color: var(--bg-dark);
+	background-color: rgba(255, 255, 255, 0.8); /* Adaptei o fundo para o modo light */
 }
 
 .img1:hover + .tooltip1,
 .img2:hover + .tooltip2,
 .img3:hover + .tooltip3 {
-    display: block;
+	display: block;
 }
 
 /* Portfolio section */
 .bigBox {
-    place-items: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 1rem;
-    margin: 0;
-    padding: 0;
+	place-items: center;
+	display: grid;
+	grid-template-columns: 1fr; /* Alterei para 1 coluna por padrão para melhor responsividade */
+	gap: 1rem;
+	margin: 1rem auto; /* Centralizei e adicionei margem */
+	padding: 1rem;
+	max-width: 90%; /* Ajustei a largura máxima */
+}
+
+@media (min-width: 768px) {
+	.bigBox {
+    	grid-template-columns: 1fr 1fr; /* Volto para 2 colunas em telas maiores */
+	}
 }
 
 .portName {
-    margin-bottom: 2rem;
-    margin-top: 1rem;
-    font-size: 1.75rem;
-    color: var(--letter-b-bright);
-    text-align: center;
-    margin-bottom: 2rem;
-    transform: translateX(-1rem);
+	margin-bottom: 1rem; /* Reduzi a margem */
+	margin-top: 1rem;
+	font-size: 1.75rem;
+	color: var(--letter-b-bright);
+	text-align: center;
+	transform: translateX(0); /* Removi a transformação desnecessária */
 }
 
 .projects {
-    text-align: center;
-    color: var(--letter-b-bright);
+	text-align: center;
+	color: var(--letter-b-bright);
+	margin-bottom: 0.5rem; /* Reduzi a margem */
 }
 
-.project1, .project2 {
-    text-align: center;
-    margin-bottom: 1rem;
+.project1,
+.project2 {
+	text-align: center;
+	margin-bottom: 1rem;
+	color: inherit; /* Herda a cor do elemento pai para facilitar a mudança no modo light */
 }
 
 .car {
-    display: none;
-    width: 70%;
-    overflow: hidden;
-    background-color: var(--bg-dark);
-    color: var(--letter-b-light);
-    padding: 10px;
-    position: relative;
-    left: 13.8%;
-    border: 4px solid;
-    border-color: var(--pinkish);
-    border-radius: 15px;
-    margin-top: 2%;
-    z-index: 1;
+	display: none;
+	width: 90%; /* Aumentei a largura para melhor visualização em telas menores */
+	overflow: hidden;
+	background-color: var(--bg-dark);
+	color: var(--letter-b-light);
+	padding: 10px;
+	position: relative;
+	left: 5%; /* Ajustei o posicionamento */
+	border: 4px solid var(--pinkish);
+	border-radius: 15px;
+	margin-top: 2%;
+	z-index: 1;
+}
+
+body.light .car {
+	background-color: var(--bg-light);
+	color: var(--bg-dark);
+	border-color: var(--letter-b-bright);
 }
 
 .car.active {
-    display: block;
-    background-color: var(--bg-dark);
+	display: block;
 }
 
-#prev1, #next1 {
-    position: absolute;
-    background-color: var(--letter-b-bright);
-    color: var(--bg-dark);
-    top: 55%;
-    transform: translateY(-50%); 
-    width: 50px;
-    height: 50px;
-    font-size:2.5rem;
-    font-weight:bolder;
-    border-radius: 50%;
-    cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
-    z-index: 99;
+#prev1,
+#next1 {
+	position: absolute;
+	background-color: var(--letter-b-bright);
+	color: var(--bg-dark);
+	top: 50%; /* Ajustei o posicionamento vertical */
+	transform: translateY(-50%);
+	width: 40px; /* Reduzi o tamanho dos botões */
+	height: 40px; /* Reduzi o tamanho dos botões */
+	font-size: 1.5rem; /* Reduzi o tamanho da fonte */
+	font-weight: bolder;
+	border-radius: 50%;
+	cursor: pointer;
+	font-family: Arial, Helvetica, sans-serif;
+	z-index: 99;
+}
+
+body.light #prev1,
+body.light #next1 {
+	background-color: var(--bg-dark);
+	color: var(--letter-b-light);
 }
 
 #prev1 {
-    left: 98px;
+	left: 10px; /* Ajustei o posicionamento */
 }
 
 #next1 {
-    right: 100px;
+	right: 10px; /* Ajustei o posicionamento */
 }
 
 .carro {
-    display: none;
-    width: 70%;
-    overflow: hidden;
-    background-color: var(--bg-dark);
-    color: var(--letter-b-light); 
-    padding: 10px;
-    position: relative;
-    left: 13.8%;
-    border: 4px solid;
-    border-color: var(--pinkish);
-    border-radius: 15px;
-    margin-top: 2%;
+	display: none;
+	width: 90%; /* Aumentei a largura para melhor visualização em telas menores */
+	overflow: hidden;
+	background-color: var(--bg-dark);
+	color: var(--letter-b-light);
+	padding: 10px;
+	position: relative;
+	left: 5%; /* Ajustei o posicionamento */
+	border: 4px solid var(--pinkish);
+	border-radius: 15px;
+	margin-top: 2%;
+}
+
+body.light .carro {
+	background-color: var(--bg-light);
+	color: var(--bg-dark);
+	border-color: var(--letter-b-bright);
 }
 
 .carro.active2 {
-    display: block;
-    background-color: var(--bg-dark);
+	display: block;
 }
 
-#prev2, #next2 {
-    position: absolute;
-    background-color: var(--letter-b-bright);
-    color: var(--bg-dark);
-    top: 55%;
-    transform: translateY(-50%); 
-    width: 50px;
-    height: 50px;
-    font-size:2.5rem;
-    font-weight:bolder;
-    border-radius: 50%;
-    cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
-    z-index: 99;
+#prev2,
+#next2 {
+	position: absolute;
+	background-color: var(--letter-b-bright);
+	color: var(--bg-dark);
+	top: 50%; /* Ajustei o posicionamento vertical */
+	transform: translateY(-50%);
+	width: 40px; /* Reduzi o tamanho dos botões */
+	height: 40px; /* Reduzi o tamanho dos botões */
+	font-size: 1.5rem; /* Reduzi o tamanho da fonte */
+	font-weight: bolder;
+	border-radius: 50%;
+	cursor: pointer;
+	font-family: Arial, Helvetica, sans-serif;
+	z-index: 99;
+}
+
+body.light #prev2,
+body.light #next2 {
+	background-color: var(--bg-dark);
+	color: var(--letter-b-light);
 }
 
 #prev2 {
-    left: 100px;
+	left: 10px; /* Ajustei o posicionamento */
 }
 
 #next2 {
-    right: 100px;
+	right: 10px; /* Ajustei o posicionamento */
 }
 
-#modal1, #modal2 {
-    width: 80%;
-    max-height: 80%;
-    background-color: var(--letter-b-dark);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    animation: animate;
-    animation-duration: 0.9s;
+#modal1,
+#modal2 {
+	width: 90%; /* Aumentei a largura para melhor visualização em telas menores */
+	max-height: 90%; /* Aumentei a altura máxima */
+	background-color: var(--bg-dark);
+	color: var(--letter-b-light);
+	position: fixed; /* Alterei para fixed para cobrir a tela toda */
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	animation: animate;
+	animation-duration: 0.9s;
+	border-radius: 10px; /* Adicionei bordas arredondadas */
+	z-index: 100; /* Garante que o modal fique acima de outros elementos */
+	overflow-y: auto; /* Adicionei rolagem vertical se o conteúdo for muito grande */
+}
+
+body.light #modal1,
+body.light #modal2 {
+	background-color: var(--bg-light);
+	color: var(--bg-dark);
 }
 
 @keyframes animate {
-    from{opacity: 0;}
-    to{opacity: 1;}
+	from {
+    	opacity: 0;
+	}
+
+	to {
+    	opacity: 1;
+	}
 }
 
 .portImg {
-    max-height: 250px;
-    min-height: 250px;
-    width: auto;
-    padding-bottom: 20px;
-    display: block;
-    margin: 0 auto;
+	max-height: 250px;
+	min-height: auto;
+	width: auto;
+	padding-bottom: 20px;
+	display: block;
+	margin: 0 auto;
+	max-width: 90%; /* Garante que a imagem não ultrapasse a largura do modal */
 }
 
-#openButton, #openButton2, #closeModal, #closeModal2 {
-    cursor: pointer;
-    background-color: var(--pinkish);
-    color: var(--bg-dark);
-    font-size: 1.25rem;
-    border-radius: 10px;
-    width: 120px;
-    height: 30px;
+#openButton,
+#openButton2,
+#closeModal,
+#closeModal2 {
+	cursor: pointer;
+	background-color: var(--pinkish);
+	color: var(--bg-dark);
+	font-size: 1.25rem;
+	border-radius: 10px;
+	width: 120px;
+	height: 30px;
+	margin: 1rem auto; /* Centralizei os botões do modal */
 }
 
-#openButton:hover, #openButton2:hover, #closeModal:hover, #closeModal2:hover {
-    background-color: var(--pinkish);
-    color: var(--bg-dark);
-    font-size: 1.25rem;
-    width: 125px;
-    height: 32px;
+body.light #openButton,
+body.light #openButton2,
+body.light #closeModal,
+body.light #closeModal2 {
+	background-color: var(--letter-b-bright);
+	color: var(--bg-light);
+}
+
+#openButton:hover,
+#openButton2:hover,
+#closeModal:hover,
+#closeModal2:hover {
+	background-color: var(--pinkish);
+	color: var(--bg-dark);
+	font-size: 1.25rem;
+	width: 125px;
+	height: 32px;
+}
+
+body.light #openButton:hover,
+body.light #openButton2:hover,
+body.light #closeModal:hover,
+body.light #closeModal2:hover {
+	background-color: var(--letter-b-bright);
+	color: var(--bg-light);
 }
 
 .description {
-    margin-bottom: 1rem;
+	margin-bottom: 1rem;
+	color: inherit; /* Herda a cor para ser alterada no modo light */
 }
 
 /* Contact section */
 .big-contact {
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0 1.5rem;
 }
 
 .social {
-    display: flex; 
-    flex-direction: row; 
-    gap: 3.5rem;
+	display: flex;
+	flex-direction: row;
+	gap: 3.5rem;
+	margin-bottom: 1rem;
 }
 
 .social p {
-    margin-top: 1rem; 
-    margin-bottom: 1rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	color: inherit; /* Herda a cor para ser alterada no modo light */
 }
 
 .email {
-    margin-top: 1.8rem;
+	margin-top: 1.8rem;
+	color: inherit; /* Herda a cor para ser alterada no modo light */
+	margin-bottom: 2rem;
 }
 
 .socialMedia {
-    text-align: center; 
-    max-width: 60vw;
-    font-size: 2rem;
-    margin-top: 1rem;
+	text-align: center;
+	max-width: 60vw;
+	font-size: 2rem;
+	margin-top: 1rem;
+	color: inherit; /* Herda a cor para ser alterada no modo light */
+	margin-bottom: 2rem;
 }
 
 /* About section */
 .bigContainer {
-    display: flex;
-    flex-direction: row;
-    margin-top: 1rem;
-    padding-top: 0;
+	display: flex;
+	flex-direction: row;
+	margin-top: 1rem;
+	padding-top: 0;
+	padding: 0 1.5rem;
+	align-items: flex-start; /* Alinhar os itens no topo */
 }
 
 .aboutPic {
-    max-width: 200px;
-    height: 100%;
-    margin-left: 0;
-    margin-right: 2rem;
+	max-width: 150px;
+	height: auto;
+	margin-left: 0;
+	margin-right: 1.5rem;
+	margin-bottom: 1rem;
 }
 
 #botao {
-    border: none;
-    background: none;
-    padding: 0;
-    cursor: pointer;
-    display: inline-block;
-    width: auto;
-    height: auto;
+	border: none;
+	background: none;
+	padding: 0;
+	cursor: pointer;
+	display: inline-block;
+	width: auto;
+	height: auto;
 }
 
 #botao:focus {
-    outline: none;
-    box-shadow: none;
+	outline: none;
+	box-shadow: none;
 }
 
 #botao img {
-    width: 48px;
-    height: 48px;
-    display: block;
-    transform: translateY(-1%);
-    max-height: 30px;
-    max-width: 30px;
+	width: 48px;
+	height: 48px;
+	display: block;
+	transform: translateY(-1%);
+	max-height: 30px;
+	max-width: 30px;
 }
 
 .iconsMe img {
-    margin: 0;
-    margin-top: 1rem;
-    width: 40px;
-    height: 40px;
-    vertical-align: middle;
+	margin: 0;
+	margin-top: 1rem;
+	width: 40px;
+	height: 40px;
+	vertical-align: middle;
 }
 
 .iconsMe {
-    margin-bottom: 1rem;
+	margin-bottom: 1rem;
 }
 
 .columnize {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin: 0;
-    padding: 0;
+	display: grid;
+	grid-template-columns: 1fr;
+	margin: 0;
+	padding: 0;
 }
 
 .namePlay {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
 }
 
 .title {
-    text-align: center;
-    padding-top: 0;
-    color: var(--letter-b-bright);
-    margin-bottom: 1rem;
+	text-align: center;
+	padding-top: 0;
+	color: var(--letter-b-bright);
+	margin-bottom: 1rem;
 }
 
 .title1 {
-    text-align: center;
-    margin-top: 2rem;
-    padding-top: 0;
-    color: var(--letter-b-bright);
-    margin-bottom: 1rem;
+	text-align: center;
+	margin-top: 2rem;
+	padding-top: 0;
+	color: var(--letter-b-bright);
+	margin-bottom: 1rem;
 }
 
 .title2 {
-    text-align: center;
-    padding-top: 0;
-    color: var(--letter-b-bright);
-    margin-bottom: 3rem;
+	text-align: center;
+	padding-top: 0;
+	color: var(--letter-b-bright);
+	margin-bottom: 3rem;
 }
 
 .subtitle {
-    margin-top: 2rem;
-    text-align: center;
-    margin-bottom: 1rem;
-    color: var(--letter-b-bright);
+	margin-top: 2rem;
+	text-align: center;
+	margin-bottom: 1rem;
+	color: var(--letter-b-bright);
 }
 
 .key-words {
-    margin-top: 2rem;
-    text-align: center;
+	margin-top: 2rem;
+	text-align: center;
 }
 
 .skill {
-    color: var(--letter-b-bright);
-    margin-top: 2rem;
+	color: var(--letter-b-bright);
+	margin-top: 2rem;
 }
 
 .soft {
-    color: var(--pinkish);
+	color: var(--pinkish);
 }
 
 .highlight {
-    color: var(--letter-b-bright);
-    font-weight: bold;
+	color: var(--letter-b-bright);
+	font-weight: bold;
 }
 
 /* Articles section */
 .articlesH1 {
-    text-align: center; 
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    color: var(--letter-b-bright);
-    font-size: 1.75rem;
+	text-align: center;
+	margin-bottom: 1rem;
+	margin-top: 1rem;
+	color: var(--letter-b-bright);
+	font-size: 1.75rem;
 }
 
 .articleP {
-    margin-top: 0;
-    margin-left: 0;
-    margin-bottom: 1rem;
+	margin-top: 0;
+	margin-left: 0;
+	margin-bottom: 1rem;
 }
 
 .listArticles {
-    padding-left: 1rem;
+	padding-left: 1rem;
 }
 
 .titulo {
-    font-size: x-large;
-    color: var(--letter-b-bright);
-    text-align: center;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
+	font-size: x-large;
+	color: var(--letter-b-bright);
+	text-align: center;
+	margin-top: 1rem;
+	margin-bottom: 1.5rem;
 }
 
 .subtitulo {
-    font-size: 1.5rem;
-    color: var(--letter-b-bright);
-    text-align: center; 
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
+	font-size: 1.5rem;
+	color: var(--letter-b-bright);
+	text-align: center;
+	margin-top: 3rem;
+	margin-bottom: 1.5rem;
 }
 
 .comum {
-    margin-bottom: 1rem;
-    text-align: justify;
+	margin-bottom: 1rem;
+	text-align: justify;
 }
 
 .lista {
-    transform: translateX(1rem);
+	transform: translateX(1rem);
 }
 
 .especifico {
-    margin-bottom: 0.3rem;
-    margin-top: 0.3rem;
+	margin-bottom: 0.3rem;
+	margin-top: 0.3rem;
 }
 
 .highlight-word {
-    display: inline-block;
-    transition: color 0.5s ease;
+	display: inline-block;
+	transition: color 0.5s ease;
 }
 
 .highlight-word.highlighted {
-    color: #d81c5c;
+	color: #d81c5c;
 }
 
 /* Estilos para telas menores - Menu Hamburguer */
 @media (max-width: 768px) {
-    .groupHead {
-        position: relative; /* Importante para posicionar o navbar absolutamente dentro dele */
-        padding: 0 1.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+	.groupHead {
+    	position: relative; /* Importante para posicionar o navbar absolutamente dentro dele */
+    	padding: 0 1.5rem;
+    	display: flex;
+    	align-items: center;
+    	justify-content: space-between;
+	}
 
-    .navbar {
-        display: none;
-        position: absolute;
-        top: 100%; /* Posiciona abaixo do groupHead */
-        left: 0;
-        right: 0;
-        background-color: var(--bg-dark);
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem 0;
-        gap: 0.5rem;
-        z-index: 100;
-    }
+	.navbar {
+    	display: none;
+    	position: absolute;
+    	top: 100%; /* Posiciona abaixo do groupHead */
+    	left: 0;
+    	right: 0;
+    	background-color: var(--bg-dark);
+    	flex-direction: column;
+    	align-items: center;
+    	padding: 1rem 0;
+    	gap: 0.5rem;
+    	z-index: 100;
+	}
 
-    .navbar.active {
-        display: flex; /* Correto para exibir o menu */
-    }
+	body.light .navbar {
+    	background-color: var(--bg-light); /* Estilo para o modo claro */
+	}
 
-    .navbar a {
-        padding: 0.75rem 1.5rem;
-        display: block;
-        width: 100%;
-        text-align: center;
-    }
+	.navbar.active {
+    	display: flex; /* Correto para exibir o menu */
+	}
 
-    .navbar .separador {
-        display: none;
-    }
+	.navbar a {
+    	padding: 0.75rem 1.5rem;
+    	display: block;
+    	width: 100%;
+    	text-align: center;
+	}
 
-    .hamburger {
-        display: block;
-        position: relative;
-        width: 30px;
-        height: 25px;
-        cursor: pointer;
-        z-index: 101;
-        margin-left: 1rem; /* Adiciona margem para separá-lo dos ícones */
-    }
+	body.light .navbar a {
+    	color: var(--bg-dark); /* Cor do link no modo claro */
+	}
 
-    .hamburger .line {
-        display: block;
-        width: 100%;
-        height: 3px;
-        background-color: var(--letter-b-bright);
-        margin: 5px 0;
-        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    }
+	.navbar .separador {
+    	display: none;
+	}
 
-    .hamburger.active .line1 {
-        transform: translateY(10px) rotate(45deg);
-    }
+	.hamburger {
+    	display: block;
+    	position: relative;
+    	width: 30px;
+    	height: 25px;
+    	cursor: pointer;
+    	z-index: 101;
+    	margin-left: 1rem; /* Adiciona margem para separá-lo dos ícones */
+	}
 
-    .hamburger.active .line2 {
-        opacity: 0;
-    }
+	.hamburger .line {
+    	display: block;
+    	width: 100%;
+    	height: 3px;
+    	background-color: var(--letter-b-bright);
+    	margin: 5px 0;
+    	transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+	}
 
-    .hamburger.active .line3 {
-        transform: translateY(-10px) rotate(-45deg);
-    }
+	body.light .hamburger .line {
+    	background-color: var(--bg-dark); /* Cor das linhas no modo claro */
+	}
 
-    .mode {
-        margin-left: 1rem;
-    }
+	.hamburger.active .line1 {
+    	transform: translateY(10px) rotate(45deg);
+	}
 
-    .icons {
-        display: flex; /* Exibe os ícones novamente */
-        margin-top: 0;
-        gap: 0.5rem; /* Adiciona um pequeno espaço entre os ícones */
-    }
+	.hamburger.active .line2 {
+    	opacity: 0;
+	}
 
-    .icons img {
-        width: 30px; /* Reduz o tamanho dos ícones */
-        height: 32px;
-    }
+	.hamburger.active .line3 {
+    	transform: translateY(-10px) rotate(-45deg);
+	}
 
-    .tooltip {
-        font-size: 0.65rem; /* Reduz o tamanho do tooltip */
-    }
+	.mode {
+    	margin-left: 1rem;
+	}
 
-    .mylogo {
-        max-width: 50px;
-    }
+	.icons {
+    	display: flex; /* Exibe os ícones novamente */
+    	margin-top: 0;
+    	gap: 0.5rem; /* Adiciona um pequeno espaço entre os ícones */
+	}
 
-    main {
-        max-width: 90%;
-        padding-top: 14vh;
-    }
+	.icons img {
+    	width: 30px; /* Reduz o tamanho dos ícones */
+    	height: 32px;
+	}
 
-    .homeContainer {
-        flex-direction: column;
-    }
+	.tooltip {
+    	font-size: 0.65rem; /* Reduz o tamanho do tooltip */
+	}
 
-    .personalPhoto {
-        max-width: 150px;
-        margin-bottom: 1rem;
-        margin-right: 0;
-    }
+	.mylogo {
+    	max-width: 50px;
+	}
 
-    .h1, .h2, .articlesH1, .portName {
-        font-size: 1.5rem;
-    }
+	main {
+    	max-width: 90%;
+    	padding-top: 14vh;
+	}
 
-    .bigBox {
-        grid-template-columns: 1fr;
-    }
+	.homeContainer {
+    	flex-direction: column;
+	}
 
-    #prev1, #next1, #prev2, #next2 {
-        left: 50%;
-        right: auto;
-        transform: translate(-50%, -50%);
-        margin-left: 0;
-        margin-right: 0;
-    }
+	.personalPhoto {
+    	max-width: 150px;
+    	margin-bottom: 1rem;
+    	margin-right: 0;
+	}
 
-    .car, .carro {
-        left: 5%;
-        width: 90%;
-    }
+	.h1, .h2, .articlesH1, .portName {
+    	font-size: 1.5rem;
+	}
 
-    #modal1, #modal2 {
-        width: 95%;
-    }
+	.bigBox {
+    	grid-template-columns: 1fr;
+	}
 
-    .bigContainer {
-        flex-direction: column;
-    }
+	#prev1, #next1, #prev2, #next2 {
+    	left: 50%;
+    	right: auto;
+    	transform: translate(-50%, -50%);
+    	margin-left: 0;
+    	margin-right: 0;
+	}
 
-    .aboutPic {
-        max-width: 150px;
-        margin-right: 0;
-        margin-bottom: 1rem;
-    }
+	.car, .carro {
+    	left: 5%;
+    	width: 90%;
+	}
 
-    .social {
-        gap: 1.5rem;
-        flex-direction: row;
-        justify-content: center;
-    }
+	body.light .car, body.light .car.active, body.light .carro, body.light .carro.active2 {
+    	background-color: var(--bg-light);
+    	color: var(--bg-dark);
+    	border-color: var(--letter-b-bright);
+	}
 
-    .socialMedia {
-        font-size: 1.5rem;
-        text-align: center;
-    }
+	body.light #prev1, body.light #next1, body.light #prev2, body.light #next2 {
+    	background-color: var(--bg-dark);
+    	color: var(--letter-b-light);
+	}
 
-    .social p {
-        font-size: 1rem;
-        margin-top: 0.5rem;
-    }
+	body.light #modal1, body.light #modal2 {
+    	background-color: var(--bg-light);
+    	color: var(--bg-dark);
+	}
 
-    .footerP {
-        font-size: 1rem;
-    }
+	body.light #openButton, body.light #openButton2, body.light #closeModal, body.light #closeModal2 {
+    	background-color: var(--letter-b-bright);
+    	color: var(--bg-light);
+	}
 
-    .columnize {
-        grid-template-columns: 1fr;
-    }
+	.bigContainer {
+    	flex-direction: column;
+	}
 
-    .portImg {
-        max-width: 90%;
-        min-height: auto;
-    }
+	.aboutPic {
+    	max-width: 150px;
+    	margin-right: 0;
+    	margin-bottom: 1rem;
+	}
+
+	.social {
+    	gap: 1.5rem;
+    	flex-direction: row;
+    	justify-content: center;
+	}
+
+	.socialMedia {
+    	font-size: 1.5rem;
+    	text-align: center;
+	}
+
+	.social p {
+    	font-size: 1rem;
+    	margin-top: 0.5rem;
+	}
+
+	.footerP {
+    	font-size: 1rem;
+	}
+
+	.columnize {
+    	grid-template-columns: 1fr;
+	}
+
+	.portImg {
+    	max-width: 90%;
+    	min-height: auto;
+	}
 }
 
 @media (max-width: 480px) {
-    body {
-        font-size: 0.85rem;
-    }
+	body {
+    	font-size: 0.85rem;
+	}
 
-    .groupHead {
-        padding: 0 1rem;
-    }
+	.groupHead {
+    	padding: 0 1rem;
+	}
 
-    .mylogo {
-        max-width: 40px;
-    }
+	.mylogo {
+    	max-width: 40px;
+	}
 
-    .mode {
-        margin-left: 0.5rem;
-    }
+	.mode {
+    	margin-left: 0.5rem;
+	}
 
-    .icons {
-        gap: 0.3rem; /* Reduz ainda mais o espaço entre os ícones */
-    }
+	.icons {
+    	gap: 0.3rem; /* Reduz ainda mais o espaço entre os ícones */
+	}
 
-    .icons img {
-        width: 25px; /* Reduz ainda mais o tamanho dos ícones */
-        height: 27px;
-    }
+	.icons img {
+    	width: 25px; /* Reduz ainda mais o tamanho dos ícones */
+    	height: 27px;
+	}
 
-    .tooltip {
-        display: none !important; /* Oculta os tooltips em telas muito pequenas */
-    }
+	.tooltip {
+    	display: none !important; /* Oculta os tooltips em telas muito pequenas */
+	}
 
-    .hamburger {
-        width: 25px;
-        height: 20px;
-        right: 1rem;
-        margin-left: 0.5rem; /* Ajusta a margem para equilibrar */
-    }
+	.hamburger {
+    	width: 25px;
+    	height: 20px;
+    	right: 1rem;
+    	margin-left: 0.5rem; /* Ajusta a margem para equilibrar */
+	}
 
-    .navbar.active {
-        display: flex;
-    }
+	.navbar.active {
+    	display: flex;
+	}
 
-    .hamburger .line {
-        margin: 4px 0;
-        height: 2px;
-    }
+	.hamburger .line {
+    	margin: 4px 0;
+    	height: 2px;
+	}
 
-    .h1, .h2, .articlesH1, .portName {
-        font-size: 1.3rem;
-    }
+	.h1, .h2, .articlesH1, .portName {
+    	font-size: 1.3rem;
+	}
 
-    .socialMedia {
-        font-size: 1.3rem;
-    }
+	.socialMedia {
+    	font-size: 1.3rem;
+	}
 
-    .social p {
-        font-size: 0.9rem;
-    }
+	.social p {
+    	font-size: 0.9rem;
+	}
 
-    .footerP {
-        font-size: 0.9rem;
-    }
+	.footerP {
+    	font-size: 0.9rem;
+	}
 
-    .bigBox {
-        grid-template-columns: 1fr;
-    }
+	.bigBox {
+    	grid-template-columns: 1fr;
+	}
 
-    #prev1, #next1, #prev2, #next2 {
-        left: 50%;
-        right: auto;
-        transform: translate(-50%, -50%);
-        margin-left: 0;
-        margin-right: 0;
-    }
+	#prev1, #next1, #prev2, #next2 {
+    	left: 50%;
+    	right: auto;
+    	transform: translate(-50%, -50%);
+    	margin-left: 0;
+    	margin-right: 0;
+	}
 
-    .car, .carro {
-        left: 5%;
-        width: 90%;
-    }
+	.car, .carro {
+    	left: 5%;
+    	width: 90%;
+	}
 
-    #modal1, #modal2 {
-        width: 95%;
-    }
+	#modal1, #modal2 {
+    	width: 95%;
+	}
 
-    .aboutPic {
-        max-width: 120px;
-    }
+	.aboutPic {
+    	max-width: 120px;
+	}
 
-    .social {
-        gap: 1rem;
-    }
+	.social {
+    	gap: 1rem;
+	}
 
-    .columnize {
-        grid-template-columns: 1fr;
-    }
+	.columnize {
+    	grid-template-columns: 1fr;
+	}
 
-    .portImg {
-        max-width: 250px;
-    }
+	.portImg {
+    	max-width: 250px;
+	}
 }
