@@ -326,7 +326,8 @@ body.light .tooltip {
 	color: inherit; /* Herda a cor do elemento pai para facilitar a mudança no modo light */
 }
 
-.car {
+.car,
+.carro {
 	display: none;
 	width: 90%; /* Aumentei a largura para melhor visualização em telas menores */
 	overflow: hidden;
@@ -341,71 +342,20 @@ body.light .tooltip {
 	z-index: 1;
 }
 
-body.light .car {
-	background-color: var(--bg-light);
-	color: var(--bg-dark);
-	border-color: var(--letter-b-bright);
-}
-
-.car.active {
-	display: block;
-}
-
-#prev1,
-#next1 {
-	position: absolute;
-	background-color: var(--letter-b-bright);
-	color: var(--bg-dark);
-	top: 50%; /* Ajustei o posicionamento vertical */
-	transform: translateY(-50%);
-	width: 40px; /* Reduzi o tamanho dos botões */
-	height: 40px; /* Reduzi o tamanho dos botões */
-	font-size: 1.5rem; /* Reduzi o tamanho da fonte */
-	font-weight: bolder;
-	border-radius: 50%;
-	cursor: pointer;
-	font-family: Arial, Helvetica, sans-serif;
-	z-index: 99;
-}
-
-body.light #prev1,
-body.light #next1 {
-	background-color: var(--bg-dark);
-	color: var(--letter-b-light);
-}
-
-#prev1 {
-	left: 10px; /* Ajustei o posicionamento */
-}
-
-#next1 {
-	right: 10px; /* Ajustei o posicionamento */
-}
-
-.carro {
-	display: none;
-	width: 90%; /* Aumentei a largura para melhor visualização em telas menores */
-	overflow: hidden;
-	background-color: var(--bg-dark);
-	color: var(--letter-b-light);
-	padding: 10px;
-	position: relative;
-	left: 5%; /* Ajustei o posicionamento */
-	border: 4px solid var(--pinkish);
-	border-radius: 15px;
-	margin-top: 2%;
-}
-
+body.light .car,
 body.light .carro {
 	background-color: var(--bg-light);
 	color: var(--bg-dark);
 	border-color: var(--letter-b-bright);
 }
 
+.car.active,
 .carro.active2 {
 	display: block;
 }
 
+#prev1,
+#next1,
 #prev2,
 #next2 {
 	position: absolute;
@@ -423,18 +373,22 @@ body.light .carro {
 	z-index: 99;
 }
 
+body.light #prev1,
+body.light #next1,
 body.light #prev2,
 body.light #next2 {
 	background-color: var(--bg-dark);
 	color: var(--letter-b-light);
 }
 
+#prev1,
 #prev2 {
-	left: 10px; /* Ajustei o posicionamento */
+	left: 10px; /* Mantive o posicionamento para telas maiores */
 }
 
+#next1,
 #next2 {
-	right: 10px; /* Ajustei o posicionamento */
+	right: 10px; /* Mantive o posicionamento para telas maiores */
 }
 
 #modal1,
@@ -444,7 +398,7 @@ body.light #next2 {
 	background-color: var(--bg-dark);
 	color: var(--letter-b-light);
 	position: fixed; /* Alterei para fixed para cobrir a tela toda */
-	top: 50%;
+	top: calc(50% + 6vh); /* Ajustando o top para começar abaixo do header (aproximadamente) */
 	left: 50%;
 	transform: translate(-50%, -50%);
 	display: none;
@@ -503,8 +457,8 @@ body.light #openButton,
 body.light #openButton2,
 body.light #closeModal,
 body.light #closeModal2 {
-	background-color: var(--letter-b-bright);
-	color: var(--bg-light);
+	background-color: var(--letter-b-bright) !important; /* Adicionando !important para maior especificidade */
+	color: var(--bg-light) !important; /* Adicionando !important para maior especificidade */
 }
 
 #openButton:hover,
@@ -570,8 +524,8 @@ body.light #closeModal2:hover {
 /* About section */
 .bigContainer {
 	display: flex;
-	flex-direction: row;
-	margin-top: 1rem;
+	flex-direction: row
+margin-top: 1rem;
 	padding-top: 0;
 	padding: 0 1.5rem;
 	align-items: flex-start; /* Alinhar os itens no topo */
@@ -860,7 +814,10 @@ body.light #closeModal2:hover {
     	margin-right: 0;
 	}
 
-	.h1, .h2, .articlesH1, .portName {
+	.h1,
+	.h2,
+	.articlesH1,
+	.portName {
     	font-size: 1.5rem;
 	}
 
@@ -868,38 +825,56 @@ body.light #closeModal2:hover {
     	grid-template-columns: 1fr;
 	}
 
-	#prev1, #next1, #prev2, #next2 {
-    	left: 50%;
-    	right: auto;
-    	transform: translate(-50%, -50%);
+
+    #prev1, #prev2 {
+        display: none;
+    }
+
+	#next1,
+	#next2 {
+    	left: 10px; /* Corrigindo o posicionamento para a esquerda */
+    	right: 10px; /* Corrigindo o posicionamento para a direita */
+    	transform: translateY(-50%); /* Mantendo o alinhamento vertical */
     	margin-left: 0;
     	margin-right: 0;
+        transform: translateX(-4px);
 	}
 
-	.car, .carro {
+	.car,
+	.carro {
     	left: 5%;
     	width: 90%;
 	}
 
-	body.light .car, body.light .car.active, body.light .carro, body.light .carro.active2 {
+	body.light .car,
+	body.light .car.active,
+	body.light .carro,
+	body.light .carro.active2 {
     	background-color: var(--bg-light);
     	color: var(--bg-dark);
     	border-color: var(--letter-b-bright);
 	}
 
-	body.light #prev1, body.light #next1, body.light #prev2, body.light #next2 {
-    	background-color: var(--bg-dark);
-    	color: var(--letter-b-light);
+
+	body.light #next1,
+	body.light #next2 {
+        background-color: var(--letter-b-bright);
+        color: var(--bg-light);
+        transform: translateX(-4px);
 	}
 
-	body.light #modal1, body.light #modal2 {
+	body.light #modal1,
+	body.light #modal2 {
     	background-color: var(--bg-light);
     	color: var(--bg-dark);
 	}
 
-	body.light #openButton, body.light #openButton2, body.light #closeModal, body.light #closeModal2 {
-    	background-color: var(--letter-b-bright);
-    	color: var(--bg-light);
+	body.light #openButton,
+	body.light #openButton2,
+	body.light #closeModal,
+	body.light #closeModal2 {
+    	background-color: var(--letter-b-bright) !important;
+    	color: var(--bg-light) !important;
 	}
 
 	.bigContainer {
@@ -939,6 +914,11 @@ body.light #closeModal2:hover {
 	.portImg {
     	max-width: 90%;
     	min-height: auto;
+	}
+
+	#modal1,
+	#modal2 {
+    	top: calc(50% + 8vh); /* Ajustando o top para começar abaixo do header em telas menores */
 	}
 }
 
@@ -988,7 +968,10 @@ body.light #closeModal2:hover {
     	height: 2px;
 	}
 
-	.h1, .h2, .articlesH1, .portName {
+	.h1,
+	.h2,
+	.articlesH1,
+	.portName {
     	font-size: 1.3rem;
 	}
 
@@ -1008,21 +991,27 @@ body.light #closeModal2:hover {
     	grid-template-columns: 1fr;
 	}
 
-	#prev1, #next1, #prev2, #next2 {
-    	left: 50%;
-    	right: auto;
-    	transform: translate(-50%, -50%);
+	#prev1,
+	#next1,
+	#prev2,
+	#next2 {
+    	left: 5px; /* Ajustando ainda mais para as bordas em telas menores */
+    	right: 5px; /* Ajustando ainda mais para as bordas em telas menores */
+    	transform: translateY(-50%); /* Mantendo o alinhamento vertical */
     	margin-left: 0;
     	margin-right: 0;
 	}
 
-	.car, .carro {
+	.car,
+	.carro {
     	left: 5%;
     	width: 90%;
 	}
 
-	#modal1, #modal2 {
+	#modal1,
+	#modal2 {
     	width: 95%;
+    	top: calc(50% + 10vh); /* Ajustando o top para começar abaixo do header em telas muito pequenas */
 	}
 
 	.aboutPic {
