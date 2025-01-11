@@ -1,7 +1,3 @@
-/* index page */
-
-
-/* Definindo variáveis para as cores */
 :root {
     --bg-dark: #010d29;
     --bg-light: #f3fcff;
@@ -10,7 +6,6 @@
     --pinkish: #d81c5c;
     --letter-b-dark: #010d29;
 }
-
 
 /* Regras gerais para todos os elementos */
 * {
@@ -22,7 +17,6 @@
     transition: 0.2s linear;
     font-family: "Roboto", sans-serif;
 }
-
 
 /* Estilização do corpo da página */
 body {
@@ -36,7 +30,6 @@ body {
     align-items: center;
 }
 
-
 /* Estilizando a área principal da página */
 main {
     padding-top: 18vh;
@@ -44,23 +37,19 @@ main {
     max-width: 65%;
 }
 
-
 /* Estilos para links */
 a {
     color: var(--letter-b-bright);
     text-decoration: none;
 }
 
-
 a:visited {
     color: var(--bg-light);
 }
 
-
 a:hover {
     color: var(--pinkish);
 }
-
 
 /* Estilos para o modo claro (light mode) */
 body.light {
@@ -68,16 +57,13 @@ body.light {
     color: var(--bg-dark);
 }
 
-
 body.light a {
     color: var(--bg-dark);
 }
 
-
 body.light a:hover {
     color: var(--pinkish);
 }
-
 
 body.light .header {
     color: var(--bg-dark);
@@ -118,7 +104,6 @@ body.light #next2 {
     width: 100vw;
 }
 
-
 .header::after {
     content: '';
     display: block;
@@ -126,7 +111,6 @@ body.light #next2 {
     margin: 0 auto;
     background: linear-gradient(to right, transparent, var(--pinkish), transparent);
 }
-
 
 .groupHead {
     display: flex;
@@ -136,12 +120,10 @@ body.light #next2 {
     max-width: 95%;
 }
 
-
 .mylogo {
     margin-right: 2rem;
     max-width: 80px;
 }
-
 
 .navbar {
     display: flex;
@@ -151,11 +133,9 @@ body.light #next2 {
     list-style: none;
 }
 
-
 .separador {
     color: var(--pinkish);
 }
-
 
 /* Modo dark/light corrigido */
 .mode {
@@ -165,13 +145,11 @@ body.light #next2 {
     margin-left: 2rem;
 }
 
-
 .mode h1 {
     font-size: 0.7rem;
     margin-bottom: 0.25rem;
     font-weight: normal;
 }
-
 
 .trilho {
     width: 50px;
@@ -182,11 +160,9 @@ body.light #next2 {
     cursor: pointer;
 }
 
-
 .trilho.light {
     background-color: var(--letter-b-bright);
 }
-
 
 .trilho .indicador {
     width: 30px;
@@ -199,18 +175,15 @@ body.light #next2 {
     transition: 0.4s;
 }
 
-
 .trilho.light .indicador {
     left: 19px;
     background-color: var(--bg-light);
 }
 
-
 .icons {
     display: flex;
     margin-top: 0;
 }
-
 
 /* Footer corrigido */
 footer {
@@ -223,7 +196,6 @@ footer {
     width: 100%;
 }
 
-
 footer::before {
     content: '';
     position: absolute;
@@ -235,16 +207,13 @@ footer::before {
     background: linear-gradient(to right, transparent, var(--pinkish), transparent);
 }
 
-
 footer p {
     text-align: center;
 }
 
-
 .footerP {
     margin-top: 2rem;
 }
-
 
 /* Estilos para o contêiner principal */
 .homeContainer {
@@ -255,14 +224,12 @@ footer p {
     margin-top: 1rem;
 }
 
-
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: justify;
 }
-
 
 /* Título h2 corrigido */
 .h2 {
@@ -273,7 +240,6 @@ footer p {
     transform: none !important;
 }
 
-
 .personalPhoto {
     max-width: 200px;
     max-height: auto;
@@ -283,7 +249,6 @@ footer p {
     transform: translateY(-0.2rem);
 }
 
-
 article {
     display: flex;
     flex-direction: column;
@@ -292,24 +257,20 @@ article {
     text-align: justify;
 }
 
-
 .h1 {
     font-size: 1.75rem;
     color: var(--letter-b-bright);
     align-self: flex-start;
 }
 
-
 h3 {
     justify-content: center;
     text-align: center;
 }
 
-
 .paragraph {
     margin-top: 1rem;
 }
-
 
 .tooltip {
     display: none;
@@ -319,18 +280,15 @@ h3 {
     color: var(--letter-b-light);
 }
 
-
 body.light .tooltip {
     color: var(--bg-dark);
 }
-
 
 .img1:hover + .tooltip1,
 .img2:hover + .tooltip2,
 .img3:hover + .tooltip3 {
     display: block;
 }
-
 
 /* Portfolio section */
 .bigBox {
@@ -343,7 +301,6 @@ body.light .tooltip {
     padding: 0;
 }
 
-
 .portName {
     margin-bottom: 2rem;
     margin-top: 1rem;
@@ -354,18 +311,15 @@ body.light .tooltip {
     transform: translateX(-1rem);
 }
 
-
 .projects {
     text-align: center;
     color: var(--letter-b-bright);
 }
 
-
 .project1, .project2 {
     text-align: center;
     margin-bottom: 1rem;
 }
-
 
 .car {
     display: none;
@@ -383,12 +337,10 @@ body.light .tooltip {
     z-index: 1;
 }
 
-
 .car.active {
     display: block;
     background-color: var(--bg-dark);
 }
-
 
 #prev1, #next1 {
     position: absolute;
@@ -406,16 +358,13 @@ body.light .tooltip {
     z-index: 99;
 }
 
-
 #prev1 {
     left: 98px;
 }
 
-
 #next1 {
     right: 100px;
 }
-
 
 .carro {
     display: none;
@@ -432,12 +381,10 @@ body.light .tooltip {
     margin-top: 2%;
 }
 
-
 .carro.active2 {
     display: block;
     background-color: var(--bg-dark);
 }
-
 
 #prev2, #next2 {
     position: absolute;
@@ -455,16 +402,13 @@ body.light .tooltip {
     z-index: 99;
 }
 
-
 #prev2 {
     left: 100px;
 }
 
-
 #next2 {
     right: 100px;
 }
-
 
 #modal1, #modal2 {
     width: 80%;
@@ -483,12 +427,10 @@ body.light .tooltip {
     animation-duration: 0.9s;
 }
 
-
 @keyframes animate {
     from{opacity: 0;}
     to{opacity: 1;}
 }
-
 
 .portImg {
     max-height: 250px;
@@ -499,7 +441,6 @@ body.light .tooltip {
     margin: 0 auto;
 }
 
-
 #openButton, #openButton2, #closeModal, #closeModal2 {
     cursor: pointer;
     background-color: var(--pinkish);
@@ -508,8 +449,12 @@ body.light .tooltip {
     border-radius: 10px;
     width: 120px;
     height: 30px;
+
 }
 
+#closeModal, #closeModal2{
+    transform: translateY(-1.7rem);
+}
 
 #openButton:hover, #openButton2:hover, #closeModal:hover, #closeModal2:hover {
     background-color: var(--pinkish);
@@ -519,11 +464,9 @@ body.light .tooltip {
     height: 32px;
 }
 
-
 .description {
     margin-bottom: 1rem;
 }
-
 
 /* Contact section */
 .big-contact {
@@ -532,24 +475,20 @@ body.light .tooltip {
     align-items: center;
 }
 
-
 .social {
     display: flex;
     flex-direction: row;
     gap: 3.5rem;
 }
 
-
 .social p {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
-
 .email {
     margin-top: 1.8rem;
 }
-
 
 .socialMedia {
     text-align: center;
@@ -557,7 +496,6 @@ body.light .tooltip {
     font-size: 2rem;
     margin-top: 1rem;
 }
-
 
 /* About section */
 .bigContainer {
@@ -567,14 +505,12 @@ body.light .tooltip {
     padding-top: 0;
 }
 
-
 .aboutPic {
     max-width: 200px;
     height: 100%;
     margin-left: 0;
     margin-right: 2rem;
 }
-
 
 #botao {
     border: none;
@@ -586,12 +522,10 @@ body.light .tooltip {
     height: auto;
 }
 
-
 #botao:focus {
     outline: none;
     box-shadow: none;
 }
-
 
 #botao img {
     width: 48px;
@@ -602,7 +536,6 @@ body.light .tooltip {
     max-width: 30px;
 }
 
-
 .iconsMe img {
     margin: 0;
     margin-top: 1rem;
@@ -611,11 +544,9 @@ body.light .tooltip {
     vertical-align: middle;
 }
 
-
 .iconsMe {
     margin-bottom: 1rem;
 }
-
 
 .columnize {
     display: grid;
@@ -624,13 +555,11 @@ body.light .tooltip {
     padding: 0;
 }
 
-
 .namePlay {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
-
 
 .title {
     text-align: center;
@@ -638,7 +567,6 @@ body.light .tooltip {
     color: var(--letter-b-bright);
     margin-bottom: 1rem;
 }
-
 
 .title1 {
     text-align: center;
@@ -648,14 +576,12 @@ body.light .tooltip {
     margin-bottom: 1rem;
 }
 
-
 .title2 {
     text-align: center;
     padding-top: 0;
     color: var(--letter-b-bright);
     margin-bottom: 3rem;
 }
-
 
 .subtitle {
     margin-top: 2rem;
@@ -664,29 +590,24 @@ body.light .tooltip {
     color: var(--letter-b-bright);
 }
 
-
 .key-words {
     margin-top: 2rem;
     text-align: center;
 }
-
 
 .skill {
     color: var(--letter-b-bright);
     margin-top: 2rem;
 }
 
-
 .soft {
     color: var(--pinkish);
 }
-
 
 .highlight {
     color: var(--letter-b-bright);
     font-weight: bold;
 }
-
 
 /* Articles section */
 .articlesH1 {
@@ -697,18 +618,15 @@ body.light .tooltip {
     font-size: 1.75rem;
 }
 
-
 .articleP {
     margin-top: 0;
     margin-left: 0;
     margin-bottom: 1rem;
 }
 
-
 .listArticles {
     padding-left: 1rem;
 }
-
 
 .titulo {
     font-size: x-large;
@@ -718,7 +636,6 @@ body.light .tooltip {
     margin-bottom: 1.5rem;
 }
 
-
 .subtitulo {
     font-size: 1.5rem;
     color: var(--letter-b-bright);
@@ -727,29 +644,24 @@ body.light .tooltip {
     margin-bottom: 1.5rem;
 }
 
-
 .comum {
     margin-bottom: 1rem;
     text-align: justify;
 }
 
-
 .lista {
     transform: translateX(1rem);
 }
-
 
 .especifico {
     margin-bottom: 0.3rem;
     margin-top: 0.3rem;
 }
 
-
 .highlight-word {
     display: inline-block;
     transition: color 0.5s ease;
 }
-
 
 .highlight-word.highlighted {
     color: #d81c5c;
@@ -763,7 +675,6 @@ body.light .tooltip {
         align-items: center;
         justify-content: space-between;
     }
-
 
     .navbar {
         display: none;
@@ -779,16 +690,13 @@ body.light .tooltip {
         z-index: 100;
     }
 
-
     body.light .navbar {
         background-color: var(--bg-light); /* Estilo para o modo claro */
     }
 
-
     .navbar.active {
         display: flex; /* Correto para exibir o menu */
     }
-
 
     .navbar a {
         padding: 0.75rem 1.5rem;
@@ -797,16 +705,13 @@ body.light .tooltip {
         text-align: center;
     }
 
-
     body.light .navbar a {
         color: var(--bg-dark); /* Cor do link no modo claro */
     }
 
-
     .navbar .separador {
         display: none;
     }
-
 
     .hamburger {
         display: block;
@@ -818,7 +723,6 @@ body.light .tooltip {
         margin-left: 1rem; /* Adiciona margem para separá-lo dos ícones */
     }
 
-
     .hamburger .line {
         display: block;
         width: 100%;
@@ -828,31 +732,31 @@ body.light .tooltip {
         transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
 
-
     body.light .hamburger .line {
         background-color: var(--bg-dark); /* Cor das linhas no modo claro */
     }
-
 
     .hamburger.active .line1 {
         transform: translateY(10px) rotate(45deg);
     }
 
-
     .hamburger.active .line2 {
         opacity: 0;
     }
-
 
     .hamburger.active .line3 {
         transform: translateY(-10px) rotate(-45deg);
     }
 
+    #closeModal, #closeModal2 {
+        transform: translateY(0.5rem);
+        z-index: 10; /* Defina um valor de z-index alto o suficiente */
+        position: relative;
+    }
 
     .mode {
         margin-left: 1rem;
     }
-
 
     .icons {
         display: flex; /* Exibe os ícones novamente */
@@ -860,40 +764,33 @@ body.light .tooltip {
         gap: 0.5rem; /* Adiciona um pequeno espaço entre os ícones */
     }
 
-
     .icons img {
         width: 30px; /* Reduz o tamanho dos ícones */
         height: 30px;
     }
 
-
     .tooltip {
         font-size: 0.65rem; /* Reduz o tamanho do tooltip */
     }
 
-
     .mylogo {
         max-width: 50px;
     }
-
 
     main {
         max-width: 90%;
         padding-top: 14vh;
     }
 
-
     .homeContainer {
         flex-direction: column;
     }
-
 
     .personalPhoto {
         max-width: 150px;
         margin-bottom: 1rem;
         margin-right: 0;
     }
-
 
     .h1,
     .h2,
@@ -902,16 +799,14 @@ body.light .tooltip {
         font-size: 1.5rem;
     }
 
-
     .bigBox {
         grid-template-columns: 1fr;
+        margin-bottom: 20px;
     }
-
 
     #prev1, #prev2 {
         display: none;
     }
-
 
     #next1,
     #next2 {
@@ -920,20 +815,14 @@ body.light .tooltip {
         transform: translateY(-50%); /* Mantendo o alinhamento vertical */
         margin-left: 0;
         margin-right: 0;
-        transform: translateX(-4px);
+        transform: translateX(4px);
     }
-
-
-
-
-
 
     .car,
     .carro {
-        left: 5%;
-        width: 90%;
+        width: 80%;
+        
     }
-
 
     body.light .car,
     body.light .car.active,
@@ -944,7 +833,6 @@ body.light .tooltip {
         border-color: var(--letter-b-bright);
     }
 
-
     body.light #next1,
     body.light #next2 {
         background-color: var(--letter-b-bright);
@@ -952,15 +840,11 @@ body.light .tooltip {
         transform: translateX(-4px);
     }
 
-
-
-
     body.light #modal1,
     body.light #modal2 {
         background-color: var(--bg-light);
         color: var(--bg-dark);
     }
-
 
     body.light #openButton,
     body.light #openButton2,
@@ -970,11 +854,9 @@ body.light .tooltip {
         color: var(--bg-light) !important;
     }
 
-
     .bigContainer {
         flex-direction: column;
     }
-
 
     .aboutPic {
         max-width: 150px;
@@ -982,87 +864,71 @@ body.light .tooltip {
         margin-bottom: 1rem;
     }
 
-
     .social {
         gap: 1.5rem;
         flex-direction: row;
         justify-content: center;
     }
 
-
     .socialMedia {
         font-size: 1.5rem;
         text-align: center;
     }
-
 
     .social p {
         font-size: 1rem;
         margin-top: 0.5rem;
     }
 
-
     .footerP {
         font-size: 1rem;
     }
 
-
     .columnize {
         grid-template-columns: 1fr;
     }
-
 
     .portImg {
         max-width: 90%;
         min-height: auto;
     }
 
-
     #modal1,
     #modal2 {
         top: calc(50% + 8vh); /* Ajustando o top para começar abaixo do header em telas menores */
+        max-width: 80%;
     }
 }
-
 
 @media (max-width: 480px) {
     body {
         font-size: 0.85rem;
     }
 
-
     .groupHead {
         padding: 4px 1rem;
-
-
     }
-
 
     .mylogo {
         max-width: 40px;
     }
 
-
     .mode {
         margin-left: 0.5rem;
     }
 
-
     .icons {
         gap: 0.3rem; /* Reduz ainda mais o espaço entre os ícones */
     }
-
 
     .icons img {
         width: 25px; /* Reduz ainda mais o tamanho dos ícones */
         height: 27px;
     }
 
-
     .tooltip {
         display: none !important; /* Oculta os tooltips em telas muito pequenas */
     }
-
 
     .hamburger {
         width: 25px;
@@ -1071,17 +937,14 @@ body.light .tooltip {
         margin-left: 0.5rem; /* Ajusta a margem para equilibrar */
     }
 
-
     .navbar.active {
         display: flex;
     }
-
 
     .hamburger .line {
         margin: 4px 0;
         height: 2px;
     }
-
 
     .h1,
     .h2,
@@ -1090,35 +953,25 @@ body.light .tooltip {
         font-size: 1.3rem;
     }
 
-
     .socialMedia {
         font-size: 1.3rem;
     }
-
 
     .social p {
         font-size: 0.9rem;
     }
 
-
     .footerP {
         font-size: 0.9rem;
     }
-
 
     .bigBox {
         grid-template-columns: 1fr;
     }
 
-
     #prev1, #prev2 {
         display: none;
     }
-
-
-
-
-
 
     #next1, #next2 {
         left: 5px; /* Ajustando ainda mais para as bordas em telas menores */
@@ -1126,37 +979,32 @@ body.light .tooltip {
         transform: translate(-4px, -150%);
         margin-left: 0;
         margin-right: 0;
+        left: -3%;
     }
-
 
     .car,
     .carro {
-        left: 5%;
-        width: 90%;
+        left: 8%;
+        width: 85%;
     }
-
 
     #modal1,
     #modal2 {
         width: 95%;
-        top: calc(40% + 8vh); /* Ajustando o top para começar abaixo do header em telas muito pequenas */
+        top: calc(36% + 8vh); /* Ajustando o top para começar abaixo do header em telas muito pequenas */
     }
-
 
     .aboutPic {
         align-self: center;
     }
 
-
     .social {
         gap: 1rem;
     }
 
-
     .columnize {
         grid-template-columns: 1fr;
     }
-
 
     .portImg {
         max-width: 250px;
