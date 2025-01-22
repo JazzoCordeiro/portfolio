@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <div id="header-placeholder"></div>
+        <script> fetch('../header2.html').then(response => response.text()).then(data => {
+                document.getElementById('header-placeholder').innerHTML = data; initializeThemeSwitcher(); // Chama a função para inicializar o botão de modo 
+            }); function initializeThemeSwitcher() {
+                let trilho = document.getElementById('trilho'); if (!trilho) { console.error('Elemento "trilho" não encontrado'); return; } let body = document.querySelector('body'); let header = document.querySelector('.header'); let tooltips = document.querySelectorAll('.tooltip'); // Verificar se o modo light foi salvo no localStorage e aplicar
+                if (localStorage.getItem('theme') === 'light') { body.classList.add('light'); header.classList.add('light'); trilho.classList.add('light'); tooltips.forEach(function (tooltip) { tooltip.classList.add('light'); }); } // Alterna entre o modo normal e o modo light 
+                trilho.addEventListener('click', function () {
+                    trilho.classList.toggle('light'); body.classList.toggle('light'); header.classList.toggle('light'); tooltips.forEach(function (tooltip) { tooltip.classList.toggle('light'); }); // Salva a preferência no localStorage (modo light ou normal) 
+                    if (body.classList.contains('light')) { localStorage.setItem('theme', 'light'); } else { localStorage.removeItem('theme'); }
+                });
+            } </script>
+    </header>
+    <main>
+
+        <h1 class="titulo">What is Fetch in JavaScript?</h1>
+        <p class="comum">The <code>fetch</code> function in JavaScript is used to make asynchronous HTTP requests. It allows you to retrieve resources from the web, such as data from external sources, files, and other services, without the need to reload the page. The <code>fetch</code> function is based on promises, meaning it allows you to handle asynchronous code in a more readable and understandable way compared to using callbacks or the older <code>XMLHttpRequest</code>.</p>
+        <p class="comum">One of the most common use cases for <code>fetch</code> is consuming APIs. APIs (Application Programming Interfaces) are the backbone of modern web applications, allowing one application to interact with another. When consuming an API, you can use <code>fetch</code> to send requests and receive responses, typically in formats like JSON.</p>
+
+        <h2 class="subtitulo">Importance of Fetch:</h2>
+        <ul class="lista">
+            <li class="especifico"><strong>Asynchronous Requests:</strong> <code>fetch</code> allows you to make asynchronous requests, meaning your code won't be blocked while waiting for a server response. This improves the user experience by making the interface faster and more interactive.</li>
+            <li class="especifico"><strong>Interacting with APIs:</strong> Using <code>fetch</code>, you can retrieve data from external sources, such as databases or REST APIs, which is crucial in modern web applications.</li>
+            <li class="especifico"><strong>Promise-based:</strong> <code>fetch</code> returns a promise, making handling asynchronous responses cleaner and more modern.</li>
+            <li class="especifico"><strong>Better than XMLHttpRequest:</strong> <code>fetch</code> is a more modern and simplified way to make requests compared to the older <code>XMLHttpRequest</code> (XHR), offering cleaner code with less boilerplate.</li>
+        </ul>
+    
+        <h2 class="subtitulo">How to Use Fetch:</h2>
+        <h3 class="subtitulo">Basic GET Request Example:</h3>
+        <pre><code>
+    fetch('https://api.example.com/data')  // API URL
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();  // Converts the response to JSON
+      })
+      .then(data => console.log(data))  // Handles the data received
+      .catch(error => console.error('There was a problem with the fetch operation:', error));
+        </code></pre>
+    
+        <h3 class="subtitulo">POST Request Example:</h3>
+        <pre><code>
+    const data = { username: 'example', password: 'password123' };
+    
+    fetch('https://api.example.com/login', {
+      method: 'POST',  // Defines the HTTP method as POST
+      headers: {
+        'Content-Type': 'application/json',  // Defines content type as JSON
+      },
+      body: JSON.stringify(data),  // Sends the data as a JSON string
+    })
+      .then(response => response.json())  // Converts the response to JSON
+      .then(data => console.log('Success:', data))  // Handles the data received
+      .catch((error) => console.error('Error:', error));
+        </code></pre>
+    
+        <h2 class="subtitulo">Why Use Fetch?</h2>
+        <ul class="lista">
+            <li class="especifico"><strong>Ease of Use:</strong> <code>fetch</code> provides a simple API for making requests, with support for promises and async/await, making it easier to work with asynchronous code.</li>
+            <li class="especifico"><strong>Better Code Readability:</strong> With <code>fetch</code>, the code is cleaner and more understandable, especially compared to using <code>XMLHttpRequest</code>.</li>
+            <li class="especifico"><strong>Support for Promises and async/await:</strong> Since <code>fetch</code> is promise-based, handling asynchronous responses becomes much simpler and more modern.</li>
+            <li class="especifico"><strong>Faster and Safer Requests:</strong> <code>fetch</code> allows you to make requests in a faster and safer manner (for example, supporting CORS – Cross-Origin Resource Sharing).</li>
+        </ul>
+    
+        <h2 class="subtitulo">Conclusion:</h2>
+        <p class="comum">The <code>fetch</code> function is an essential tool in modern JavaScript for making asynchronous HTTP requests. It simplifies making requests to external resources, improves code readability, and is widely used to interact with APIs and other resources. Its importance in modern development is clear, as it provides a simple, clean way to handle requests and responses without relying on older techniques like <code>XMLHttpRequest</code>.</p>
+    
+
+
+    </main>
+    <footer class="footer">
+    
+        <div id="footer-placeholder"></div>
+        <script src="main.js"></script>
+        <script>
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
+    </footer>
+</body>
+</html>

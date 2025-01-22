@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Code</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <div id="header-placeholder"></div>
+        <script> fetch('../header2.html').then(response => response.text()).then(data => {
+                document.getElementById('header-placeholder').innerHTML = data; initializeThemeSwitcher(); // Chama a função para inicializar o botão de modo 
+            }); function initializeThemeSwitcher() {
+                let trilho = document.getElementById('trilho'); if (!trilho) { console.error('Elemento "trilho" não encontrado'); return; } let body = document.querySelector('body'); let header = document.querySelector('.header'); let tooltips = document.querySelectorAll('.tooltip'); // Verificar se o modo light foi salvo no localStorage e aplicar
+                if (localStorage.getItem('theme') === 'light') { body.classList.add('light'); header.classList.add('light'); trilho.classList.add('light'); tooltips.forEach(function (tooltip) { tooltip.classList.add('light'); }); } // Alterna entre o modo normal e o modo light 
+                trilho.addEventListener('click', function () {
+                    trilho.classList.toggle('light'); body.classList.toggle('light'); header.classList.toggle('light'); tooltips.forEach(function (tooltip) { tooltip.classList.toggle('light'); }); // Salva a preferência no localStorage (modo light ou normal) 
+                    if (body.classList.contains('light')) { localStorage.setItem('theme', 'light'); } else { localStorage.removeItem('theme'); }
+                });
+            } </script>
+    </header>
+    <main>
+        <h1 class="titulo">What is Clean Code? What Are the Main Principles and How Is It Applied?</h1>
+
+        <p class="comum"><strong>Clean Code</strong> is a term used to describe programming practices and principles that help create more readable, understandable, simple, and maintainable code. The idea is to produce high-quality code that is clear for other developers and easy to modify, test, and scale. The concept of Clean Code is detailed in the book <em>Clean Code: A Handbook of Agile Software Craftsmanship</em>, by Robert C. Martin (also known as Uncle Bob).</p>
+    
+        <h2 class="subtitulo">Main Principles of Clean Code</h2>
+        <ul class="lista">
+            <li class="especifico"><strong>Readability is key</strong><br>The code should be easy to read and understand. Don’t write code for the machine; write it for other developers who will read and maintain the code in the future. Avoid unnecessary complexity.</li>
+            <li class="especifico"><strong>Meaningful names</strong><br>Give variables, functions, classes, and methods names that make sense. A good name should communicate the intention of what is being done without the need for many comments.</li>
+            <li class="especifico"><strong>Small and focused functions</strong><br>A function should do only one thing and do it well. Functions should also be small and concise. If a function is too large or does too many things, it needs to be refactored.</li>
+            <li class="especifico"><strong>Avoid code duplication</strong><br>Duplicated code should be avoided. When you find the same code in several places, refactor it into a reusable function or class.</li>
+            <li class="especifico"><strong>Comment the code sparingly</strong><br>Comments should be used to explain "why" something is done in a certain way, not "how". The code should be self-explanatory as much as possible. Excessive or unnecessary comments indicate that the code is not clear enough.</li>
+            <li class="especifico"><strong>Avoid complex code</strong><br>Prefer simple solutions. Code should be as direct as possible and not include overly complex solutions when a simpler alternative is feasible.</li>
+            <li class="especifico"><strong>Use design patterns when necessary</strong><br>Using recognizable design patterns can make code more understandable and reusable. However, avoid applying design patterns unnecessarily just to follow a "trend".</li>
+            <li class="especifico"><strong>Keep the code organized and consistent</strong><br>Organize your code in a logical way. Follow conventions and maintain a consistent style throughout the entire project, which makes it easier to read and maintain.</li>
+            <li class="especifico"><strong>Testability</strong><br>The code should be easy to test. This means creating small, well-defined functions and classes with clear responsibilities. If it's hard to write tests for a part of the code, it probably needs to be refactored.</li>
+            <li class="especifico"><strong>Continuous refactoring</strong><br>Code should not be written in a final and immutable way. Refactoring is the process of improving code without changing its behavior. Refactor whenever necessary to improve readability and maintainability.</li>
+        </ul>
+    
+        <h2 class="subtitulo">How Clean Code is Applied</h2>
+        <p class="comum">To apply Clean Code in your projects, you should follow these principles throughout all stages of development. Here are some practical tips for how to apply Clean Code:</p>
+        <ul class="lista">
+            <li class="especifico"><strong>Constant refactoring</strong>: Code needs to be reviewed and refactored regularly. This means there is no "perfect code," and you can always improve readability or efficiency.</li>
+            <li class="especifico"><strong>Code review</strong>: Use the code review process to ensure that all team members are adhering to good practices and Clean Code principles.</li>
+            <li class="especifico"><strong>Testing</strong>: Write automated tests (unit, integration, etc.) to ensure that your code is reliable and easy to modify without breaking other parts of the system.</li>
+            <li class="especifico"><strong>Follow coding conventions</strong>: Adopt widely accepted coding conventions in your programming language. They help maintain consistent code, making it easier to read and maintain.</li>
+            <li class="especifico"><strong>Simplification</strong>: Whenever possible, try to simplify your code by breaking complex functions or classes into smaller and more manageable parts.</li>
+        </ul>
+    </main>
+    <footer class="footer">
+        <div id="footer-placeholder"></div>
+        <script src="main.js"></script>
+        <script>
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
+    </footer>
+</body>
+</html>

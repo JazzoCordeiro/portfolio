@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <div id="header-placeholder"></div>
+        <script> fetch('../header2.html').then(response => response.text()).then(data => {
+                document.getElementById('header-placeholder').innerHTML = data; initializeThemeSwitcher(); // Chama a função para inicializar o botão de modo 
+            }); function initializeThemeSwitcher() {
+                let trilho = document.getElementById('trilho'); if (!trilho) { console.error('Elemento "trilho" não encontrado'); return; } let body = document.querySelector('body'); let header = document.querySelector('.header'); let tooltips = document.querySelectorAll('.tooltip'); // Verificar se o modo light foi salvo no localStorage e aplicar
+                if (localStorage.getItem('theme') === 'light') { body.classList.add('light'); header.classList.add('light'); trilho.classList.add('light'); tooltips.forEach(function (tooltip) { tooltip.classList.add('light'); }); } // Alterna entre o modo normal e o modo light 
+                trilho.addEventListener('click', function () {
+                    trilho.classList.toggle('light'); body.classList.toggle('light'); header.classList.toggle('light'); tooltips.forEach(function (tooltip) { tooltip.classList.toggle('light'); }); // Salva a preferência no localStorage (modo light ou normal) 
+                    if (body.classList.contains('light')) { localStorage.setItem('theme', 'light'); } else { localStorage.removeItem('theme'); }
+                });
+            } </script>
+    </header>
+    <main>
+
+        <h1 class="titulo">What is Componentization in Frontend and How Does It Work?</h1>
+
+        <p class="comum"><strong>Componentization</strong> in the context of frontend development refers to the process of dividing a user interface (UI) into smaller, reusable parts called <strong>components</strong>. Each component is responsible for a specific part of the UI, making the code easier to maintain, reuse, and organize.</p>
+    
+        <h2 class="subtitulo">How Does Componentization Work?</h2>
+        <p class="comum">Components are independent and isolated units that can be combined to form a more complex interface. Each component can have its own state, behavior, and style. Moreover, components can be reused throughout the application, promoting <strong>modularization</strong> of the code.</p>
+    
+        <h3 class="subtitulo">Main Concepts of How Componentization Works:</h3>
+        <ul class="lista">
+            <li class="especifico"><strong>Separation of Concerns</strong>: Each component has a specific responsibility, such as a button, form, or card. It is designed to perform a task or represent a part of the UI in isolation.</li>
+            <li class="especifico"><strong>Reusability</strong>: Components can be reused in different parts of the application. This saves time and effort, as well as avoiding code duplication. For example, if you need a button in multiple pages, you can create a single button component and use it in various places.</li>
+            <li class="especifico"><strong>Composition of Components</strong>: With componentization, you can compose smaller components to form larger and more complex interfaces. For example, a <strong>product card</strong> can be composed of a <strong>title</strong>, an <strong>image</strong>, and a <strong>button</strong>, each being an individual component.</li>
+            <li class="especifico"><strong>Isolation of State and Logic</strong>: Each component can manage its own state, meaning it can have internal variables that control its behavior (e.g., the visibility of a menu or the content displayed). In more complex applications, communication between components can be done through <strong>props</strong> or <strong>events</strong>.</li>
+            <li class="especifico"><strong>Ease of Maintenance and Scalability</strong>: Componentization makes it easier to maintain the code, as each part of the interface is isolated and can be modified without affecting other parts. Additionally, it makes the application more scalable, as it's easier to add new components without breaking existing ones.</li>
+        </ul>
+    
+        <h2 class="subtitulo">Advantages of Componentization</h2>
+        <ul class="lista">
+            <li class="especifico"><strong>Reusability</strong>: Components can be used in different parts of the application without needing to duplicate code.</li>
+            <li class="especifico"><strong>Organization</strong>: The application becomes more organized as each component has a well-defined function.</li>
+            <li class="especifico"><strong>Ease of Maintenance</strong>: Changes to a component only affect that component, making maintenance easier.</li>
+            <li class="especifico"><strong>Ease of Testing</strong>: Since components are isolated, it's easier to test each part of the interface separately.</li>
+        </ul>
+    </main>
+    <footer class="footer">
+
+        <div id="footer-placeholder"></div>
+        <script src="main.js"></script>
+        <script>
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
+    </footer>
+</body>
+
+</html>

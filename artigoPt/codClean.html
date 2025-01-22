@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código Limpo</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../artigos.css">
+</head>
+<body>
+    <header class="header">
+        <div id="header-placeholder"></div>
+        <script> fetch('../header-pt2.html').then(response => response.text()).then(data => {
+                document.getElementById('header-placeholder').innerHTML = data; initializeThemeSwitcher(); // Chama a função para inicializar o botão de modo
+            }); function initializeThemeSwitcher() {
+                let trilho = document.getElementById('trilho'); if (!trilho) { console.error('Elemento "trilho" não encontrado'); return; } let body = document.querySelector('body'); let header = document.querySelector('.header'); let tooltips = document.querySelectorAll('.tooltip'); // Verificar se o modo claro foi salvo no localStorage e aplicá-lo
+                if (localStorage.getItem('theme') === 'light') { body.classList.add('light'); header.classList.add('light'); trilho.classList.add('light'); tooltips.forEach(function (tooltip) { tooltip.classList.add('light'); }); } // Alterna entre o modo normal e o modo claro
+                trilho.addEventListener('click', function () {
+                    trilho.classList.toggle('light'); body.classList.toggle('light'); header.classList.toggle('light'); tooltips.forEach(function (tooltip) { tooltip.classList.toggle('light'); }); // Salva a preferência no localStorage (modo claro ou normal)
+                    if (body.classList.contains('light')) { localStorage.setItem('theme', 'light'); } else { localStorage.removeItem('theme'); }
+                });
+            } </script>
+    </header>
+    <main>
+        <h1 class="titulo">O que é Código Limpo? Quais São os Principais Princípios e Como é Aplicado?</h1>
+
+        <p class="comum"><strong>Código Limpo</strong> é um termo usado para descrever práticas e princípios de programação que ajudam a criar um código mais legível, compreensível, simples e fácil de manter. A ideia é produzir um código de alta qualidade que seja claro para outros desenvolvedores e fácil de modificar, testar e escalar. O conceito de Código Limpo é detalhado no livro <em>Código Limpo: Um Manual de Artesanato Ágil de Software</em>, de Robert C. Martin (também conhecido como Uncle Bob).</p>
+    
+        <h2 class="subtitulo">Principais Princípios do Código Limpo</h2>
+        <ul class="lista">
+            <li class="especifico"><strong>Legibilidade é a chave</strong><br>O código deve ser fácil de ler e entender. Não escreva código para a máquina; escreva para outros desenvolvedores que lerão e manterão o código no futuro. Evite complexidade desnecessária.</li>
+            <li class="especifico"><strong>Nomeações significativas</strong><br>Dê aos nomes de variáveis, funções, classes e métodos nomes que façam sentido. Um bom nome deve comunicar a intenção do que está sendo feito sem a necessidade de muitos comentários.</li>
+            <li class="especifico"><strong>Funções pequenas e focadas</strong><br>Uma função deve fazer apenas uma coisa e fazê-la bem. As funções também devem ser pequenas e concisas. Se uma função for muito grande ou fizer muitas coisas, ela precisa ser refatorada.</li>
+            <li class="especifico"><strong>Evite duplicação de código</strong><br>A duplicação de código deve ser evitada. Quando você encontrar o mesmo código em vários lugares, refatore-o para uma função ou classe reutilizável.</li>
+            <li class="especifico"><strong>Comente o código de forma parcimoniosa</strong><br>Comentários devem ser usados para explicar "por que" algo é feito de uma maneira específica, não "como". O código deve ser autoexplicativo tanto quanto possível. Comentários excessivos ou desnecessários indicam que o código não é claro o suficiente.</li>
+            <li class="especifico"><strong>Evite código complexo</strong><br>Prefira soluções simples. O código deve ser o mais direto possível e não incluir soluções excessivamente complexas quando uma alternativa mais simples for viável.</li>
+            <li class="especifico"><strong>Use padrões de design quando necessário</strong><br>Usar padrões de design reconhecíveis pode tornar o código mais compreensível e reutilizável. No entanto, evite aplicar padrões de design desnecessariamente apenas para seguir uma "moda".</li>
+            <li class="especifico"><strong>Mantenha o código organizado e consistente</strong><br>Organize seu código de maneira lógica. Siga convenções e mantenha um estilo consistente ao longo de todo o projeto, o que torna o código mais fácil de ler e manter.</li>
+            <li class="especifico"><strong>Testabilidade</strong><br>O código deve ser fácil de testar. Isso significa criar funções e classes pequenas e bem definidas com responsabilidades claras. Se for difícil escrever testes para uma parte do código, provavelmente precisa ser refatorada.</li>
+            <li class="especifico"><strong>Refatoração contínua</strong><br>O código não deve ser escrito de maneira final e imutável. A refatoração é o processo de melhorar o código sem mudar seu comportamento. Refatore sempre que necessário para melhorar a legibilidade e a manutenibilidade.</li>
+        </ul>
+    
+        <h2 class="subtitulo">Como o Código Limpo é Aplicado</h2>
+        <p class="comum">Para aplicar o Código Limpo em seus projetos, você deve seguir esses princípios durante todas as etapas do desenvolvimento. Aqui estão algumas dicas práticas para aplicar o Código Limpo:</p>
+        <ul class="lista">
+            <li class="especifico"><strong>Refatoração constante</strong>: O código precisa ser revisado e refatorado regularmente. Isso significa que não existe "código perfeito" e você sempre pode melhorar a legibilidade ou a eficiência.</li>
+            <li class="especifico"><strong>Revisão de código</strong>: Use o processo de revisão de código para garantir que todos os membros da equipe estão aderindo às boas práticas e aos princípios do Código Limpo.</li>
+            <li class="especifico"><strong>Testes</strong>: Escreva testes automatizados (unitários, de integração, etc.) para garantir que seu código seja confiável e fácil de modificar sem quebrar outras partes do sistema.</li>
+            <li class="especifico"><strong>Siga convenções de codificação</strong>: Adote convenções de codificação amplamente aceitas na linguagem de programação que você está usando. Elas ajudam a manter o código consistente, tornando-o mais fácil de ler e manter.</li>
+            <li class="especifico"><strong>Simplificação</strong>: Sempre que possível, tente simplificar seu código, dividindo funções ou classes complexas em partes menores e mais gerenciáveis.</li>
+        </ul>
+    </main>
+    <footer class="footer">
+        <div id="footer-placeholder"></div>
+        <script>
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
+    </footer>
+</body>
+</html>

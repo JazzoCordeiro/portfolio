@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do...While...</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <div id="header-placeholder"></div>
+        <script> fetch('../header-es2.html').then(response => response.text()).then(data => {
+                document.getElementById('header-placeholder').innerHTML = data; initializeThemeSwitcher(); // Llama a la función para inicializar el botón de modo 
+            }); function initializeThemeSwitcher() {
+                let trilho = document.getElementById('trilho'); if (!trilho) { console.error('Elemento "trilho" no encontrado'); return; } let body = document.querySelector('body'); let header = document.querySelector('.header'); let tooltips = document.querySelectorAll('.tooltip'); // Verificar si el modo light fue guardado en localStorage y aplicarlo
+                if (localStorage.getItem('theme') === 'light') { body.classList.add('light'); header.classList.add('light'); trilho.classList.add('light'); tooltips.forEach(function (tooltip) { tooltip.classList.add('light'); }); } // Alterna entre el modo normal y el modo light 
+                trilho.addEventListener('click', function () {
+                    trilho.classList.toggle('light'); body.classList.toggle('light'); header.classList.toggle('light'); tooltips.forEach(function (tooltip) { tooltip.classList.toggle('light'); }); // Guarda la preferencia en localStorage (modo light o normal) 
+                    if (body.classList.contains('light')) { localStorage.setItem('theme', 'light'); } else { localStorage.removeItem('theme'); }
+                });
+            } </script>
+    </header>
+    <main>
+
+        <h1 class="titulo">do y while en JavaScript</h1>
+        <p class="comum">Los bucles <code>do</code> y <code>while</code> en JavaScript se usan para ejecutar repetidamente un bloque de código mientras se cumpla una condición especificada como <code>true</code>. Sin embargo, hay una diferencia clave entre ellos: la comprobación de la condición.</p>
+    
+        <h2 class="subtitulo">Bucle <code>while</code></h2>
+        <p class="comum">El bucle <code>while</code> en JavaScript verifica la condición antes de cada iteración. Si la condición es <code>true</code>, el bucle se ejecutará. Si la condición es <code>false</code> desde el principio, el bucle nunca se ejecutará.</p>
+        
+        <h3>Sintaxis del bucle <code>while</code>:</h3>
+        <pre><code>while (condición) {
+      // Código a ejecutar mientras la condición sea verdadera
+    }</code></pre>
+    
+        <h3>Ejemplo de un bucle <code>while</code>:</h3>
+        <pre><code>let count = 0;
+    
+    while (count < 5) {
+      console.log(count);  // Esto imprimirá los números del 0 al 4
+      count++;  // Incrementa el contador
+    }</code></pre>
+    
+        <p class="comum">En este ejemplo:</p>
+        <ul class="lista">
+            <li class="especifico">El bucle se ejecutará mientras <code>count</code> sea menor que <code>5</code>.</li>
+            <li class="especifico">El <code>count++</code> dentro del bucle incrementa el valor de <code>count</code> en cada iteración.</li>
+            <li class="especifico">Cuando <code>count</code> alcance <code>5</code>, la condición <code>count &lt; 5</code> se volverá <code>false</code>, y el bucle se detendrá.</li>
+        </ul>
+    
+        <h2 class="subtitulo">Bucle <code>do...while</code></h2>
+        <p class="comum">El bucle <code>do...while</code>, a diferencia del bucle <code>while</code>, garantiza que el bloque de código dentro del bucle se ejecute al menos una vez, sin importar la condición. Esto se debe a que la condición se comprueba después de que se ejecute el bloque de código.</p>
+    
+        <h3>Sintaxis del bucle <code>do...while</code>:</h3>
+        <pre><code>do {
+      // Código a ejecutar
+    } while (condición);</code></pre>
+    
+        <h3>Ejemplo de un bucle <code>do...while</code>:</h3>
+        <pre><code>let count = 0;
+    
+    do {
+      console.log(count);  // Esto imprimirá los números del 0 al 4
+      count++;  // Incrementa el contador
+    } while (count < 5);</code></pre>
+    
+        <p class="comum">En este ejemplo:</p>
+        <ul class="lista">
+            <li class="especifico">El bloque <code>do</code> se ejecutará primero, imprimiendo <code>0</code> en la primera iteración.</li>
+            <li class="especifico">Luego, después de ejecutar el bloque, verifica si la condición <code>count &lt; 5</code> es <code>true</code>. Si es así, el bucle continúa. Si la condición es <code>false</code>, el bucle se detiene.</li>
+            <li class="especifico">Aunque la condición fuera inicialmente <code>false</code>, el bucle aún se ejecutaría una vez antes de comprobarla.</li>
+        </ul>
+    
+        <h2 class="subtitulo">Comparación: <code>do...while</code> vs <code>while</code></h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Característica</th>
+                    <th>Bucle <code>while</code></th>
+                    <th>Bucle <code>do...while</code></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Comprobación de la condición</td>
+                    <td>Comprueba la condición antes de ejecutar el bloque de código</td>
+                    <td>Comprueba la condición después de ejecutar el bloque de código</td>
+                </tr>
+                <tr>
+                    <td>Ejecutación garantizada</td>
+                    <td>El código puede no ejecutarse si la condición es falsa desde el inicio</td>
+                    <td>El código siempre se ejecuta al menos una vez</td>
+                </tr>
+                <tr>
+                    <td>Uso recomendado</td>
+                    <td>Útil cuando necesitas comprobar una condición antes de ejecutar el bloque de código</td>
+                    <td>Útil cuando necesitas asegurarte de que el bloque de código se ejecute al menos una vez, incluso si la condición es falsa</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h2 class="subtitulo">Ejemplo donde <code>do...while</code> es útil:</h2>
+        <p class="comum">Considera el caso en el que queremos pedirle al usuario un número hasta que ingrese uno válido mayor que 0:</p>
+        <pre><code>let number;
+    
+    do {
+      number = prompt("Introduce un número mayor que 0:");
+    } while (number <= 0);
+    
+    console.log("Introdujiste un número válido:", number);</code></pre>
+    
+        <p class="comum">En este ejemplo, el código dentro del bloque <code>do</code> se ejecutará al menos una vez, pidiendo al usuario que ingrese un número. Si el usuario introduce un número mayor que 0, el bucle se detendrá; de lo contrario, se pedirá al usuario nuevamente.</p>
+    
+        <h2 class="subtitulo">Resumen:</h2>
+        <ul class="lista">
+            <li class="especifico"><strong>Bucle <code>while</code>:</strong> La condición se comprueba antes de ejecutar el código. Si la condición es falsa al principio, el código dentro del bucle no se ejecutará.</li>
+            <li class="especifico"><strong>Bucle <code>do...while</code>:</strong> El código se ejecuta al menos una vez antes de comprobar la condición. Incluso si la condición es falsa al principio, el código dentro del bucle se ejecutará una vez.</li>
+        </ul>
+    
+        <p class="comum">Estos bucles son útiles para diferentes escenarios dependiendo de si deseas que el bucle se ejecute al menos una vez o comprobar la condición primero.</p>
+    
+
+
+
+    </main>
+    <footer class="footer">
+    
+        <div id="footer-placeholder"></div>
+        <script src="main.js"></script>
+        <script>
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
+    </footer>
+</body>
+
+</html>

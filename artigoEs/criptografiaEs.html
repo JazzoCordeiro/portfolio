@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifrado de Contraseña en un Proyecto y Qué es bcrypt</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <div id="header-placeholder"></div>
+        <script> fetch('../header-es2.html').then(response => response.text()).then(data => {
+                document.getElementById('header-placeholder').innerHTML = data; initializeThemeSwitcher(); // Llama a la función para inicializar el botón de modo 
+            }); function initializeThemeSwitcher() {
+                let trilho = document.getElementById('trilho'); if (!trilho) { console.error('Elemento "trilho" no encontrado'); return; } let body = document.querySelector('body'); let header = document.querySelector('.header'); let tooltips = document.querySelectorAll('.tooltip'); // Verificar si el modo claro fue guardado en localStorage y aplicarlo
+                if (localStorage.getItem('theme') === 'light') { body.classList.add('light'); header.classList.add('light'); trilho.classList.add('light'); tooltips.forEach(function (tooltip) { tooltip.classList.add('light'); }); } // Alterna entre el modo normal y el modo claro 
+                trilho.addEventListener('click', function () {
+                    trilho.classList.toggle('light'); body.classList.toggle('light'); header.classList.toggle('light'); tooltips.forEach(function (tooltip) { tooltip.classList.toggle('light'); }); // Guarda la preferencia en localStorage (modo claro o normal) 
+                    if (body.classList.contains('light')) { localStorage.setItem('theme', 'light'); } else { localStorage.removeItem('theme'); }
+                });
+            } </script>
+    </header>
+    <main>
+        <h1 class="titulo">Cifrado de Contraseña en un Proyecto y Qué es bcrypt</h1>
+    
+        <p class="comum">Cifrar contraseñas en un proyecto es una de las prácticas de seguridad más importantes. Las contraseñas son datos sensibles y, si se almacenan en texto plano, pueden ser fácilmente accedidas y utilizadas de manera maliciosa por atacantes. El cifrado ayuda a proteger estos datos, volviéndolos inútiles para cualquier persona sin la clave o el método apropiado para descifrarlas.</p>
+        
+        <h2 class="subtitulo">¿Por qué cifrar la contraseña?</h2>
+        <ul class="lista">
+            <li class="especifico"><strong>Seguridad</strong>: Almacenar contraseñas en texto plano es extremadamente arriesgado, ya que, en caso de una violación de datos, todas las contraseñas de los usuarios quedarían expuestas. El cifrado, por otro lado, impide que cualquier persona con acceso a los datos almacenados (como un atacante o administrador de base de datos) lea o use las contraseñas sin la clave de descifrado.</li>
+            <li class="especifico"><strong>Privacidad</strong>: Las contraseñas representan información privada. Cuando se protegen adecuadamente, el riesgo de robo de identidad o fraudes se reduce significativamente.</li>
+            <li class="especifico"><strong>Cumplimiento con regulaciones</strong>: En muchos países, existen regulaciones que requieren la protección de datos sensibles, incluidas las contraseñas. Almacenar contraseñas cifradas ayuda a garantizar el cumplimiento de las leyes de privacidad y protección de datos.</li>
+            <li class="especifico"><strong>Protección contra ataques</strong>: Cifrar contraseñas ayuda a prevenir ataques como fuerza bruta o tablas arcoíris (ataques basados en contraseñas comunes pre-calculadas). Incluso si un atacante logra acceder a la base de datos, no podrá obtener fácilmente las contraseñas en texto plano.</li>
+        </ul>
+    
+        <h2 class="subtitulo">¿Qué es bcrypt?</h2>
+        <p class="comum"><strong>bcrypt</strong> es una biblioteca ampliamente utilizada para cifrar contraseñas, diseñada específicamente para crear hashes de contraseñas. Lo que diferencia a bcrypt de otras técnicas simples de hash (como MD5 o SHA1) es que es <strong>lento</strong> y utiliza <strong>salting</strong> (salting significa añadir un valor único llamado "salt" a la contraseña antes de generar el hash).</p>
+        
+        <h3 class="subtitulo">Características de bcrypt:</h3>
+        <ul class="lista">
+            <li class="especifico"><strong>Salt</strong>: bcrypt genera automáticamente un salt único para cada contraseña. Esto asegura que, incluso si dos usuarios tienen la misma contraseña, sus hashes serán diferentes. El salt previene el uso de ataques de tablas arcoíris.</li>
+            <li class="especifico"><strong>Factor de costo ajustable</strong>: bcrypt permite definir un valor de "costo" o "rondas". Cuanto mayor sea el costo, más lento será el proceso de hashing. Esto hace que los ataques de fuerza bruta sean más difíciles de realizar.</li>
+            <li class="especifico"><strong>Resistencia a ataques de fuerza bruta</strong>: Debido al factor de costo ajustable y al uso de salt, bcrypt es mucho más seguro contra ataques de fuerza bruta en comparación con otros métodos de hash más rápidos, como MD5 o SHA1.</li>
+        </ul>
+        
+        <h2 class="subtitulo">¿Cómo usar bcrypt en JavaScript?</h2>
+        <p class="comum">En un entorno Node.js, puedes usar las bibliotecas <strong>bcryptjs</strong> o <strong>bcrypt</strong> para cifrar y verificar contraseñas. Aquí tienes un ejemplo básico usando <code>bcryptjs</code>:</p>
+    
+        <h3 class="subtitulo">Paso 1: Instalar bcryptjs</h3>
+        <p class="comum">Primero, instala la biblioteca bcryptjs usando npm:</p>
+        <pre class="comum">
+        npm install bcryptjs
+        </pre>
+    
+        <h3 class="subtitulo">Paso 2: Cifrado y verificación de una contraseña</h3>
+        <p class="comum">Aquí tienes un ejemplo de cómo cifrar y verificar una contraseña usando bcryptjs en un proyecto Node.js:</p>
+        
+        <pre class="comum">
+        const bcrypt = require('bcryptjs');
+    
+        // Función para cifrar la contraseña
+        function hashPassword(plainPassword) {
+          const saltRounds = 10; // Define el costo de bcrypt (rondas)
+          return bcrypt.hash(plainPassword, saltRounds);
+        }
+    
+        // Función para verificar la contraseña
+        function verifyPassword(plainPassword, hashedPassword) {
+          return bcrypt.compare(plainPassword, hashedPassword);
+        }
+    
+        // Ejemplo de uso
+        async function example() {
+          try {
+            // Cifrando la contraseña
+            const password = "miContraseñaSegura123";
+            const hashedPassword = await hashPassword(password);
+            console.log("Contraseña Cifrada:", hashedPassword);
+    
+            // Verificando la contraseña
+            const isMatch = await verifyPassword(password, hashedPassword);
+            console.log("Contraseña coincide:", isMatch);
+          } catch (err) {
+            console.error("Error:", err);
+          }
+        }
+    
+        example();
+        </pre>
+    
+        <h4 class="subtitulo">Explicación del código:</h4>
+        <ul class="lista">
+            <li class="especifico"><strong>bcrypt.hash(plainPassword, saltRounds)</strong>: La función hash se usa para cifrar la contraseña. El número de <em>saltRounds</em> define la "dificultad" del proceso bcrypt. Cuanto mayor sea el número de rondas, más lento será el proceso, lo que aumenta la seguridad.</li>
+            <li class="especifico"><strong>bcrypt.compare(plainPassword, hashedPassword)</strong>: La función compare se usa para verificar si la contraseña proporcionada coincide con el hash almacenado.</li>
+        </ul>
+    
+        <h2 class="subtitulo">Conclusión</h2>
+        <p class="comum">Cifrar contraseñas es esencial para proteger la seguridad y privacidad de los usuarios. Usar bibliotecas como <strong>bcrypt</strong> asegura que las contraseñas sean almacenadas de manera segura, utilizando técnicas modernas de hashing con salt y factores de costo ajustables, lo que hace que los ataques de fuerza bruta y tablas arcoíris sean mucho más difíciles de realizar.</p>
+        
+        <p class="comum">En JavaScript (especialmente en Node.js), <strong>bcrypt</strong> es una excelente opción para cifrar contraseñas de forma confiable y segura.</p>
+    
+
+</main>
+<footer class="footer">
+
+    <div id="footer-placeholder"></div>
+    <script src="main.js"></script>
+    <script>
+        fetch('../footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</footer>
+</body>
+
+</html>

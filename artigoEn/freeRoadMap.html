@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <div id="header-placeholder"></div>
+        <script> fetch('../header2.html').then(response => response.text()).then(data => {
+                document.getElementById('header-placeholder').innerHTML = data; initializeThemeSwitcher(); // Chama a função para inicializar o botão de modo 
+            }); function initializeThemeSwitcher() {
+                let trilho = document.getElementById('trilho'); if (!trilho) { console.error('Elemento "trilho" não encontrado'); return; } let body = document.querySelector('body'); let header = document.querySelector('.header'); let tooltips = document.querySelectorAll('.tooltip'); // Verificar se o modo light foi salvo no localStorage e aplicar
+                if (localStorage.getItem('theme') === 'light') { body.classList.add('light'); header.classList.add('light'); trilho.classList.add('light'); tooltips.forEach(function (tooltip) { tooltip.classList.add('light'); }); } // Alterna entre o modo normal e o modo light 
+                trilho.addEventListener('click', function () {
+                    trilho.classList.toggle('light'); body.classList.toggle('light'); header.classList.toggle('light'); tooltips.forEach(function (tooltip) { tooltip.classList.toggle('light'); }); // Salva a preferência no localStorage (modo light ou normal) 
+                    if (body.classList.contains('light')) { localStorage.setItem('theme', 'light'); } else { localStorage.removeItem('theme'); }
+                });
+            } </script>
+    </header>
+    <main>
+    <h1 class="titulo">My Journey to Becoming a Frontend Developer - My Free Roadmap</h1>
+    <p class="comum">It's true that during my journey and my degree, I participated in some bootcamps and took a few specific courses from universities and paid sites, but throughout my studies, I gathered playlists of lessons, course links, articles with explanations, and other important resources that helped me build my foundation, better understand this world, and strengthen my knowledge. Here you’ll find all kinds of information, from basic programming logic to advanced resources or channels teaching useful day-to-day frontend skills.</p>
+
+    <p class="comum">I recommend this list to anyone who wants to become a frontend developer. The material is extremely rich and extensive. Most of the content is in Portuguese, but there are also some resources in English and Spanish, and a few even in multiple languages.</p>
+
+    <p class="comum">In addition to this material, my tip is: Continuously search for BOOTCAMPS on the internet. From time to time, there are free bootcamps!</p>
+
+    <p class="comum">Hope this helps!</p>
+
+    <h2 class="subtitulo">Useful Links</h2>
+    <p class="comum"><a href="https://www.freecodecamp.org">www.freecodecamp.org</a> – It's best to study on this site after watching the lessons by Guanabara, as it’s very good, but sometimes the explanations may be insufficient. It’s definitely worth it!</p>
+
+    <h3 class="subtitulo">1. Programming Logic with Guanabara</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=8mei6uVttho&list=PLHz_AreHm4dmSj0MHol_aoNYCSGFqvfXV">Watch here</a></p>
+
+    <h3 class="subtitulo">2. Basic HTML and CSS Course with Guanabara</h3>
+    <p class="comum">Module 1: <a href="https://www.youtube.com/watch?v=Ejkb_YpuHWs&list=PLHz_AreHm4dkZ9-atkcmcBaMZdmLHft8n">Watch here</a></p>
+    <p class="comum">Module 2: <a href="https://www.youtube.com/watch?v=vPNIAJ9B4hg&list=PLHz_AreHm4dlUpEXkY1AyVLQGcpSgVF8s">Watch here</a></p>
+    <p class="comum">Module 3: <a href="https://www.youtube.com/watch?v=ofFgnDtn_1c&list=PLHz_AreHm4dmcAviDwiGgHbeEJToxbOpZ">Watch here</a></p>
+    <p class="comum">Module 4: <a href="https://www.youtube.com/watch?v=zHKHMmEG9vE&list=PLHz_AreHm4dkcVCk2Bn_fdVQ81Fkrh6WT">Watch here</a></p>
+
+    <p class="comum">HTML Documentation: <a href="https://developer.mozilla.org/en-US/">MDN HTML Docs</a></p>
+    <p class="comum">CSS Documentation: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">MDN CSS Docs</a></p>
+
+    <h3 class="subtitulo">Git Basic Course with Guanabara</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=xEKo29OWILE&list=PLHz_AreHm4dm7ZULPAmadvNhH6vk9oNZA">Watch here</a></p>
+
+    <h3 class="subtitulo">3. Basic JavaScript Course with Guanabara</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=1-w1RfGIov4&list=PLHz_AreHm4dlsK3Nr9GVvXCbpQyHQl1o1">Watch here</a></p>
+
+    <p class="comum">JavaScript Documentation: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">MDN JavaScript Docs</a></p>
+
+    <h3 class="subtitulo">4. Complete JavaScript Course - From Basic to Advanced</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=E4DBTqgxHGM&list=PLx4x_zx8csUg_AxxbVWHEyAJ6cBdsYc0T">Watch here</a></p>
+
+    <h3 class="subtitulo">5. React.js Course</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=XHrbg2iYNCg&list=PLnDvRpP8BnezfJcfiClWskFOLODeqI_Ft">Watch here</a></p>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=vVRkM3Qn9pA&list=PLWXw8Gu52TRK1W0emFvUl3ozgV2JW3_8p">Watch here</a></p>
+
+    <h3 class="subtitulo">6. Angular Course</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=tPOMG0D57S0&list=PLGxZ4Rq3BOBoSRcKWEdQACbUCNWLczg2G">Watch here</a></p>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=zXL0hmil964&list=PLWXw8Gu52TRKj3tFWHlkheh8rLQRqQ1__">Watch here</a></p>
+
+    <h3 class="subtitulo">7. Bootstrap Course</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=oRVBoGpgtu0&list=PLx4x_zx8csUgop9qBqm6ReuNa3XraZBrc">Watch here</a></p>
+
+    <h3 class="subtitulo">8. Vue.js Course</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=wsAQQioPIJs&list=PLnDvRpP8BnezDglaAvtWgQXzsOmXUuRHL">Watch here</a></p>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=V14jTusJ9os&list=PLWXw8Gu52TRL3sY3esdsH2PxYiRdXwfvX">Watch here</a></p>
+
+    <h3 class="subtitulo">9. Basic TypeScript Course</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=vcpLrIzIKjI&list=PLx4x_zx8csUhtPMrkiGvFJVE5LX8Qat5s">Watch here</a></p>
+
+    <p class="comum">TypeScript Documentation: <a href="https://www.typescriptlang.org/docs/">TypeScript Docs</a></p>
+
+    <h3 class="subtitulo">10. Basic Tailwind Course</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=w4xS1ZdTcr8&list=PL_m43UlJFjF5umRjQW1eaLgJmsEpF_Q2E">Watch here</a></p>
+
+    <p class="comum">Tailwind Documentation: <a href="https://v2.tailwindcss.com/docs">Tailwind Docs</a></p>
+
+    <p class="comum">Basic Tailwind Course in Spanish: <a href="https://www.youtube.com/watch?v=Hp0M1SoK2AU&list=PLZ2ovOgdI-kVeYs74jL3kOj-AyoDKCXRy">Watch here</a></p>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=gvdvuGSksDU&list=PLJubkp8BnTJu9khizC7ywblms1YzdLO3g">Watch here</a></p>
+
+    <h3 class="subtitulo">11. PHP Course with Guanabara</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=F7KzJ7e6EAc&list=PLHz_AreHm4dm4beCCCmW4xwpmLf6EHY9k">Watch here</a></p>
+
+    <p class="comum">PHP Documentation: <a href="https://www.php.net/manual/en/index.php">PHP Docs</a></p>
+
+    <h3 class="subtitulo">12. Basic MySQL Course with Guanabara</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=Ofktsne-utM&list=PLHz_AreHm4dkBs-795Dsgvau_ekxg8g1r">Watch here</a></p>
+
+    <p class="comum">MySQL Documentation: <a href="https://dev.mysql.com/doc/">MySQL Docs</a></p>
+
+    <h3 class="subtitulo">13. Password Encryption</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=bc0HbYO_AuQ">Watch here</a></p>
+
+    <h3 class="subtitulo">14. WCAG Course</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=wjZEPeTwVL4&list=PLi-wSBYPP9vKprJZWH9aAbmPfmf1QOPK9">Watch here</a></p>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=PBClIB3Yy44&list=PLcKviJPlUCexjopmiGZFa1gyW1TKF4nlh">Watch here</a></p>
+
+    <p class="comum">WCAG Documentation: <a href="https://guia-wcag.com/">WCAG Guide</a></p>
+
+    <h3 class="subtitulo">15. How to Make a REST API with Node and TypeScript</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=SVepTuBK4V0&list=PL29TaWXah3iaaXDFPgTHiFMBF6wQahurP">Watch here</a></p>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=n6OJXt6eTko&list=PLWXw8Gu52TRI5NJmexwA9qco33goFxbHK">Watch here</a></p>
+
+    <h3 class="subtitulo">Exercises to Practice Logic and Algorithms</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=-WzYlfZDnO8&list=PLWXw8Gu52TRKzhiFeM5nx61sFqetMqEi1">Watch here</a></p>
+
+    <h3 class="subtitulo">How to Make an Animated Carousel</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=1FSmHr934OI">Watch here</a></p>
+
+    <h3 class="subtitulo">How to Make a 3D Carousel</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=yqaLSlPOUxM&t=76s">Watch here</a></p>
+
+    <h3 class="subtitulo">How to Make a Light/Dark Mode Toggle Button</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=aYB3AHb3vVA">Watch here</a></p>
+
+    <h3 class="subtitulo">How to Make a Backend API with Database Using JS</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=PyrMT0GA3sE&t=2614s">Watch here</a></p>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=94FonmsT27s">Watch here</a></p>
+
+    <h3 class="subtitulo">Consuming APIs with Axios</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=2UQifdlTh9Q">Watch here</a></p>
+
+    <h3 class="subtitulo">Bootstrap and JQuery for Frontend</h3>
+    <p class="comum"><a href="https://www.youtube.com/watch?v=DF9C5MHI-QE&list=PLx4x_zx8csUgop9qBqm6ReuNa3XraZBrc">Watch here</a></p>
+</main>
+</body>
+</html>

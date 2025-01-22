@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <div id="header-placeholder"></div>
+        <script> fetch('../header2.html').then(response => response.text()).then(data => {
+                document.getElementById('header-placeholder').innerHTML = data; initializeThemeSwitcher(); // Chama a função para inicializar o botão de modo 
+            }); function initializeThemeSwitcher() {
+                let trilho = document.getElementById('trilho'); if (!trilho) { console.error('Elemento "trilho" não encontrado'); return; } let body = document.querySelector('body'); let header = document.querySelector('.header'); let tooltips = document.querySelectorAll('.tooltip'); // Verificar se o modo light foi salvo no localStorage e aplicar
+                if (localStorage.getItem('theme') === 'light') { body.classList.add('light'); header.classList.add('light'); trilho.classList.add('light'); tooltips.forEach(function (tooltip) { tooltip.classList.add('light'); }); } // Alterna entre o modo normal e o modo light 
+                trilho.addEventListener('click', function () {
+                    trilho.classList.toggle('light'); body.classList.toggle('light'); header.classList.toggle('light'); tooltips.forEach(function (tooltip) { tooltip.classList.toggle('light'); }); // Salva a preferência no localStorage (modo light ou normal) 
+                    if (body.classList.contains('light')) { localStorage.setItem('theme', 'light'); } else { localStorage.removeItem('theme'); }
+                });
+            } </script>
+    </header>
+    <main>
+        <h1 class="titulo">What Are Variables?</h1>
+        <p class="comum">Variables are named memory spaces that store data. They allow you to store and manipulate values in your code, and they can be used in different parts of the program. In JavaScript, a variable can be declared using the keywords <code>var</code>, <code>let</code>, or <code>const</code>.</p>
+        
+        <p class="comum"><strong>var:</strong> This was the traditional way to declare variables in JavaScript. However, it can cause issues with scope because it has a function scope and allows reassignments. Its use is now discouraged in favor of better alternatives.</p>
+        <p class="comum"><strong>let:</strong> Declares a block-scoped variable, meaning the variable exists only within the block it was declared in. It can be reassigned.</p>
+        <p class="comum"><strong>const:</strong> Declares a variable whose value cannot be changed after its initial assignment. It also has block scope.</p>
+      
+        <h2 class="subtitulo">When to Use Each?</h2>
+        <p class="comum">Use <code>var</code> only if compatibility with older versions of JavaScript or specific contexts is necessary.</p>
+        <p class="comum">Use <code>let</code> to declare variables whose value can change, and when you need block scope.</p>
+        <p class="comum">Use <code>const</code> whenever declaring a variable whose value should not be altered after the initial assignment, especially to make the code more predictable and easier to understand.</p>
+      
+        <p class="comum">By adopting <code>const</code> by default and using <code>let</code> when necessary, you create safer, less error-prone, and easier-to-understand code.</p>
+      
+        <h2 class="subtitulo">Declaring a Variable</h2>
+        <p class="comum">Variable declaration begins with a keyword that specifies the type of variable (such as <code>var</code>, <code>let</code>, or <code>const</code>) followed by the variable name. Depending on the keyword used, the scope and reassignment behavior of the variable are defined.</p>
+      
+        <table border="1">
+          <tr>
+            <th>Variable Type</th>
+            <th>Variable Name</th>
+            <th>Value</th>
+          </tr>
+          <tr>
+            <td>Var</td>
+            <td>number</td>
+            <td>30</td>
+          </tr>
+        </table>
+      
+        <h3 class="subtitulo">Practical Examples</h3>
+        <pre>
+          <code>
+            var name = "Ana"; // String
+            const age = 25; // Number
+            var isActive = true; // Boolean
+            let person = { name: "João", age: 30 }; // Object
+            const numbers = [1, 2, 3]; // Array
+            let symbol = Symbol("id"); // Symbol
+            const largeNumber = 12345678901234567890n; // BigInt
+          </code>
+        </pre>
+      
+        <h2 class="subtitulo">Initialization and Reassignment</h2>
+        <p class="comum">Initialization is the process of assigning a value to a variable at the time of its declaration. Reassignment is the change of an already existing variable's value. Variables declared with <code>let</code> can be reassigned, but variables declared with <code>const</code> cannot be.</p>
+      
+        <pre>
+          <code>
+            let x = 10;     // Initialization
+            x = 20;         // Reassignment
+          </code>
+        </pre>
+      
+        <p class="comum"><strong>WARNING:</strong> <code>const</code> cannot have its value reassigned; it is immutable.</p>
+      
+        <h2 class="subtitulo">Rules for Naming a Variable</h2>
+        <ul class="lista">
+          <li class="especifico">Start with a letter, underscore (_) or dollar sign ($):</li>
+          <li class="especifico">Can contain letters, numbers, underscores (_) and dollar signs ($):</li>
+          <li class="especifico">Case-sensitive:</li>
+          <li class="especifico">Name length: There is no size limit, but it should be meaningful and concise.</li>
+          <li class="especifico">Descriptive names: Prefer names that describe what the variable represents.</li>
+          <li class="especifico">Naming conventions: Although not required by JavaScript, there are some widely-followed conventions to make the code easier to read:</li>
+          <li class="especifico"><strong>camelCase:</strong> Used for variables and functions, where the first word starts with a lowercase letter and subsequent words start with uppercase letters.</li>
+          <li class="especifico"><strong>UPPER_SNAKE_CASE:</strong> Used for constants (in uppercase and with underscores between words).</li>
+        </ul>
+      
+        <h2 class="subtitulo">Reserved Words That Cannot Be Used</h2>
+        <p class="comum">The following keywords are reserved by JavaScript and cannot be used as variable names:</p>
+        <pre>
+          <code>
+            abstract, arguments, await, boolean, break, byte, case, catch, char, class, const, continue,
+            debugger, default, delete, do, double, else, enum, eval, export, extends, false, final, finally,
+            float, for, function, goto, if, implements, import, in, instanceof, int, interface, let, long, 
+            native, new, null, package, private, protected, public, return, short, static, super, switch,
+            synchronized, this, throw, throws, transient, true, try, typeof, var, void, volatile, while, with, yield
+          </code>
+        </pre>
+      
+        <h2 class="subtitulo">JavaScript Functions</h2>
+        <p class="comum">Here are some important JavaScript functions:</p>
+        <ul class="lista">
+          <li class="especifico"><code>eval()</code>: Evaluates JavaScript code represented as a string.</li>
+          <li class="especifico"><code>uneval()</code>: Creates a string representation of the source code of an Object.</li>
+          <li class="especifico"><code>isFinite()</code>: Determines if the passed value is a finite number. If necessary, the parameter is first converted to a number.</li>
+          <li class="especifico"><code>isNaN()</code>: Determines if a value is NaN (Not a Number).</li>
+          <li class="especifico"><code>parseFloat()</code>: Parses a string argument and returns a floating-point number.</li>
+          <li class="especifico"><code>parseInt()</code>: Parses a string argument and returns an integer of the specified base.</li>
+          <li class="especifico"><code>decodeURI()</code>: Decodes a Uniform Resource Identifier (URI) previously created by <code>encodeURI</code>.</li>
+          <li class="especifico"><code>decodeURIComponent()</code>: Decodes a URI component previously created by <code>encodeURIComponent</code>.</li>
+          <li class="especifico"><code>encodeURI()</code>: Encodes a URI, replacing certain characters with escape sequences representing the UTF-8 encoding of the character.</li>
+          <li class="especifico"><code>encodeURIComponent()</code>: Encodes a URI component, replacing certain characters with escape sequences.</li>
+          <li class="especifico"><code>escape()</code>: This method is deprecated. It replaces characters with hexadecimal escape sequences. Use <code>encodeURI</code> or <code>encodeURIComponent</code> instead.</li>
+          <li class="especifico"><code>unescape()</code>: This method is deprecated. It replaces escape sequences with the character they represent. Use <code>decodeURI</code> or <code>decodeURIComponent</code> instead.</li>
+        </ul>
+        <p class="comum">Source: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types" target="_blank">MDN Web Docs - JavaScript Guide</a></p>
+
+    </main>
+    <footer class="footer">
+    
+        <div id="footer-placeholder"></div>
+        <script src="main.js"></script>
+        <script>
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
+    </footer>
+</body>
+</html>

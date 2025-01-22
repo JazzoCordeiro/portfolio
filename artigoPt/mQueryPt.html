@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Mídia</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <div id="header-placeholder"></div>
+        <script> fetch('../header-pt2.html').then(response => response.text()).then(data => {
+                document.getElementById('header-placeholder').innerHTML = data; initializeThemeSwitcher(); // Chama a função para inicializar o botão de modo
+            }); function initializeThemeSwitcher() {
+                let trilho = document.getElementById('trilho'); if (!trilho) { console.error('Elemento "trilho" não encontrado'); return; } let body = document.querySelector('body'); let header = document.querySelector('.header'); let tooltips = document.querySelectorAll('.tooltip'); // Verificar se o modo light foi salvo no localStorage e aplicar
+                if (localStorage.getItem('theme') === 'light') { body.classList.add('light'); header.classList.add('light'); trilho.classList.add('light'); tooltips.forEach(function (tooltip) { tooltip.classList.add('light'); }); } // Alterna entre o modo normal e o modo light 
+                trilho.addEventListener('click', function () {
+                    trilho.classList.toggle('light'); body.classList.toggle('light'); header.classList.toggle('light'); tooltips.forEach(function (tooltip) { tooltip.classList.toggle('light'); }); // Salva a preferência no localStorage (modo light ou normal) 
+                    if (body.classList.contains('light')) { localStorage.setItem('theme', 'light'); } else { localStorage.removeItem('theme'); }
+                });
+            } </script>
+    </header>
+    <main>
+        <h1 class="titulo">Usando Media Query para Acessibilidade</h1>
+
+        <p class="comum">A consulta de mídia (media query) é uma técnica usada no design responsivo para aplicar diferentes estilos CSS dependendo das características do dispositivo ou tela do usuário, como o tamanho da tela, resolução, orientação, etc. Ela permite ajustar o layout e o conteúdo de um site para que ele se adapte corretamente a diferentes dispositivos (como desktops, tablets, smartphones) e também pode ser usada para melhorar a acessibilidade de um site.</p>
+      
+        <p class="comum">No contexto de acessibilidade, a consulta de mídia pode ser usada para ajustar o conteúdo de acordo com as necessidades específicas de usuários com deficiências. Isso inclui ajustar o layout para telas menores, aumentar o tamanho da fonte ou alterar o contraste, entre outras coisas, sem precisar alterar a estrutura do conteúdo.</p>
+      
+        <h2 class="subtitulo">Como Usar Media Query para Melhorar a Acessibilidade?</h2>
+      
+        <p class="comum">Primeiro, você declara a consulta de mídia e o tamanho da tela desejada (você pode usar max e min-width), depois repete as propriedades usadas anteriormente, mas com os ajustes para as telas respectivas.</p>
+      
+        <pre>
+          <code>
+            @media (max-width: 600px) {
+              body {
+                font-size: 18px; /* Aumenta o tamanho da fonte para melhorar a legibilidade */
+              }
+            }
+          </code>
+        </pre>
+      
+        <h3 class="subtitulo">Detectar Preferências do Usuário (Preferências de Acessibilidade)</h3>
+      
+        <p class="comum">Você pode usar a consulta de mídia <code>prefers-reduced-motion</code> para adaptar o site para usuários que preferem menos animações ou movimentos (uma característica importante para pessoas com condições como epilepsia ou dificuldades de concentração).</p>
+      
+        <pre>
+          <code>
+            /* Detecta se o usuário prefere menos movimento ou animações */
+            @media (prefers-reduced-motion: reduce) {
+              .animated-element {
+                animation: none; /* Desativa animações */
+              }
+            }
+          </code>
+        </pre>
+      
+        <h3 class="subtitulo">Personalizar Layout de Acordo com a Orientação da Tela</h3>
+      
+        <p class="comum">Você pode adaptar o layout com base na orientação da tela (retrato ou paisagem). Isso pode ser útil para melhorar a experiência de navegação, dependendo de como o usuário está segurando o dispositivo.</p>
+      
+        <pre>
+          <code>
+            /* Altera o layout quando o dispositivo está na orientação paisagem */
+            @media (orientation: landscape) {
+              .container {
+                grid-template-columns: 1fr 1fr 1fr; /* Exibe três colunas no modo paisagem */
+              }
+            }
+          </code>
+        </pre>
+
+    </main>
+    <footer class="footer">
+    
+        <div id="footer-placeholder"></div>
+        <script src="main.js"></script>
+        <script>
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
+    </footer>
+</body>
+
+</html>

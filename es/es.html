@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Jazão</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <div id="header-placeholder"></div>
+        <script> fetch('./header-es.html').then(response => response.text()).then(data => {
+                document.getElementById('header-placeholder').innerHTML = data; initializeThemeSwitcher(); // Chama a função para inicializar o botão de modo 
+            }); function initializeThemeSwitcher() {
+                let trilho = document.getElementById('trilho'); if (!trilho) { console.error('Elemento "trilho" não encontrado'); return; } let body = document.querySelector('body'); let header = document.querySelector('.header'); let tooltips = document.querySelectorAll('.tooltip'); // Verificar se o modo light foi salvo no localStorage e aplicar
+                if (localStorage.getItem('theme') === 'light') { body.classList.add('light'); header.classList.add('light'); trilho.classList.add('light'); tooltips.forEach(function (tooltip) { tooltip.classList.add('light'); }); } // Alterna entre o modo normal e o modo light 
+                trilho.addEventListener('click', function () {
+                    trilho.classList.toggle('light'); body.classList.toggle('light'); header.classList.toggle('light'); tooltips.forEach(function (tooltip) { tooltip.classList.toggle('light'); }); // Salva a preferência no localStorage (modo light ou normal) 
+                    if (body.classList.contains('light')) { localStorage.setItem('theme', 'light'); } else { localStorage.removeItem('theme'); }
+                });
+            } </script>
+    </header>
+    <main>
+        <div class="together">
+            <section class="homeContainer">
+                <img src="../img/eu.jpeg" alt="Jazão Cordeiro, un hombre latino robusto vistiendo ropa negra" class="personalPhoto">
+                <article class="introduction">
+                    <h1 class="h1">Portafolio de Jazão Cordeiro Rosa</h1>
+                    <p class="paragraph"><span style="color: var(--letter-b-bright); font-weight: bold;">¡Bienvenido! Soy Jazão, pero puedes llamarme Jazzo</span> (puedes encontrar mi nombre completo y otros detalles en la sección <span style="color: var(--letter-b-bright); font-weight: bold;">"Sobre mi"</span> ). Soy un programador web front-end que vive en Brasil, tengo 38 años y hablo portugués, inglés y español. </b>. Este sitio está disponible en los tres idiomas.</p>
+
+                    <p class="paragraph">Este sitio sirve tanto como mi currículum como mi portafolio, y también forma parte de mi portafolio. Aquí encontrarás información sobre los cursos que he estudiado, certificados, algunos artículos que he escrito, mis proyectos y cualquier otra cosa que encuentre interesante. Cualquier cosa no relacionada con el trabajo se colocará en la sección "Varios".</p><br>
+
+                    <p class="paragraph">Vengo estudiando programación web front-end seriamente desde 2023. Antes de eso, había completado algunos proyectos personales y hecho algunos trabajos como freelancer, pero nunca tuve la intención de seguirlo como carrera. Lo que quiero decir es que hoy estoy absolutamente fascinado por la programación y planeo profundizar mucho más en ello. ¿Cómo no me di cuenta de esto antes?</p><br>
+            </section>
+            <section class="container">
+                <h2 class="h2">¿Qué se puede encontrar en este sitio web?</h2>
+
+                <p class="paragraph"><span style="color: var(--letter-b-bright); font-weight: bold;">Sobre mí:
+                    </span>Aquí puedes aprender más sobre el currículum, experiencias, títulos, campos de estudio preferidos, cursos y más de Jazzo. En esta sección, también encontrarás mis certificados.</p>
+
+                <p class="paragraph"><span style="color: var(--letter-b-bright); font-weight: bold;">Portafolio:
+                    </span>En esta sección especial, encontrarás enlaces a mis mejores proyectos. Estos te llevarán a GitHub, donde podrás revisar el código, así como a imágenes, videos o proyectos en vivo donde podrás ver y probar el producto final.</p>
+
+                <p class="paragraph"><span style="color: var(--letter-b-bright); font-weight: bold;">Articulos:
+                    </span>Aquí encontrarás una lista de artículos que he escrito, junto con resúmenes que hice durante mis estudios. Sirven como una forma de ayudarme a recordar y ayudar a cualquiera que esté interesado en aprender de ellos.</p>
+
+                <p class="paragraph"><span style="color: var(--letter-b-bright); font-weight: bold;">Contacto: </span>Si deseas ponerte en contacto, encontrarás mis datos de contacto aquí. También puedes enviarme un mensaje a través del formulario si deseas saber más.</p>
+
+                <p class="paragraph"><span style="color: var(--letter-b-bright); font-weight: bold;">Varios:
+                    </span>En esta sección, encontrarás información general y aleatoria sobre mí, como algunos de mis intereses. Definitivamente no es necesario, pero pensé que sería divertido incluir.</p>
+
+                </article>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <script src="../main.js"></script>
+        <div id="footer-placeholder"></div>
+        <script>
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
+        </footer>
+</body>
+
+</html>

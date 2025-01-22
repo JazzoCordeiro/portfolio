@@ -1,0 +1,706 @@
+/* index page */
+
+/* Definindo variáveis para as cores */
+:root {
+    --bg-dark: #010d29; /* Cor de fundo escura */
+    --bg-light: #f3fcff; /* Cor de fundo clara */
+    --letter-b-light: #62d8ff; /* Cor de letras claras */
+    --letter-b-bright: #3badd3; /* Cor de letras brilhantes */
+    --pinkish: #d81c5c; /* Cor rosa */
+    --letter-b-dark: #010d29; /* Cor de letras escuras */
+}
+
+/* Regras gerais para todos os elementos */
+* {
+    margin: 0; /* Remove margem */
+    padding: 0; /* Remove padding */
+    outline: none; /* Remove outline */
+    border: 0; /* Remove borda */
+    text-decoration: none; /* Remove sublinhado */
+    transition: 0.2s linear; /* Transição suave para mudanças de estado */
+    font-family: "Roboto", sans-serif; /* Define a fonte */
+}
+
+/* Estilização do corpo da página */
+body {
+     /* Centraliza os elementos verticalmente */
+    width: 100vw; /* largura de 100% da tela */
+    height: 100vh;
+    background-color: var(--bg-dark); /* Cor de fundo escura */
+    color: var(--bg-light); /* Cor das letras claras */
+    transition: 0.3s; /* Transição suave para mudanças de tema */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilizando a área principal da página */
+main {
+    padding-top: 18vh;/* Espaçamento superior, relativo à altura da tela */
+    padding-bottom: 3vh; /* Espaçamento inferior */
+    max-width: 65%;
+   
+}
+
+/* Estilos para links */
+a {
+    color: var(--letter-b-bright); /* Cor dos links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+/* Estilo para links visitados */
+a:visited {
+    color: var(--bg-light); /* Cor dos links após serem visitados */
+}
+
+/* Estilo para links ao passar o mouse */
+a:hover {
+    color: var(--pinkish); /* Cor ao passar o mouse sobre o link */
+}
+
+/* Estilos para o modo claro (light mode) */
+body.light {
+    background-color: var(--bg-light); /* Cor de fundo clara */
+    color: var(--bg-dark); /* Cor das letras escuras */
+}
+
+/* Estilos para links no modo claro */
+body.light a {
+    color: var(--bg-dark); /* Cor dos links no modo claro */
+}
+
+/* Estilo para links no modo claro ao passar o mouse */
+body.light a:hover {
+    color: var(--pinkish); /* Cor dos links ao passar o mouse no modo claro */
+}
+
+/* Estilos para o cabeçalho no modo claro */
+body.light .header {
+    color: var(--bg-dark); /* Cor do texto no cabeçalho */
+    background-color: var(--letter-b-light); /* Cor de fundo do cabeçalho */
+}
+
+/* Estilos para o cabeçalho em geral */
+.header {
+    position: fixed; /* Cabeçalho fixo no topo da página */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99; /* Garante que o cabeçalho fique acima de outros elementos */
+    background-color: var(--bg-dark); /* Cor de fundo escura */
+    width: 100vw; /* Largura de 100% da tela */
+}
+
+/* Adiciona uma linha de gradiente no cabeçalho */
+.header::after {
+    content: ''; /* Cria um pseudo-elemento */
+    display: block;
+    height: 1px; /* Altura de 1 pixel */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    background: linear-gradient(to right, transparent, var(--pinkish), transparent); /* Gradiente */
+}
+
+/* Estilos para o grupo do cabeçalho (logo + links de navegação) */
+.groupHead {
+    display: flex;
+    align-items: center; /* Alinha verticalmente */
+    justify-content: space-between; /* Espaça igualmente os elementos */
+    padding: 0 3rem; /* Adiciona espaçamento interno */
+    max-width: 95%; /* Limita a largura máxima */
+}
+
+/* Estilo para o logo */
+.mylogo {
+    margin-right: 2rem; /* Espaço à direita da logo */
+    max-width: 80px; /* Limita a largura máxima do logo */
+}
+
+/* Estilos para a barra de navegação */
+.navbar {
+    display: flex;
+    justify-content: center; /* Centraliza os itens da barra */
+    gap: 2rem; /* Espaçamento entre os itens */
+    flex-grow: 1; /* A barra de navegação ocupa o espaço restante */
+    list-style: none; /* Remove marcadores da lista */
+}
+
+/* Estilo para o separador entre os links */
+.separador {
+    color: var(--pinkish); /* Cor do separador */
+}
+
+/* Estilos para o botão de modo (light/dark) */
+.mode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 8px; /* Tamanho de fonte pequeno */
+}
+
+/* Estilo para o controle deslizante (modo claro/escuro) */
+.trilho {
+    width: 50px; /* Largura do trilho */
+    height: 25px; /* Altura do trilho */
+    background-color: var(--letter-b-light); /* Cor de fundo */
+    border-radius: 20px; /* Bordas arredondadas */
+    position: relative; /* Necessário para o posicionamento do indicador */
+    cursor: pointer; /* Indica que é interativo */
+}
+
+/* Estilos para o trilho no modo claro */
+.trilho.light {
+    background-color: var(--letter-b-bright); /* Cor do trilho no modo claro */
+}
+
+/* Estilo para o indicador dentro do trilho */
+.trilho .indicador {
+    width: 30px; /* Largura do indicador */
+    height: 25px; /* Altura do indicador */
+    background-color: var(--bg-dark); /* Cor de fundo do indicador */
+    border-radius: 50%; /* Forma circular */
+    transform: scale(.8); /* Reduz o tamanho do indicador */
+    position: absolute; /* Posicionamento absoluto */
+    left: 0; /* Inicia no lado esquerdo */
+    transition: 0.4s; /* Transição suave para o movimento */
+}
+
+/* Estilo para o indicador no modo claro */
+.trilho.light .indicador {
+    left: 19px; /* Move o indicador para a direita */
+    background-color: var(--bg-light); /* Cor do indicador no modo claro */
+}
+
+/* Estilos para os ícones (presumivelmente no rodapé) */
+.icons {
+    display: flex;
+    margin-top: 0;
+}
+
+/* Estilos para o rodapé */
+footer {
+    padding-top: 0.1rem;
+    position: relative; /* Necessário para o ::before */
+}
+
+/* Adiciona uma linha de gradiente no rodapé */
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0; /* Alinha no topo do rodapé */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajuste para centralizar */
+    width: 100vw; /* Largura ajustável */
+    height: 1px; /* Altura de 1 pixel */
+    background: linear-gradient(to right, transparent, var(--pinkish), transparent); /* Gradiente */
+}
+
+/* Estilo para o parágrafo no rodapé */
+footer p {
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+/* Margem superior do parágrafo no rodapé */
+.footerP {
+    margin-top: 2rem;
+}
+
+/* Estilos para o contêiner principal da página inicial */
+.homeContainer {
+    display: flex;
+    flex-direction: row; /* Organiza os elementos em linha */
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* Estilos para um contêiner genérico */
+.container {
+    display: flex;
+    flex-direction: column; /* Organiza os itens em coluna */
+    justify-content: center;
+    text-align: justify; /* Justifica o texto */;
+}
+
+/* Estilo para fotos pessoais */
+.personalPhoto {
+    max-width: 200px; /* Limita a largura da imagem */
+    margin-bottom: 2rem; /* Espaçamento abaixo da imagem */
+    margin-right: 2rem; /* Espaçamento à direita da imagem */
+    margin-top: 0;
+    transform: translateY(0.9rem); /* Move ligeiramente a imagem para baixo */
+}
+
+/* Estilos para artigos */
+article {
+    display: flex;
+    flex-direction: column; /* Organiza os itens em coluna */
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    text-align: justify; /* Justifica o texto */
+}
+
+/* Estilo para o título principal (h1) */
+.h1 {
+    font-size: x-large; /* Tamanho maior para h1 */
+    color: var(--letter-b-bright); /* Cor do título */
+    align-self: flex-start; /* Alinha à esquerda */
+ 
+}
+
+/* Estilo para o subtítulo (h2) */
+.h2 {
+    justify-content: center; /* Centraliza o subtítulo */
+    color: var(--letter-b-bright); /* Cor do subtítulo */
+    transform: translateX(14.5rem); /* Move o título para a direita */
+}
+
+/* Estilos para o terceiro nível de título (h3) */
+h3 {
+    justify-content: center;
+    text-align: center;
+}
+
+/* Estilos para os parágrafos */
+.paragraph {
+    margin-top: 1rem; /* Espaço superior */
+}
+
+/* Estilos para a tooltip (mensagem de ajuda) */
+.tooltip {
+    display: none; /* Inicialmente escondido */
+    position: absolute; /* Posicionamento absoluto */
+    pointer-events: none; /* Impede interação com a tooltip */
+    font-size: small; /* Tamanho de fonte pequeno */
+    color: var(--letter-b-light); /* Cor do texto */
+}
+
+/* Estilos para a tooltip no modo claro */
+body.light .tooltip {
+    color: var(--bg-dark); /* Cor do texto no modo claro */
+}
+
+/* Exibe a tooltip quando a imagem é hover */
+.img1:hover + .tooltip1,
+.img2:hover + .tooltip2,
+.img3:hover + .tooltip3 {
+    display: block; /* Torna a tooltip visível */
+}
+
+
+/*  ------- Modo claro/escuro -------- */
+
+  .bigBox {
+    place-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .portName {
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    font-size: x-large; /* Tamanho maior para h1 */
+    color: var(--letter-b-bright); /* Cor do título */
+    text-align: center;
+    margin-bottom: 2rem;
+    transform: translateX(-1rem);
+
+  }
+  
+  .projects {
+    text-align: center;
+  color: var(--letter-b-bright);
+  
+  }
+  
+  
+  .project1 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .project2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  
+
+  
+  .car {
+      display: none;
+      width: 70%;
+      overflow: hidden;
+      background-color: var(--bg-dark);
+      color: var(--letter-b-light);
+      padding: 10px;
+      position: relative;
+      left: 13.8%;
+      border: 4px solid;
+      border-color: var(--pinkish);
+      border-radius: 15px;
+      margin-top: 2%;
+      z-index: 1;
+  }
+  
+  .car.active {
+      display: block;
+      background-color: var(--bg-dark);
+  
+  
+  }
+  
+  
+    #prev1, #next1 {
+      position: absolute;
+      background-color: var(--letter-b-bright);
+      color: var(--bg-dark);
+      top: 55%;
+      transform: translateY(-50%); 
+      width: 50px;
+      height: 50px;
+      font-size:xx-large;
+      font-weight:bolder;
+      border-radius: 50%;
+      cursor: pointer;
+      font-family: Arial, Helvetica, sans-serif;
+      z-index: 99;
+    }
+  
+    #prev1 {
+      left: 98px;
+    }
+    #next1 {
+      right: 100px;
+    }
+  
+  
+  .carro {
+    display: none;
+    width: 70%;
+    overflow: hidden;
+    background-color: var(--bg-dark);
+    color: var(--letter-b-light); 
+    padding: 10px;
+    position: relative;
+    left: 13.8%;
+    border: 4px solid;
+    border-color: var(--pinkish);
+    border-radius: 15px;
+    margin-top: 2%;
+  }
+  
+  .carro.active2 {
+      display: block;
+      background-color: var(--bg-dark);
+  }
+  
+  
+    #prev2, #next2 {
+        position: absolute;
+        background-color: var(--letter-b-bright);
+        color: var(--bg-dark);
+        top: 55%;
+        transform: translateY(-50%); 
+        width: 50px;
+        height: 50px;
+        font-size:xx-large;
+        font-weight:bolder;
+        border-radius: 50%;
+        cursor: pointer;
+        font-family: Arial, Helvetica, sans-serif;
+        z-index: 99;
+    }
+  
+    #prev2 {
+      left: 100px;
+    }
+    #next2 {
+      right: 100px;
+    }
+  
+  
+    #modal1, #modal2 {
+        width: 80%;
+        max-height: 80%;
+        background-color: var(--letter-b-dark);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none; /* Adicionando display flex para centralizar conteúdo */
+        flex-direction: column; /* Organiza os elementos na coluna */
+        justify-content: center; /* Alinha o conteúdo verticalmente */
+        align-items: center; /* Alinha o conteúdo horizontalmente */
+        padding: 20px;
+        animation: animate;
+        animation-duration: 0.9s;
+  }
+  
+ 
+  @keyframes animate {
+      from{opacity: 1;}
+      from{opacity: 0;}
+  }
+  
+    .portImg {
+    max-height: 250px;
+    min-height: 250px;
+    width: auto;
+    padding-bottom: 20px;
+    display: block; /* Garante que a imagem será tratada como um bloco */
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+  }
+  
+  #openButton, #openButton2, #closeModal, #closeModal2 {
+    cursor: pointer;
+    background-color: var(--pinkish);
+    color: var(--bg-dark);
+    font-size: large;
+    border-radius: 10px;
+    width: 120px;
+    height: 30px;
+
+  }
+  
+  #openButton:hover, #openButton2:hover, #closeModal:hover, #closeModal2:hover {
+    background-color: var(--pinkish);
+    color: var(--bg-dark);
+    font-size: larger;
+    width: 125px;
+    height: 32px;
+  }
+  
+  .description {
+    margin-bottom: 1rem;
+  }
+  
+  
+  /*  ---------- contact ---------- */
+
+.big-contact {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.social {
+    display: flex; 
+    flex-direction: row; 
+    gap: 3.5rem;
+    
+}
+
+.social p {
+    margin-top: 1rem; 
+    margin-bottom: 1rem;
+}
+
+.email {
+    margin-top: 1.8rem;
+}
+
+.socialMedia {
+    text-align: center; 
+    max-width: 60vw; /* Define uma largura máxima para o h1, se necessário */
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+
+/* ---------- about --------- */
+
+.bigContainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    padding-top: 0;
+
+}
+
+.aboutPic {
+    max-width: 200px;
+    margin-left: 0;
+    margin-right: 2rem;
+}
+
+.topName {
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-top: 0;
+    color: var(--letter-b-bright);
+    font-size: x-large;
+
+}
+
+#botao {
+    border: none;        /* Remove a borda */
+    background: none;    /* Remove o fundo */
+    padding: 0;          /* Remove qualquer espaçamento interno */
+    cursor: pointer;    /* Garante que o cursor se torne um ponteiro */
+    display: inline-block; /* Evita que o botão ocupe toda a largura */
+    width: auto;         /* Tamanho automático */
+    height: auto;        /* Tamanho automático */
+}
+
+#botao:focus {
+    outline: none;       /* Remove o contorno de foco */
+    box-shadow: none;    /* Remove qualquer sombra de foco */
+}
+
+#botao img {
+    width: 48px;         /* Tamanho da imagem do botão */
+    height: 48px;        /* Ajuste a altura da imagem */
+    display: block;      /* Garante que a imagem se comporte como um bloco */
+    transform: translateY(-1%);
+    max-height: 30px;
+    max-width: 30px;
+}
+
+
+.iconsMe img {
+    margin: 0;
+    margin-top: 1rem;
+    width: 40px;  /* Certifique-se de que os ícones estão com o mesmo tamanho */
+    height: 40px;
+    vertical-align: middle;
+    
+}
+.iconsMe {
+    margin-bottom: 1rem;
+}
+
+.columnize {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0;
+    padding: 0;
+}
+
+.namePlay{
+    display: flex; /* Alinha h1 e o botão lado a lado */
+    align-items: center; /* Alinha verticalmente os itens */
+    gap: 0.5rem; /* Adiciona um espaçamento de 1rem entre o h1 e o botão */
+
+}
+
+.title {
+    text-align: center;
+    padding-top: 0;
+    color: var(--letter-b-bright);
+    margin-bottom: 1rem;
+}
+
+.title1 {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 0;
+    color: var(--letter-b-bright);
+    margin-bottom: 1rem;
+    
+}
+
+.title2 {
+    text-align: center;
+    padding-top: 0;
+    color: var(--letter-b-bright);
+    margin-bottom: 3rem;
+}
+
+.subtitle {
+    margin-top: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--letter-b-bright);
+}
+
+.key-words {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.skill {
+    color: var(--letter-b-bright);
+    margin-top: 2rem;
+}
+
+.soft {
+    color: var(--pinkish);
+}
+
+.highlight {
+    color: var(--letter-b-bright);
+    font-weight: bold; /* Negrito opcional */
+}
+
+.aboutPic {
+    max-width: 220px;
+    max-height: auto;
+}
+
+
+/* -------- artigos -------- */
+
+
+.articlesH1 {
+    text-align: center; 
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    color: var(--letter-b-bright);
+    font-size: x-large; /* Tamanho maior para h1 */
+}
+
+.articleP {
+    margin-top: 0;
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+
+}
+
+.listArticles {
+    padding-left: 1rem;
+}
+
+
+.titulo {
+    font-size: x-large; /* Tamanho maior para h1 */
+    color: var(--letter-b-bright); /* Cor do título */
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.subtitulo {
+    font-size: x-large; /* Tamanho maior para h1 */
+    color: var(--letter-b-bright); /* Cor do título */
+    text-align: center; 
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.comum {
+    margin-bottom: 1rem;
+    text-align: center, justify;
+}
+.lista {
+    transform: translateX(1rem);
+}
+
+.especifico {
+    margin-bottom: 0.3rem;
+    margin-top: 0.3rem;
+}
+
+.highlight-word {
+    display: inline-block;
+    transition: color 0.5s ease;
+}
+
+.highlight-word.highlighted {
+    color: #d81c5c; /* Cor de destaque */
+}

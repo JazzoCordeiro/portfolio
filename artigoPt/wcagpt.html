@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WCAG</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <div id="header-placeholder"></div>
+        <script> 
+            fetch('../header-pt2.html').then(response => response.text()).then(data => {
+                document.getElementById('header-placeholder').innerHTML = data; 
+                initializeThemeSwitcher(); // Chama a função para inicializar o botão de modo 
+            });
+            function initializeThemeSwitcher() {
+                let trilho = document.getElementById('trilho'); 
+                if (!trilho) { 
+                    console.error('Elemento "trilho" não encontrado'); 
+                    return; 
+                } 
+                let body = document.querySelector('body'); 
+                let header = document.querySelector('.header'); 
+                let tooltips = document.querySelectorAll('.tooltip'); 
+                // Verificar se o modo light foi salvo no localStorage e aplicar
+                if (localStorage.getItem('theme') === 'light') { 
+                    body.classList.add('light'); 
+                    header.classList.add('light'); 
+                    trilho.classList.add('light'); 
+                    tooltips.forEach(function (tooltip) { 
+                        tooltip.classList.add('light'); 
+                    }); 
+                } 
+                // Alterna entre o modo normal e o modo light 
+                trilho.addEventListener('click', function () {
+                    trilho.classList.toggle('light'); 
+                    body.classList.toggle('light'); 
+                    header.classList.toggle('light'); 
+                    tooltips.forEach(function (tooltip) { 
+                        tooltip.classList.toggle('light'); 
+                    }); 
+                    // Salva a preferência no localStorage (modo light ou normal) 
+                    if (body.classList.contains('light')) { 
+                        localStorage.setItem('theme', 'light'); 
+                    } else { 
+                        localStorage.removeItem('theme'); 
+                    }
+                });
+            } 
+        </script>
+    </header>
+    <main>
+        <h1 class="titulo">Como Criar Sites Acessíveis – WCAG</h1>
+
+        <p class="comum">As Diretrizes de Acessibilidade para Conteúdo da Web (WCAG) definem como tornar o conteúdo da web mais acessível para pessoas com deficiências. A acessibilidade cobre uma ampla gama de deficiências, incluindo deficiências visuais, auditivas, físicas, de fala, intelectuais, linguísticas, de aprendizado e neurológicas. Embora essas diretrizes tratem de uma ampla variedade de situações, elas não conseguem cobrir todas as necessidades das pessoas com todos os tipos, graus e combinações de deficiências.</p>
+
+        <p class="comum">Aqui estão alguns dos principais pontos a considerar que ajudarão a criar sites e aplicativos melhores. No entanto, se você estiver interessado, pode acessar a documentação completa aqui: <a href="https://www.w3c.br/traducoes/wcag/wcag21-pt-BR/">https://www.w3c.br/traducoes/wcag/wcag21-pt-BR/</a></p>
+
+        <p class="comum">https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/acessibilidade-digital/guiaboaspraaticasparaacessibilidadedigital.pdf</p>
+
+        <h2 class="subtitulo">Dicas para tornar seu site mais acessível para diferentes tipos de deficiências.</h2>
+
+        <h3>1. Deficiência Visual</h3>
+        <p class="comum">Pessoas com deficiências visuais podem ter dificuldades que variam de leves a cegueira total. As principais práticas da WCAG para elas incluem:</p>
+        <ul class="lista">
+            <li class="especifico"><strong>Texto alternativo (Texto Alt) para imagens</strong>: Use descrições textuais para imagens, gráficos e outros conteúdos visuais, permitindo que os leitores de tela interpretem as imagens.</li>
+            <li class="especifico"><strong>Contraste de cor</strong>: Certifique-se de que o texto tenha contraste suficiente com o fundo, observando que o contraste é de luminosidade, não de cor (um mínimo de 4,5:1).</li>
+        </ul>
+
+        <h3 class="subtitulo">DICA: Use texturas em vez de cores</h3>
+        <p class="comum">Como mencionado antes, basear decisões apenas na cor não é uma boa prática de acessibilidade. Sempre que possível, indique visualmente a diferença entre elementos usando formas primitivas ou padrões que podem ser gerados a partir de serviços ou softwares gratuitos como Illustrator ou Sketch.</p>
+
+        <ul class="lista">
+            <li class="especifico"><strong>Estrutura semântica</strong>: Uso adequado de títulos, listas e cabeçalhos para facilitar a navegação com leitores de tela.</li>
+            <li class="especifico"><strong>Conteúdo acessível por teclado</strong>: Certifique-se de que todo o conteúdo possa ser acessado sem um mouse, usando apenas o teclado.</li>
+            <li class="especifico"><strong>Evite conteúdo piscando ou cintilando</strong>: Elementos que piscam mais de três vezes por segundo podem causar desconforto ou provocar convulsões em pessoas com deficiências visuais ou epilepsia.</li>
+        </ul>
+
+        <h3 class="subtitulo">2. Deficiência Auditiva</h3>
+        <p class="comum">Pessoas surdas ou com dificuldades auditivas podem precisar de alternativas para conteúdos de áudio. Algumas práticas incluem:</p>
+        <ul class="lista">
+            <li class="especifico"><strong>Legendas e transcrições</strong>: Forneça legendas para vídeos e transcrições para áudios, garantindo que a informação seja acessível.</li>
+            <li class="especifico"><strong>Indicadores visuais para alertas de áudio</strong>: Para qualquer som que forneça informações importantes, deve haver uma alternativa visual (como ícones ou texto).</li>
+            <li class="especifico"><strong>Conteúdo multimodal</strong>: Certifique-se de que a informação possa ser acessada em formas não auditivas, como texto ou vídeos com intérpretes de libras (para vídeos).</li>
+        </ul>
+
+        <h3 class="subtitulo">3. Deficiência Motora</h3>
+        <p class="comum">Pessoas com deficiências motoras podem ter dificuldades em usar um mouse ou clicar em links pequenos. Algumas práticas incluem:</p>
+        <ul class="lista">
+            <li class="especifico"><strong>Navegação por teclado</strong>: Certifique-se de que todo o site ou aplicativo possa ser acessado usando apenas o teclado, sem a necessidade de um mouse.</li>
+            <li class="especifico"><strong>Espaço clicável adequado (tamanho do alvo)</strong>: Certifique-se de que botões, links e outros elementos interativos tenham um tamanho mínimo de 44x44 px, facilitando o clique.</li>
+            <li class="especifico"><strong>Evite ações que exigem precisão excessiva</strong>: Por exemplo, evite campos de formulário que exigem cliques pequenos e exatos.</li>
+            <li class="especifico"><strong>Controles de interface personalizáveis</strong>: Permita que os usuários ajustem a interface para torná-la mais fácil de usar, como aumentar o tamanho dos controles.</li>
+        </ul>
+
+        <h3 class="subtitulo">4. Deficiência Cognitiva</h3>
+        <p class="comum">Pessoas com deficiências cognitivas podem ter dificuldades em entender ou memorizar informações. Algumas práticas incluem:</p>
+        <ul class="lista">
+            <li class="especifico"><strong>Linguagem simples</strong>: Use uma linguagem clara e simples, evitando jargões ou termos complexos.</li>
+            <li class="especifico"><strong>Design claro e limpo</strong>: Use layouts simples e consistentes sem sobrecarga de informações.</li>
+            <li class="especifico"><strong>Instruções claras e orientações</strong>: Forneça instruções claras e explicações simples para ações como preencher formulários ou navegar por menus.</li>
+            <li class="especifico"><strong>Navegação previsível</strong>: O design deve ser consistente, com navegação fácil e clara por todo o site ou aplicativo.</li>
+        </ul>
+
+        <h3 class="subtitulo">5. Deficiência Neurológica / Epilepsia</h3>
+        <p class="comum">Pessoas com epilepsia ou distúrbios neurológicos podem ser sensíveis a estímulos visuais rápidos. Algumas práticas incluem:</p>
+        <ul class="lista">
+            <li class="especifico"><strong>Evite conteúdo piscando rápido</strong>: Certifique-se de evitar conteúdo que pisque ou mude rapidamente (mais de três vezes por segundo), pois pode induzir convulsões em pessoas com epilepsia.</li>
+            <li class="especifico"><strong>Controle sobre animações</strong>: Ofereça aos usuários a opção de pausar ou desativar animações e outros conteúdos em movimento.</li>
+            <li class="especifico"><strong>Foque no contraste e em cores não estressantes</strong>: Use contrastes suaves e evite flashes ou efeitos fortes que possam ser perturbadores para pessoas com condições neurológicas.</li>
+        </ul>
+
+        <h3 class="subtitulo">6. Dificuldade de Leitura (Dislexia)</h3>
+        <p class="comum">Pessoas com dislexia têm dificuldades em ler devido à confusão de letras ou palavras. Algumas práticas incluem:</p>
+        <ul class="lista">
+            <li class="especifico"><strong>Fontes legíveis</strong>: Use fontes simples e legíveis, como Arial, e evite fontes complexas ou difíceis de ler.</li>
+            <li class="especifico"><strong>Espaçamento adequado</strong>: Forneça espaçamento adequado entre letras, palavras e linhas para facilitar a leitura.</li>
+            <li class="especifico"><strong>Uso de contraste e cores suaves</strong>: Use combinações de cores que sejam confortáveis para a leitura, evitando combinações que causem tensão visual.</li>
+            <li class="especifico"><strong>Capacidade de personalizar o conteúdo</strong>: Permita que os usuários escolham o formato de leitura (por exemplo, fontes maiores, contraste ajustado ou fundos personalizados).</li>
+        </ul>
+
+        <h3 class="subtitulo">7. Deficiência de Comunicação</h3>
+        <p class="comum">Pessoas com deficiências de comunicação podem ter dificuldades em interagir com interfaces ou expressar-se. Algumas práticas incluem:</p>
+        <ul class="lista">
+            <li class="especifico"><strong>Uso de alternativas textuais à voz</strong>: Certifique-se de que as pessoas possam usar softwares de leitura ou entrada de voz, oferecendo suporte para comandos de voz ou outras tecnologias assistivas.</li>
+            <li class="especifico"><strong>Facilidade para preencher formulários</strong>: Permita que formulários sejam preenchidos com menos esforço, como sugerir campos automaticamente ou preencher dados previamente.</li>
+            <li class="especifico"><strong>Interação simplificada</strong>: Torne as interações simples e claras, com menos etapas e elementos para selecionar ou digitar.</li>
+        </ul>
+
+        <h3 class="subtitulo">Mais informações sobre:</h3>
+        <h4>Daltonismo:</h4>
+        <p class="comum"><a href="https://escoladedados.org/tutoriais/como-pessoas-daltonicas-enxergam-as-cores-de-seus-graficos/">Como pessoas daltônicas enxergam suas gráficos</a></p>
+        <p class="comum"><a href="https://coletivoux.com/dalt%C3%B4nicos-tamb%C3%A9m-s%C3%A3o-usu%C3%A1rios-4f03ca40c30d">Usuários daltônicos também são usuários</a></p>
+    </main>
+    <footer class="footer">
+
+        <div id="footer-placeholder"></div>
+        <script src="main.js"></script>
+        <script>
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
+    </footer>
+</body>
+</html>

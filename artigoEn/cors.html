@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <div id="header-placeholder"></div>
+        <script> fetch('../header2.html').then(response => response.text()).then(data => {
+                document.getElementById('header-placeholder').innerHTML = data; initializeThemeSwitcher(); // Chama a função para inicializar o botão de modo 
+            }); function initializeThemeSwitcher() {
+                let trilho = document.getElementById('trilho'); if (!trilho) { console.error('Elemento "trilho" não encontrado'); return; } let body = document.querySelector('body'); let header = document.querySelector('.header'); let tooltips = document.querySelectorAll('.tooltip'); // Verificar se o modo light foi salvo no localStorage e aplicar
+                if (localStorage.getItem('theme') === 'light') { body.classList.add('light'); header.classList.add('light'); trilho.classList.add('light'); tooltips.forEach(function (tooltip) { tooltip.classList.add('light'); }); } // Alterna entre o modo normal e o modo light 
+                trilho.addEventListener('click', function () {
+                    trilho.classList.toggle('light'); body.classList.toggle('light'); header.classList.toggle('light'); tooltips.forEach(function (tooltip) { tooltip.classList.toggle('light'); }); // Salva a preferência no localStorage (modo light ou normal) 
+                    if (body.classList.contains('light')) { localStorage.setItem('theme', 'light'); } else { localStorage.removeItem('theme'); }
+                });
+            } </script>
+    </header>
+    <main>
+        <h1 class="titulo">CORS Error and Its Possibilities</h1>
+
+        <p class="comum">This was an error that kept me up all night, crying in a fetal position, desperate and hopeless about life. I created a backend API, a database, and the frontend, but in the end, nothing communicated, and the CORS error appeared. So, here is some information about it and how to fix it.</p>
+      
+        <h2 class="subtitulo">Error Messages</h2>
+        <ul class="lista">
+          <li class="especifico">Failed to load... No "Access-Control-Allow-Origin" header</li>
+          <li class="especifico">Cross-origin request blocked: Same-origin policy does not allow reading the remote resource... Reason: Missing CORS header "Access-Control-Allow-Origin"</li>
+          <li class="especifico">Failed to load... The response to the preflight request failed access control check: No "Access-Control-Allow-Origin" header present on the requested resource. Origin... therefore not allowed access.</li>
+        </ul>
+      
+        <h2 class="subtitulo">Causes of the Error</h2>
+        <p class="comum">A browser-based web application (possibly an app framework) is attempting to make a "cross-origin" call to obtain a "shared resource" from an external web service. This is known as a "CORS" (Cross-Origin Resource Sharing) request. There is a browser-based CORS specification that manages these cross-origin calls. When certain conditions are not met, errors can occur.</p>
+      
+        <p class="comum">It could be related to a use case that is not intentionally allowed by both the user's web application and the external remote service. When one origin (www.origin1.com) calls another origin (www.origin2.com), this is called a cross-origin request. Certain conditions must be in place for this request to work. The external service being called (www.origin2.com) needs to return the HTTP header "Access-Control-Allow-Origin" in its response.</p>
+      
+        <p class="comum">If the external service does not return this header, the browser's adherence to the CORS specification will block the request, and one of the errors above (or similar) will be returned.</p>
+      
+        <h2 class="subtitulo">Troubleshooting Questions</h2>
+        <ul class="lista">
+          <li class="especifico">What is the URL of the request's origin (also known as "origin")? This is sometimes found in the error message itself.</li>
+          <li class="especifico">How is the external service URL called? Sometimes, this appears in the console error message.</li>
+          <li class="especifico">What is being retrieved and why? Is it a PNG file? A script, CSS, or font file? Exactly what is being retrieved and for what purpose?</li>
+          <li class="especifico">Does this external resource require authentication to be accessed?</li>
+          <li class="especifico">If a redirect is required, the Access-Control-Allow-Origin header may not be returned, and the call will fail. Copy the resource URL directly into a new incognito tab in your browser. This can be a good test to see if it can be accessed under general circumstances (but not a guarantee it will work in the web app code).</li>
+          <li class="especifico">Can you see the OPTIONS HTTP method call in the Network tab of the browser?</li>
+          <li class="especifico">What is the use case for retrieving external resources?</li>
+          <li class="especifico">Generate a HAR file.</li>
+        </ul>
+      
+        <h2 class="subtitulo">Possible Next Steps</h2>
+        <p class="comum">Who owns the external server? Perhaps the server can be modified to comply with the CORS specification and return the header. However, keep in mind that even if the server is something controlled internally, this is not necessarily a solution. There may be good reasons why a specific external service does not want to share a resource. If the external server is not controlled internally, you might need to work with that provider or create another workaround, assuming the use case is considered valid.</p>
+      
+        <p class="comum">Was the application created using Zendesk's app framework? A backend proxy server is available in the <code>client.request()</code> call. Use this proxy by setting <code>cors: false</code> in the <code>client.request</code> configuration. Note that "false" is also the default value for this configuration. Since the proxy service is a backend service, it does not need to comply with the browser's CORS specification, so the cross-origin call may succeed using the proxy.</p>
+      
+        <p class="comum">This is not always a solution for everything. The proxy service does not support retrieving files or binary data from external services. There may be other application-specific reasons why this is not a solution either.</p>
+      
+        <p class="comum">Can the resource be embedded directly into the web application? Instead of fetching a cross-origin resource, consider embedding it directly into the web app. This completely avoids the cross-origin request (as it is now a local resource), and any CORS issues may disappear. However, this is not always a fix. Sometimes external resource URLs are not known beforehand, or the resource is too large to fit as a local resource, or the resource changes frequently to download it as a static local resource.</p>
+      
+        <p class="comum">What is the browser version? Despite CORS being a standard, the error messages returned by browsers may differ. Chrome returns different console messages from Firefox.</p>
+      
+        <p class="comum">Sometimes, there is no fix. Sometimes, a request for a resource from an external service should not be shared in the context of a browser web app. The resource owner decides whether or not to share the resource. This is not up to the web app. It may have been developed this way.</p>
+      
+        <h2 class="subtitulo">Using the CORS Library</h2>
+        <p class="comum">For more information, you can check out the CORS library: <a href="https://dev.to/carinebatista/entenda-cors-de-uma-vez-por-todas-4ef6" target="_blank">Understand CORS once and for all</a>.</p>
+      
+        <h2 class="subtitulo">Additional Resources</h2>
+        <ul class="lista">
+          <li class="especifico"><a href="https://help.edrone.me/pt/articles/9046606-cors-nao-esta-permitindo-acessar-os-dados" target="_blank">CORS is not allowing access to the data</a></li>
+          <li class="especifico"><a href="https://repost.aws/pt/knowledge-center/api-gateway-cors-errors" target="_blank">API Gateway CORS Errors</a></li>
+          <li class="especifico"><a href="https://support.zendesk.com/hc/pt-br/articles/4408881672730-Solu%C3%A7%C3%A3o-de-problemas-de-CORS" target="_blank">Zendesk CORS Troubleshooting</a></li>
+          <li class="especifico"><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" target="_blank">MDN CORS Documentation</a></li>
+          <li class="especifico"><a href="https://fetch.spec.whatwg.org/#http-cors-protocol" target="_blank">Fetch CORS Protocol</a></li>
+        </ul>
+      
+    </main>
+    <footer class="footer">
+    
+        <div id="footer-placeholder"></div>
+        <script src="main.js"></script>
+        <script>
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Jazão</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <div id="header-placeholder"></div>
+        <script> fetch('./header-es.html').then(response => response.text()).then(data => {
+                document.getElementById('header-placeholder').innerHTML = data; initializeThemeSwitcher(); // Chama a função para inicializar o botão de modo 
+            }); function initializeThemeSwitcher() {
+                let trilho = document.getElementById('trilho'); if (!trilho) { console.error('Elemento "trilho" não encontrado'); return; } let body = document.querySelector('body'); let header = document.querySelector('.header'); let tooltips = document.querySelectorAll('.tooltip'); // Verificar se o modo light foi salvo no localStorage e aplicar
+                if (localStorage.getItem('theme') === 'light') { body.classList.add('light'); header.classList.add('light'); trilho.classList.add('light'); tooltips.forEach(function (tooltip) { tooltip.classList.add('light'); }); } // Alterna entre o modo normal e o modo light 
+                trilho.addEventListener('click', function () {
+                    trilho.classList.toggle('light'); body.classList.toggle('light'); header.classList.toggle('light'); tooltips.forEach(function (tooltip) { tooltip.classList.toggle('light'); }); // Salva a preferência no localStorage (modo light ou normal) 
+                    if (body.classList.contains('light')) { localStorage.setItem('theme', 'light'); } else { localStorage.removeItem('theme'); }
+                });
+            } </script>
+    </header>
+    <main>
+        <div class="bigContainer">
+                    
+                    <img src="../img/about-me.jpg" alt="un hombre latino robusto con tirantes rojos" class="aboutPic">
+                    <div class="columnize">
+                        <div class="namePlay">
+                            <h1 class="h1">
+                                <span class="highlight-word">Jazão</span>
+                                                <span class="highlight-word">da Silva</span>
+                                                <span class="highlight-word">Custodio</span>
+                                                <span class="highlight-word">Cordeiro</span>
+                                                <span class="highlight-word">Rosa</span>
+                                            </h1>
+                                        <button id="botao" aria-label="un botón clickeable para escuchar mi nombre">
+                                            <img alt="botón del play" src="../img/botao.png">
+                                        </button>
+                                    </div>
+                            <audio id="audio" src="../audio/audio.mp3"></audio>
+                            <br>
+                        <div class="iconsMe"><a href="www.linkedin.com/in/jazzocordeiro"><img width="48" height="48" src="https://img.icons8.com/color/48/linkedin.png" alt="linkedin"/></a>
+                             <a href="https://github.com/JazzoCordeiro"><img width="48" height="48" src="https://img.icons8.com/color/48/github--v1.png" alt="github--v1"/></a>
+                             <a href="https://stackexchange.com/users/36493907/jazzo-cordeiro-rosa"><img width="48" height="48" src="https://img.icons8.com/color/48/stackoverflow.png" alt="stackoverflow"/></a>
+                        </div>
+                        <br><br><br>
+                        <p><span class="highlight">Edad:</span> 38 años</p>
+                        <p><span class="highlight">País:</span> Brasil</p>
+                        <p><span class="highlight">Graduación:</span> Letras Estranjeras Modernas - Inglés  em <a href="https://portal.uel.br/home/"> Universidade Estadual de Londrina (2013)</a>
+                        </p>
+
+                        <p><span class="highlight">2º Graduación:</span> Análisis y Desarrollo de Sistemas en <a href="https://www.saofranciscodeassis.edu.br/">Faculdade São Francisco de Assis (2025)</a>
+                        </p>
+                        <br><br>
+                        <p class="skill">WCAG - JavaScript - TypeScript - TailWind - Vue.js - React.js - React Native - Node.js - Figma - WordPress - SQL.</p>
+                       <br><br>
+                        <p class="soft">Creativo - Rutinario - Responsable - Centrado - Organizado - Analítico - Detallista - Eficiente - Proactivo - Estudioso - Comunicativo</p>
+                        <br>
+                
+            </div>
+                </div>
+                <section><br>
+                    <h2 class="title">Experiencias Pasadas</h2>
+                    <h3 class="title">También deberías revisar otros trabajos en la sección de portafolio</h3>
+                    <h3 class="subtitle">Q.A. y Asistente de Productor en Juego Digital Multiplataforma - Proyecto Jogue Asfalto / SMV Producciones - 2022-2023</h3>
+                    <p class="articleP">Trabajé en las etapas de preproducción y producción del juego, ayudando en la creación de cronogramas, la comunicación dentro del equipo, proporcionando soporte logístico y documentando todo el proceso. Además, trabajé como QA y proporcioné la actuación de voz original.</p>
+                    <br>
+                    <h3 class="subtitle">FullStack - Secretaría de Desarrollo Económico del Estado de São Paulo - 2024 - Actualidad</h3>
+                    <p class="articleP">Investigé, diseñé y desarrollé una API web para organizar el inventario, rastrear y reportar los préstamos de equipos del CTI de la secretaría para más de 200 PATs que apoya. También gestioné la intranet de la secretaría.</p>
+                    <br>
+                    <h3 class="subtitle">Front End - Freelance - 2024 - Actualidad</h3>
+                    <p class="articleP">Diseñé, desarrollé y conecté toda la parte de front-end, aplicando técnicas de UX en una API web que simplifica las tareas diarias de los usuarios, con funcionalidades como reloj, clima/temperatura y alarma. Aún falta actualizar una IA por voz. Hay 19 usuarios activos.</p>
+                    <br>
+                    <h3 class="subtitle">Front End - Freelance - 2020 - Actualidad</h3>
+                    <p class="articleP">Trabajé en diversos proyectos de landing pages con WordPress, desde la elección del tema, edición, modificación y eliminación de código innecesario, hasta la adición y configuración de plugins de WordPress, y el lanzamiento/despliegue en WordPress, GoDaddy y otras plataformas.</p>
+                    <br>
+                    <h3 class="subtitle">Analista de Soporte N2 - Stefanini Consultoría en TI - 2024 - Actualidad</h3>
+                    <p class="articleP">Soporte helpdesk con gestión de red, bases de datos, hardware y software de computadoras, además de atención a VIPs del gobierno del estado de São Paulo.</p>
+                    <p class="articleP">Mientras trabajaba aquí y estaba asignado en la Secretaría de Desarrollo Económico del Estado de São Paulo, también fui responsable de la intranet de la SDE.</p>
+                    <br>
+                </section>
+                
+                <section>
+                    <h1 class="title">Cursos e Certificações</h1>
+    
+                    <h3 class="subtitle">GIT e GITHUB</h2>
+                    <p class="articleP">2024 - Versionamento de Código com Git e GitHub - Bootcamp DIO e PAN BANK</p>
+                    <p class="articleP">2024 - Princípios de Desenvolvimento Colaborativo - Bootcamp DIO Digital Inovation</p>
+                    <p class="articleP">2024 - Contribuindo em um Projeto Open Source no GitHub - Bootcamp DIO e XP INC.</p>
+                    <p class="articleP">2024 - Princípios de Desenvolvimento de Software Colaborativo - Bootcamp DIO e XP INC.</p>
+                    <p class="articleP">2025 - Git e Versionamento - Bootcamp ADA e SANTANDER BANK</p>
+                    
+                    <h3 class="subtitle">HTML e CSS</h2>
+                    <p class="articleP">2022 - Curso de HTML5 completo e grátis - Curso em Vídeo no YouTube</p>
+                    <p class="articleP">2023 - Curso de HTML5 e CSS3 - Curso em Vídeo no YouTube</p>
+                    <p class="articleP">2023 - Certificação em Responsive Web Design - Freecodecamp.org</p>
+                    <p class="articleP">2024 - HTML: tabelas e formulários - Instituto Federal do Rio Grande do Sul</p>
+                    <p class="articleP">2024 - HTML: Introdução ao desenvolvimento de páginas web - Instituto Federal do Rio Grande do Sul</p>
+                    <p class="articleP">2024 - CSS: folhas de estilo - Instituto Federal do Rio Grande do Sul</p>
+                    <p class="articleP">2024 - Criando um Projeto com HTML/CSS para Listagem de Pokémon - Bootcamp DIO e PAN BANK</p>
+                    <p class="articleP">2025 - HTML - Bootcamp ADA e SANTANDER BANK</p>
+                    <p class="articleP">2025 - CSS - Bootcamp ADA e SANTANDER BANK</p>
+                    <p class="articleP">2025 - Fundamento Tech - Bootcamp ADA e SANTANDER BANK</p>
+                    <p class="articleP">2025 - Introdução ao HTML na prática - Bootcamp DIO e XP INC.</p>
+                    
+                    <h3 class="subtitle">Desenvolvedor Web</h2>
+                    <p class="articleP">2024 - Introdução à Criação de Websites com HTML5 e CSS3 - Bootcamp DIO e PAN BANK</p>
+                    <p class="articleP">2024 - Programador Web - Instituto Federal do Rio Grande do Sul</p>
+                    <p class="articleP">2024 - Princípios de Desenvolvimento de Software Colaborativo - Bootcamp DIO Digital Inovation</p>
+                    <p class="articleP">2024 - Introdução ao Desenvolvimento Web com JavaScript - Bootcamp DIO e PAN BANK</p>
+                    <p class="articleP">2025 - Front-end - Bootcamp ADA e SANTANDER BANK</p>
+                    <p class="articleP">2025 - Desenvolvimento Web básico com JavaScript - Bootcamp ADA e SANTANDER BANK</p>
+                    
+                    <h3 class="subtitle">JavaScript</h2>
+    
+                    <p class="articleP">2023 - Curso grátis de JavaScript e ECMAScript para Iniciantes - Curso em Vídeo no YouTube</p>
+                    <p class="articleP">2024 - Primeiros Passos com JavaScript - Bootcamp DIO e PAN BANK</p>
+                    <p class="articleP">2024 - Criando Objetos e Classes em JavaScript - Bootcamp DIO e PAN BANK</p>
+                    <p class="articleP">2024 - Dominando o Protocolo HTTP e Integrando com a PokeAPI - Bootcamp DIO e PAN BANK</p>
+                    <p class="articleP">2024 - Arrays e Estruturas de Repetição em JavaScript - Bootcamp DIO e PAN BANK</p>
+                    <p class="articleP">2024 - Conhecendo Funções JavaScript - Bootcamp DIO e PAN BANK</p>
+                    <p class="articleP">2024 - Trabalhando com Web Components no Front-end - Bootcamp DIO e PAN BANK</p>
+                    <p class="articleP">2024 - JavaScript - Instituto Federal do Rio Grande do Sul</p>
+                    <p class="articleP">2024 - Dominando Algoritmos com Desafios de Código JavaScript - Bootcamp DIO Digital Inovation</p>
+                    <p class="articleP">2024 - Introdução ao Desenvolvimento Web com JavaScript - Bootcamp DIO e PAN BANK</p>
+                    <p class="articleP">2024 - Importação e Exportação com JavaScript - Bootcamp DIO e PAN BANK</p>
+                    <p class="articleP">2025 - Desenvolvimento Web básico com JavaScript - Bootcamp ADA e SANTANDER BANK</p>
+                    <p class="articleP">2025 - Entendendo a Comunicação Client X Server - Bootcamp DIO e XP INC.</p>
+                    <p class="articleP">2024 - Certificação em Algoritmos e Estruturas de Dados JavaScript - Freecodecamp.org</p>
+                    
+                    <h3 class="subtitle">Typescript</h2>
+                    <p class="articleP">2024 - Typescript para Angular - Bootcamp DIO e PAN BANK.</p>
+                    <p class="articleP">2025 - Entendendo a Comunicação Client X Server - Bootcamp DIO e XP INC.</p>
+                    <p class="articleP">2025 - Formação TypeScript Fullstack Developer - Curso DIO</p>
+                    
+                    <h3 class="subtitle">Angular</h2>
+                    <p class="articleP">2024 - Introdução ao Ecossistema Angular - Bootcamp DIO e PAN BANK.</p>
+                    <p class="articleP">2024 - Fundamentos do Angular Framework - Bootcamp DIO e PAN BANK.</p>
+                    <p class="articleP">2024 - Módulos Angular - Bootcamp DIO e PAN BANK.</p>
+                    <p class="articleP">2024 - Typescript para Angular - Bootcamp DIO e PAN BANK.</p>
+                    <p class="articleP">2024 - Trabalhando com Services no Angular - Bootcamp DIO e PAN BANK.</p>
+                    <p class="articleP">2024 - LifeCycle Hooks Angular - Bootcamp DIO e PAN BANK.</p>
+                    <p class="articleP">2024 - Trabalhando com Componentes Angular - Bootcamp DIO e PAN BANK.</p>
+                    <p class="articleP">2024 - Single Page Application com Angular - Bootcamp DIO e PAN BANK.</p>
+                    <p class="articleP">2024 - Trabalhando com Rotas no Angular - Bootcamp DIO e PAN BANK.</p>
+                    
+                    <h3 class="subtitle">React</h2>
+                    <p class="articleP">2025 - React - Básico - Bootcamp ADA e SANTANDER BANK</p>
+                    
+                    <h3 class="subtitle">Banco de Dados</h2>
+                    <p class="articleP">2024 - Banco de Dados 1: Fundamentos - Instituto Federal do Rio Grande do Sul.</p>
+                    <p class="articleP">2024 - Administração de Banco de Dados - Instituto Federal do Rio Grande do Sul.</p>
+                    <p class="articleP">2024 - Arquitetura de Banco de Dados - Instituto Federal do Rio Grande do Sul.</p>
+                    
+                    <h3 class="subtitle">Figma</h2>
+                    <p class="articleP">2025 - Figma para Devs - Bootcamp ADA e SANTANDER BANK</p>
+                    
+                    <h3 class="subtitle">UX</h2>
+                    <p class="articleP">2025 - Google UX Design - CIEE, COURSERA e GOOGLE</p>
+                    
+                    <h3 class="subtitle">JAVA</h2>
+                    <p class="articleP">2024 - Introdução à Plataforma Java - Bootcamp DIO e XP INC.</p>
+    
+                    <h3 class="subtitle">SEO</h2>
+                    <p class="articleP">2023 - Curso Prático de SEO - Curso em vídeo no YouTube.</p>
+    
+                    <h3 class="subtitle">WordPress e WooCommerce</h2>
+                    <p class="articleP">2022 - Curso Grátis de Loja Virtual com WooCommerce + WordPress - Curso em Vídeo no YouTube </p>
+    
+                  
+                    </section>
+                
+                </main>
+                
+            <footer class="footer">
+      
+                <div id="footer-placeholder"></div>
+                <script src="../main.js"></script>
+                <script>
+                    fetch('../footer.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            document.getElementById('footer-placeholder').innerHTML = data;
+                        });
+                </script>
+                </footer> 
+              </body>
+    </html>

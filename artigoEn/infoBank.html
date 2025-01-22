@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Bank</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+        <header class="header">
+            <div id="header-placeholder"></div>
+            <script> fetch('../header2.html').then(response => response.text()).then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data; initializeThemeSwitcher(); // Chama a função para inicializar o botão de modo 
+                }); function initializeThemeSwitcher() {
+                    let trilho = document.getElementById('trilho'); if (!trilho) { console.error('Elemento "trilho" não encontrado'); return; } let body = document.querySelector('body'); let header = document.querySelector('.header'); let tooltips = document.querySelectorAll('.tooltip'); // Verificar se o modo light foi salvo no localStorage e aplicar
+                    if (localStorage.getItem('theme') === 'light') { body.classList.add('light'); header.classList.add('light'); trilho.classList.add('light'); tooltips.forEach(function (tooltip) { tooltip.classList.add('light'); }); } // Alterna entre o modo normal e o modo light 
+                    trilho.addEventListener('click', function () {
+                        trilho.classList.toggle('light'); body.classList.toggle('light'); header.classList.toggle('light'); tooltips.forEach(function (tooltip) { tooltip.classList.toggle('light'); }); // Salva a preferência no localStorage (modo light ou normal) 
+                        if (body.classList.contains('light')) { localStorage.setItem('theme', 'light'); } else { localStorage.removeItem('theme'); }
+                    });
+                } </script>
+        </header>
+        <main>
+    <h1 class="titulo">Free Information Repositories (Images, Videos, Audio)</h1>
+    <p class="comum">As a frontend developer, especially if you're a freelancer, you'll likely come across the need to find that perfect image, drawing, vector, icon, or video for your website or app. The danger lies in that moment of need, as you may feel compelled to search for the image you need on Google and inadvertently use copyrighted content. Doing so can cause harm to your client or your finances.</p>
+    
+    <h2 class="subtitulo">What is Copyright?</h2>
+    <p class="comum">Copyright is a set of legal rules that guarantees creators of original works (such as music, books, movies, drawings, software, etc.) exclusive rights to use and reproduce their creations.</p>
+    
+    <p class="comum"><strong>Misusing third-party works:</strong> If you use music, images, texts, or any other copyrighted work in whole, in part, or with alterations, without proper authorization from the creator or without paying the rights, you may be sued for copyright infringement. This can result in hefty fines or even the obligation to remove the content from the internet or other media.</p>
+    
+    <p class="comum">To avoid such problems, it's best to use repositories of free resources (images, sounds, videos, etc.) and acquire a usage license or use those that have free licenses.</p>
+  
+    <h2 class="subtitulo">Here’s a list of free information repositories.</h2>
+    <ul class="lista">
+      <li class="especifico"><strong>Partners in Rhyme:</strong> A great option for finding background music for videos.</li>
+      <li class="especifico"><strong>Free Stock Music:</strong> Another fantastic source for free music, updated regularly.</li>
+      <li class="especifico"><strong>Free Music Archive:</strong> Over 10,000 songs, but be aware of copyright rules on certain tracks.</li>
+      <li class="especifico"><strong>Looperman:</strong> Over 2 million artists offering free music for use in videos.</li>
+      <li class="especifico"><strong>Incompetech:</strong> Over 2,000 royalty-free compositions by Kevin MacLeod.</li>
+      <li class="especifico"><strong>Free Sound:</strong> A great library of sound effects for videos.</li>
+      <li class="especifico"><strong>Filmstro:</strong> Allows you to create and edit music for your video.</li>
+      <li class="especifico"><strong>SoundCloud:</strong> A large music sharing platform with free tracks available.</li>
+      <li class="especifico"><strong>YouTube Audio Library:</strong> Offers free music and sound effects for videos.</li>
+    </ul>
+  
+    <h2 class="subtitulo">Image, Video, and Icon/Vector Repositories</h2>
+    <p class="comum">Many image repositories also offer icons and vectors.</p>
+    <ul class="lista">
+      <li class="especifico"><a href="https://icons8.com.br/">Icons8</a></li>
+      <li class="especifico"><a href="https://www.flaticon.com/br/icones-gratis/vetor">Flaticon</a></li>
+      <li class="especifico"><a href="https://www.freeimages.com/pt/vector">Free Images</a></li>
+      <li class="especifico"><a href="https://pt.vecteezy.com/vetor-gratis/banco-de-dados">Vecteezy</a></li>
+      <li class="especifico"><a href="https://www.pexels.com/pt-br/procurar/vetor/">Pexels</a></li>
+      <li class="especifico"><a href="https://pixabay.com/pt/">Pixabay</a></li>
+      <li class="especifico"><a href="https://freerangestock.com/">FreeRangeStock</a></li>
+      <li class="especifico"><a href="https://www.dreamstime.com/">Dreamstime</a></li>
+      <li class="especifico"><a href="https://kaboompics.com/">Kaboompics</a></li>
+      <li class="especifico"><a href="https://search.creativecommons.org/">Creative Commons Search</a></li>
+      <li class="especifico"><a href="https://snappa.com/">Snappa</a></li>
+      <li class="especifico"><a href="https://morguefile.com/">Morguefile</a></li>
+      <li class="especifico"><a href="https://www.gettyimages.com.br/v%C3%ADdeos/biblioteca">Getty Images</a></li>
+      <li class="especifico"><a href="https://www.videvo.net/stock-video-footage/kinescope/">Videvo</a></li>
+      <li class="especifico"><a href="https://www.motionelements.com/pt/">Motion Elements</a></li>
+      <li class="especifico"><a href="https://pt.videezy.com/video-livre/biblioteca">Videezy</a></li>
+    </ul>
+</main>
+<footer class="footer">
+
+    <div id="footer-placeholder"></div>
+    <script src="main.js"></script>
+    <script>
+        fetch('../footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</footer>
+</body>
+
+</html> 

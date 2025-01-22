@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <div id="header-placeholder"></div>
+        <script> fetch('../header2.html').then(response => response.text()).then(data => {
+                document.getElementById('header-placeholder').innerHTML = data; initializeThemeSwitcher(); // Chama a função para inicializar o botão de modo 
+            }); function initializeThemeSwitcher() {
+                let trilho = document.getElementById('trilho'); if (!trilho) { console.error('Elemento "trilho" não encontrado'); return; } let body = document.querySelector('body'); let header = document.querySelector('.header'); let tooltips = document.querySelectorAll('.tooltip'); // Verificar se o modo light foi salvo no localStorage e aplicar
+                if (localStorage.getItem('theme') === 'light') { body.classList.add('light'); header.classList.add('light'); trilho.classList.add('light'); tooltips.forEach(function (tooltip) { tooltip.classList.add('light'); }); } // Alterna entre o modo normal e o modo light 
+                trilho.addEventListener('click', function () {
+                    trilho.classList.toggle('light'); body.classList.toggle('light'); header.classList.toggle('light'); tooltips.forEach(function (tooltip) { tooltip.classList.toggle('light'); }); // Salva a preferência no localStorage (modo light ou normal) 
+                    if (body.classList.contains('light')) { localStorage.setItem('theme', 'light'); } else { localStorage.removeItem('theme'); }
+                });
+            } </script>
+    </header>
+    <main>
+        <h1 class="titulo">What is DOM in JavaScript and How to Use It?</h1>
+    
+        <p class="comum">The <strong>DOM</strong> (Document Object Model) is an application programming interface (API) that represents the structure of an HTML or XML document in a hierarchical way. In simple terms, it is a way to "access" and manipulate the elements of a web page (such as HTML tags, attributes, text, etc.) using JavaScript.</p>
+    
+        <p class="comum">With the DOM, you can interact with page elements, modify content, add new elements, or even change the style and structure of the page dynamically without needing to reload the entire page.</p>
+    
+        <h2 class="subtitulo">How to Use the DOM in JavaScript:</h2>
+        <p class="comum">To use the DOM, you need to interact with the browser's <code>document</code> object, which provides access to all elements of the page. Here are some common examples of how to use the DOM in JavaScript:</p>
+    
+        <h3>1. Accessing Elements</h3>
+        <p class="comum">You can access elements of the page using methods from the <code>document</code> object. Some of the most common methods are:</p>
+        <ul class="lista">
+            <li class="especifico"><code>getElementById(id)</code> – Accesses an element by its ID.</li>
+            <li class="especifico"><code>getElementsByClassName(className)</code> – Accesses all elements with a specific class.</li>
+            <li class="especifico"><code>getElementsByTagName(tagName)</code> – Accesses all elements of a specific tag.</li>
+            <li class="especifico"><code>querySelector(selector)</code> – Accesses the first element that matches a specified CSS selector.</li>
+            <li class="especifico"><code>querySelectorAll(selector)</code> – Accesses all elements that match a specified CSS selector.</li>
+        </ul>
+    
+        <h4 class="subtitulo">Example:</h4>
+        <pre><code>
+    // Accessing an element with ID 'myElement'
+    let element = document.getElementById('myElement');
+    console.log(element);
+        </code></pre>
+    
+        <h3>2. Modifying Content</h3>
+        <p class="comum">You can modify the HTML content of an element using the <code>innerHTML</code> property or modify the text content using <code>textContent</code>.</p>
+    
+        <h4 class="subtitulo">Example:</h4>
+        <pre><code>
+    // Modifying the content of an element with ID 'myElement'
+    let element = document.getElementById('myElement');
+    element.innerHTML = 'New content here!';
+        </code></pre>
+    
+        <h3>3. Changing Styles</h3>
+        <p class="comum">You can modify the style of an element using the <code>style</code> property.</p>
+    
+        <h4 class="subtitulo">Example:</h4>
+        <pre><code>
+    // Changing the style of an element with ID 'myElement'
+    let element = document.getElementById('myElement');
+    element.style.color = 'red';
+    element.style.fontSize = '20px';
+        </code></pre>
+    
+        <h3>4. Creating New Elements</h3>
+        <p class="comum">You can create new HTML elements and add them to the page using <code>createElement</code> and <code>appendChild</code>.</p>
+    
+        <h4 class="subtitulo">Example:</h4>
+        <pre><code>
+    // Creating a new paragraph and adding it to the page
+    let newParagraph = document.createElement('p');
+    newParagraph.textContent = 'This is a new paragraph.';
+    document.body.appendChild(newParagraph);
+        </code></pre>
+    
+        <h3>5. Adding Event Listeners</h3>
+        <p class="comum">You can add interactivity to the page with events like clicks, key presses, and more using <code>addEventListener</code>.</p>
+    
+        <h4 class="subtitulo">Example:</h4>
+        <pre><code>
+    // Adding a click event to a button with ID 'myButton'
+    let button = document.getElementById('myButton');
+    button.addEventListener('click', function() {
+      alert('Button clicked!');
+    });
+        </code></pre>
+    
+        <h3>6. Removing Elements</h3>
+        <p class="comum">You can remove an element from the page using <code>removeChild</code>.</p>
+    
+        <h4 class="subtitulo">Example:</h4>
+        <pre><code>
+    // Removing an element with ID 'myElement'
+    let element = document.getElementById('myElement');
+    element.parentNode.removeChild(element);
+        </code></pre>
+    
+        <h2 class="subtitulo">Importance of the DOM:</h2>
+        <p class="comum">The DOM is essential for making web pages dynamic and interactive. Without it, pages would be static and could only display content that was initially loaded. With the DOM, you can modify the page after it has loaded, allowing the page to respond to user interaction, update data, add new content, and more.</p>
+    
+        <h2 class="subtitulo">In Summary:</h2>
+        <ul class="lista">
+            <li class="especifico"><strong>DOM (Document Object Model)</strong> is the structure of the web page accessed via JavaScript.</li>
+            <li class="especifico"><strong>DOM manipulation</strong> allows you to modify the content, style, and structure of the page.</li>
+            <li class="especifico">You can use methods like <code>getElementById</code>, <code>createElement</code>, <code>addEventListener</code>, and others to interact with and modify the page dynamically.</li>
+        </ul>
+    
+        <p class="comum">This is one of the core features of JavaScript for creating interactive and responsive web pages.</p>
+    
+
+
+
+</main>
+<footer class="footer">
+
+    <div id="footer-placeholder"></div>
+    <script src="main.js"></script>
+    <script>
+        fetch('../footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</footer>
+</body>
+
+</html>

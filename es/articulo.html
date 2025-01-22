@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artículos de Jazao</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <div id="header-placeholder"></div>
+        <script> fetch('./header-es.html').then(response => response.text()).then(data => {
+                document.getElementById('header-placeholder').innerHTML = data; initializeThemeSwitcher(); // Llama a la función para inicializar el botón de modo
+            }); function initializeThemeSwitcher() {
+                let trilho = document.getElementById('trilho'); if (!trilho) { console.error('Elemento "trilho" no encontrado'); return; } let body = document.querySelector('body'); let header = document.querySelector('.header'); let tooltips = document.querySelectorAll('.tooltip'); // Verificar si el modo claro fue guardado en el localStorage y aplicarlo
+                if (localStorage.getItem('theme') === 'light') { body.classList.add('light'); header.classList.add('light'); trilho.classList.add('light'); tooltips.forEach(function (tooltip) { tooltip.classList.add('light'); }); } // Alterna entre el modo normal y el modo claro 
+                trilho.addEventListener('click', function () {
+                    trilho.classList.toggle('light'); body.classList.toggle('light'); header.classList.toggle('light'); tooltips.forEach(function (tooltip) { tooltip.classList.toggle('light'); }); // Guarda la preferencia en el localStorage (modo claro o normal)
+                    if (body.classList.contains('light')) { localStorage.setItem('theme', 'light'); } else { localStorage.removeItem('theme'); }
+                });
+            } </script>
+    </header>
+    <main class="marginArticle">
+        <h1 class="articlesH1">Artículos, resúmenes, resúmenes y material de estudio que he producido o recopilado en línea.</h1>
+        <p class="articleP">En esta sección del sitio web, puedes encontrar varios textos, como resúmenes, artículos y notas sobre temas que he escrito o encontrado en línea, para revisar cuando sea necesario y ayudar a mis compañeros de universidad. Además, puedes encontrar enlaces a textos gratuitos, libros e incluso lecciones en video.</p>
+        <p class="articleP">¡Disfruta!</p>
+        <section class="listArticles">
+            <ul>
+                <li><p><a href="../artigoEs/roadMapEs.html">Hoja de Ruta Gratuita</a></p></li>
+                <li><p><a href="../artigoEs/bancoInf.html">Bancos de Información Gratuitos (audio, videos, imágenes y más)</a></p></li>
+                <li><p><a href="../artigoEs/wcagEs.html">Consejos sobre Cómo Hacer Sitios Web Accesibles – WCAG</a></p></li>
+                <li><p><a href="../artigoEs/mediaQueryEs.html">Uso de Media Query para la Accesibilidad</a></p></li>
+                <li><p><a href="../artigoEs/varEs.html">Variables</a></p></li>
+                <li><p><a href="../artigoEs/operadoresEs.html">Operadores</a></p></li>
+                <li><p><a href="../artigoEs/corsEs.html">ERRORES CORS</a></p></li>
+                <li><p><a href="../artigoEs/ifElseEs.html">If y Else y Switch</a></p></li>
+                <li><p><a href="../artigoEs/doEs.html">Do, While...</a></p></li>
+                <li><p><a href="../artigoEs/Estructuras.html">Estructuras de Flujo de Control</a></p></li>
+                <li><p><a href="../artigoEs/criptografiaEs.html">Criptografía de Contraseñas</a></p></li>
+                <li><p><a href="../artigoEs/fetchEs.html">Consumiendo API usando fetch</a></p></li>
+                <li><p><a href="../artigoEs/domEs.html">DOM - Modelo de Objetos del Documento</a></p></li>
+                <li><p><a href="../artigoEs/componenteses.html">Componentes</a></p></li>
+                <li><p><a href="../artigoEs/codigolimpio.html">Código Limpio</a></p></li>
+            </ul>
+        </section>
+    </main>
+    <footer class="footer">
+        <div id="footer-placeholder"></div>
+        <script src="main.js"></script>
+        <script>
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
+    </footer>
+</body>
+</html>

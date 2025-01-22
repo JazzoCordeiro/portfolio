@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <div id="header-placeholder"></div>
+        <script> fetch('../header-es2.html').then(response => response.text()).then(data => {
+                document.getElementById('header-placeholder').innerHTML = data; initializeThemeSwitcher(); // Llama a la función para inicializar el botón de modo 
+            }); function initializeThemeSwitcher() {
+                let trilho = document.getElementById('trilho'); if (!trilho) { console.error('Elemento "trilho" no encontrado'); return; } let body = document.querySelector('body'); let header = document.querySelector('.header'); let tooltips = document.querySelectorAll('.tooltip'); // Verificar si el modo light fue guardado en localStorage y aplicarlo
+                if (localStorage.getItem('theme') === 'light') { body.classList.add('light'); header.classList.add('light'); trilho.classList.add('light'); tooltips.forEach(function (tooltip) { tooltip.classList.add('light'); }); } // Alterna entre el modo normal y el modo light 
+                trilho.addEventListener('click', function () {
+                    trilho.classList.toggle('light'); body.classList.toggle('light'); header.classList.toggle('light'); tooltips.forEach(function (tooltip) { tooltip.classList.toggle('light'); }); // Guarda la preferencia en localStorage (modo light o normal) 
+                    if (body.classList.contains('light')) { localStorage.setItem('theme', 'light'); } else { localStorage.removeItem('theme'); }
+                });
+            } </script>
+    </header>
+    <main>
+        <h1 class="titulo">Error de CORS y sus Posibilidades</h1>
+
+        <p class="comum">Este fue un error que me mantuvo despierto toda la noche, llorando en posición fetal, desesperado y sin esperanza sobre la vida. Creé una API de backend, una base de datos y el frontend, pero al final, nada se comunicaba y apareció el error de CORS. Así que aquí hay algo de información sobre él y cómo solucionarlo.</p>
+      
+        <h2 class="subtitulo">Mensajes de Error</h2>
+        <ul class="lista">
+          <li class="especifico">Falló la carga... No hay el encabezado "Access-Control-Allow-Origin"</li>
+          <li class="especifico">Solicitud de origen cruzado bloqueada: La política de mismo origen no permite leer el recurso remoto... Razón: Falta el encabezado CORS "Access-Control-Allow-Origin"</li>
+          <li class="especifico">Falló la carga... La respuesta a la solicitud de pre-vuelo falló la comprobación de control de acceso: No hay el encabezado "Access-Control-Allow-Origin" presente en el recurso solicitado. Origen... por lo tanto, no se permite el acceso.</li>
+        </ul>
+      
+        <h2 class="subtitulo">Causas del Error</h2>
+        <p class="comum">Una aplicación web basada en navegador (posiblemente un marco de aplicación) está intentando realizar una llamada "cross-origin" para obtener un "recurso compartido" de un servicio web externo. Esto se conoce como una solicitud "CORS" (Cross-Origin Resource Sharing). Hay una especificación de CORS basada en navegador que gestiona estas llamadas de origen cruzado. Cuando ciertas condiciones no se cumplen, pueden ocurrir errores.</p>
+      
+        <p class="comum">Podría estar relacionado con un caso de uso que no está intencionalmente permitido por ambas partes: la aplicación web del usuario y el servicio remoto externo. Cuando un origen (www.origin1.com) llama a otro origen (www.origin2.com), esto se llama una solicitud de origen cruzado. Se deben cumplir ciertas condiciones para que esta solicitud funcione. El servicio externo llamado (www.origin2.com) necesita devolver el encabezado HTTP "Access-Control-Allow-Origin" en su respuesta.</p>
+      
+        <p class="comum">Si el servicio externo no devuelve este encabezado, la adherencia del navegador a la especificación CORS bloqueará la solicitud y uno de los errores anteriores (o similares) será devuelto.</p>
+      
+        <h2 class="subtitulo">Preguntas para la Solución de Problemas</h2>
+        <ul class="lista">
+          <li class="especifico">¿Cuál es la URL del origen de la solicitud (también conocido como "origen")? A veces, esto se encuentra en el mensaje de error mismo.</li>
+          <li class="especifico">¿Cómo se llama la URL del servicio externo? A veces, esto aparece en el mensaje de error de la consola.</li>
+          <li class="especifico">¿Qué se está recuperando y por qué? ¿Es un archivo PNG? ¿Un script, archivo CSS o fuente? ¿Exactamente qué se está recuperando y con qué propósito?</li>
+          <li class="especifico">¿Este recurso externo requiere autenticación para ser accedido?</li>
+          <li class="especifico">Si se requiere una redirección, el encabezado Access-Control-Allow-Origin puede no ser devuelto, y la llamada fallará. Copia la URL del recurso directamente en una nueva pestaña en modo incógnito en tu navegador. Esta puede ser una buena prueba para ver si se puede acceder en circunstancias generales (pero no garantiza que funcione en el código de la aplicación web).</li>
+          <li class="especifico">¿Puedes ver la llamada al método HTTP OPTIONS en la pestaña de Red del navegador?</li>
+          <li class="especifico">¿Cuál es el caso de uso para recuperar recursos externos?</li>
+          <li class="especifico">Genera un archivo HAR.</li>
+        </ul>
+      
+        <h2 class="subtitulo">Posibles Próximos Pasos</h2>
+        <p class="comum">¿Quién es el propietario del servidor externo? Tal vez el servidor pueda ser modificado para cumplir con la especificación CORS y devolver el encabezado. Sin embargo, ten en cuenta que incluso si el servidor es algo controlado internamente, esto no es necesariamente una solución. Puede haber buenas razones por las cuales un servicio externo específico no quiere compartir un recurso. Si el servidor externo no es controlado internamente, es posible que necesites trabajar con ese proveedor o crear otra solución alternativa, asumiendo que el caso de uso se considere válido.</p>
+      
+        <p class="comum">¿La aplicación fue creada utilizando el marco de aplicaciones de Zendesk? Un servidor proxy de backend está disponible en la llamada <code>client.request()</code>. Utiliza este proxy configurando <code>cors: false</code> en la configuración de <code>client.request</code>. Ten en cuenta que "false" también es el valor predeterminado para esta configuración. Dado que el servicio proxy es un servicio de backend, no necesita cumplir con la especificación CORS del navegador, por lo que la llamada de origen cruzado puede tener éxito utilizando el proxy.</p>
+      
+        <p class="comum">Esto no siempre es una solución para todo. El servicio proxy no admite la recuperación de archivos o datos binarios de servicios externos. Puede haber otras razones específicas de la aplicación por las cuales esto tampoco sea una solución.</p>
+      
+        <p class="comum">¿El recurso puede ser incrustado directamente en la aplicación web? En lugar de obtener un recurso de origen cruzado, considera incrustarlo directamente en la aplicación web. Esto evita completamente la solicitud de origen cruzado (ya que ahora es un recurso local), y cualquier problema de CORS podría desaparecer. Sin embargo, esto no siempre es una solución. A veces las URL de los recursos externos no se conocen de antemano, o el recurso es demasiado grande para ser un recurso local, o el recurso cambia con frecuencia para descargarlo como un recurso local estático.</p>
+      
+        <p class="comum">¿Cuál es la versión del navegador? A pesar de que CORS es un estándar, los mensajes de error devueltos por los navegadores pueden diferir. Chrome devuelve mensajes de consola diferentes a los de Firefox.</p>
+      
+        <p class="comum">A veces, no hay solución. A veces, una solicitud de un recurso de un servicio externo no debe ser compartida en el contexto de una aplicación web de navegador. El propietario del recurso decide si compartir el recurso o no. Esto no depende de la aplicación web. Puede haberse desarrollado de esta manera.</p>
+      
+        <h2 class="subtitulo">Uso de la Biblioteca CORS</h2>
+        <p class="comum">Para más información, puedes consultar la biblioteca CORS: <a href="https://dev.to/carinebatista/entenda-cors-de-uma-vez-por-todas-4ef6" target="_blank">Entiende CORS de una vez por todas</a>.</p>
+      
+        <h2 class="subtitulo">Recursos Adicionales</h2>
+        <ul class="lista">
+          <li class="especifico"><a href="https://help.edrone.me/pt/articles/9046606-cors-nao-esta-permitindo-acessar-os-dados" target="_blank">CORS no permite acceder a los datos</a></li>
+          <li class="especifico"><a href="https://repost.aws/pt/knowledge-center/api-gateway-cors-errors" target="_blank">Errores de CORS en API Gateway</a></li>
+          <li class="especifico"><a href="https://support.zendesk.com/hc/pt-br/articles/4408881672730-Solu%C3%A7%C3%A3o-de-problemas-de-CORS" target="_blank">Solución de problemas de CORS en Zendesk</a></li>
+          <li class="especifico"><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" target="_blank">Documentación de CORS en MDN</a></li>
+          <li class="especifico"><a href="https://fetch.spec.whatwg.org/#http-cors-protocol" target="_blank">Protocolo CORS de Fetch</a></li>
+        </ul>
+      
+    </main>
+    <footer class="footer">
+    
+        <div id="footer-placeholder"></div>
+        <script src="main.js"></script>
+        <script>
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
+    </footer>
+</body>
+</html>

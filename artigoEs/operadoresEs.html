@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <div id="header-placeholder"></div>
+        <script> fetch('../header-es2.html').then(response => response.text()).then(data => {
+                document.getElementById('header-placeholder').innerHTML = data; initializeThemeSwitcher(); // Llama a la función para inicializar el botón de modo 
+            }); function initializeThemeSwitcher() {
+                let trilho = document.getElementById('trilho'); if (!trilho) { console.error('Elemento "trilho" no encontrado'); return; } let body = document.querySelector('body'); let header = document.querySelector('.header'); let tooltips = document.querySelectorAll('.tooltip'); // Verificar si el modo claro fue guardado en el localStorage y aplicarlo
+                if (localStorage.getItem('theme') === 'light') { body.classList.add('light'); header.classList.add('light'); trilho.classList.add('light'); tooltips.forEach(function (tooltip) { tooltip.classList.add('light'); }); } // Alterna entre el modo normal y el modo claro 
+                trilho.addEventListener('click', function () {
+                    trilho.classList.toggle('light'); body.classList.toggle('light'); header.classList.toggle('light'); tooltips.forEach(function (tooltip) { tooltip.classList.toggle('light'); }); // Guarda la preferencia en el localStorage (modo claro o normal) 
+                    if (body.classList.contains('light')) { localStorage.setItem('theme', 'light'); } else { localStorage.removeItem('theme'); }
+                });
+            } </script>
+    </header>
+    <main>
+
+        <h1 class="titulo">Operadores</h1>
+
+        <p class="comum">En JavaScript, los operadores son símbolos o palabras clave que permiten realizar diversas operaciones sobre variables y valores. Estos operadores se pueden clasificar en diferentes tipos, dependiendo de la operación que realizan. Las principales categorías de operadores en JavaScript son: aritméticos, de asignación, relacionales, lógicos y ternarios. Vamos a explorar cada uno de ellos con ejemplos.</p>
+      
+        <h2 class="subtitulo">Operadores Aritméticos</h2>
+        <p class="comum">Los operadores aritméticos se utilizan para realizar operaciones matemáticas con números. Los principales operadores aritméticos son:</p>
+        <ul class="lista">
+          <li class="especifico"><strong>+</strong> Suma</li>
+          <li class="especifico"><strong>-</strong> Resta</li>
+          <li class="especifico"><strong>*</strong> Multiplicación</li>
+          <li class="especifico"><strong>/</strong> División</li>
+          <li class="especifico"><strong>%</strong> Módulo (resto de la división)</li>
+          <li class="especifico"><strong>++</strong> Incremento (aumenta el valor en 1)</li>
+          <li class="especifico"><strong>--</strong> Decremento (disminuye el valor en 1)</li>
+        </ul>
+      
+        <h2 class="subtitulo">Orden de los Operadores Aritméticos</h2>
+        <ol class="lista">
+          <li class="especifico"><strong>Paréntesis ( )</strong>: Los paréntesis tienen la mayor prioridad y siempre se evalúan primero.</li>
+          <li class="especifico"><strong>Incremento y Decremento (++, --)</strong>: Los operadores de incremento (++) y decremento (--) tienen mayor prioridad, pero su evaluación depende de si son pre-fijados (antes del operando) o post-fijados (después del operando).
+            <ul class="lista">
+              <li class="especifico"><strong>Pre-fijado (++a, --a)</strong>: El incremento o decremento ocurre antes de cualquier otra operación.</li>
+              <li class="especifico"><strong>Post-fijado (a++, a--)</strong>: El incremento o decremento ocurre después de que se ejecute la operación.</li>
+            </ul>
+          </li>
+          <li class="especifico"><strong>Multiplicación, División y Módulo (*, /, %)</strong>: Estos operadores tienen la misma prioridad y se evalúan de izquierda a derecha.</li>
+          <li class="especifico"><strong>Suma y Resta (+, -)</strong>: La suma (+) y la resta (-) tienen la prioridad más baja, pero también se evalúan de izquierda a derecha.</li>
+        </ol>
+      
+        <h2 class="subtitulo">Operadores de Asignación</h2>
+        <p class="comum">Los operadores de asignación se utilizan para asignar valores a las variables. El operador de asignación básico es <code>=</code>, pero existen operadores que combinan la asignación con operaciones matemáticas. Los principales operadores de asignación son:</p>
+        <ul class="lista">
+          <li class="especifico"><strong>=</strong> Asignación simple</li>
+          <li class="especifico"><strong>+=</strong> Suma y asignación</li>
+          <li class="especifico"><strong>-=</strong> Resta y asignación</li>
+          <li class="especifico"><strong>*=</strong> Multiplicación y asignación</li>
+          <li class="especifico"><strong>/=</strong> División y asignación</li>
+          <li class="especifico"><strong>%=</strong> Módulo y asignación</li>
+        </ul>
+      
+        <h2 class="subtitulo">Operadores Relacionales</h2>
+        <p class="comum">Los operadores relacionales se utilizan para comparar dos valores. Devuelven un valor booleano (verdadero o falso) según la comparación. Los principales operadores relacionales son:</p>
+        <ul class="lista">
+          <li class="especifico"><strong>==</strong> Igualdad (no considera el tipo)</li>
+          <li class="especifico"><strong>===</strong> Igualdad estricta (considera el tipo)</li>
+          <li class="especifico"><strong>!=</strong> Desigualdad (no considera el tipo)</li>
+          <li class="especifico"><strong>!==</strong> Desigualdad estricta (considera el tipo)</li>
+          <li class="especifico"><strong>></strong> Mayor que</li>
+          <li class="especifico"><strong><</strong> Menor que</li>
+          <li class="especifico"><strong>>=</strong> Mayor o igual que</li>
+          <li class="especifico"><strong><=</strong> Menor o igual que</li>
+        </ul>
+      
+        <h2 class="subtitulo">Operadores Lógicos</h2>
+        <p class="comum">Los operadores lógicos se utilizan para realizar operaciones lógicas sobre valores booleanos o para combinar múltiples expresiones booleanas. Los principales operadores lógicos son:</p>
+        <ul class="lista">
+          <li class="especifico"><strong>&&</strong> Y – Devuelve verdadero si ambas expresiones son verdaderas.</li>
+          <li class="especifico"><strong>||</strong> O – Devuelve verdadero si al menos una de las expresiones es verdadera.</li>
+          <li class="especifico"><strong>!</strong> NO – Invierte el valor de una expresión (de verdadero a falso, o viceversa).</li>
+        </ul>
+      
+        <h2 class="subtitulo">Operador Ternario</h2>
+        <p class="comum">El operador ternario es una forma compacta de escribir una declaración if-else. Evalúa una expresión y devuelve un valor basado en una condición. Su sintaxis es:</p>
+        <p class="comum"><code>condición ? valor_si_verdadero : valor_si_falso;</code></p>
+        <p class="comum">Donde:</p>
+        <ul class="lista">
+            <li class="especifico"><strong>?</strong> = SI</li>
+            <li class="especifico"><strong>:</strong> = SINO</li>
+        </ul>
+      
+        <h2 class="subtitulo">Resumen</h2>
+        <p class="comum">En resumen, estos son los tipos de operadores:</p>
+        <ul class="lista">
+          <li class="especifico"><strong>Aritméticos:</strong> Realizan operaciones matemáticas (+, -, *, /, %).</li>
+          <li class="especifico"><strong>Asignación:</strong> Asignan valores a variables (=, +=, -=, *=, /=, %=).</li>
+          <li class="especifico"><strong>Relacionales:</strong> Compara dos valores y devuelve un valor booleano (==, ===, !=, !==, >, <, >=, <=).</li>
+          <li class="especifico"><strong>Lógicos:</strong> Realizan operaciones lógicas sobre valores booleanos (&&, ||, !).</li>
+          <li class="especifico"><strong>Ternario:</strong> Una forma compacta de escribir if-else (condición ? valor_si_verdadero : valor_si_falso).</li>
+        </ul>
+      
+        <p class="comum">Estos operadores son fundamentales para crear lógica y control en cualquier programa JavaScript.</p>
+
+    </main>
+    <footer class="footer">
+    
+        <div id="footer-placeholder"></div>
+        <script src="main.js"></script>
+        <script>
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
+    </footer>
+</body>
+</html>

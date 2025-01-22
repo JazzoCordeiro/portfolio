@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Jazão</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <div id="header-placeholder"></div>
+        <script> fetch('./header-es.html').then(response => response.text()).then(data => {
+                document.getElementById('header-placeholder').innerHTML = data; initializeThemeSwitcher(); // Chama a função para inicializar o botão de modo 
+            }); function initializeThemeSwitcher() {
+                let trilho = document.getElementById('trilho'); if (!trilho) { console.error('Elemento "trilho" não encontrado'); return; } let body = document.querySelector('body'); let header = document.querySelector('.header'); let tooltips = document.querySelectorAll('.tooltip'); // Verificar se o modo light foi salvo no localStorage e aplicar
+                if (localStorage.getItem('theme') === 'light') { body.classList.add('light'); header.classList.add('light'); trilho.classList.add('light'); tooltips.forEach(function (tooltip) { tooltip.classList.add('light'); }); } // Alterna entre o modo normal e o modo light 
+                trilho.addEventListener('click', function () {
+                    trilho.classList.toggle('light'); body.classList.toggle('light'); header.classList.toggle('light'); tooltips.forEach(function (tooltip) { tooltip.classList.toggle('light'); }); // Salva a preferência no localStorage (modo light ou normal) 
+                    if (body.classList.contains('light')) { localStorage.setItem('theme', 'light'); } else { localStorage.removeItem('theme'); }
+                });
+            } </script>
+    </header>
+    <main>
+        <h1 class="portName">Portafolio de Jazão</h1>
+        <div class="bigBox">
+            <div class="separate">
+                <h2 class="projects">Proyectos Freelance</h2>
+                <p class="description">Haz clic en el botón para explorar los proyectos freelance en los que he trabajado y otros proyectos personales que he vendido con éxito. Aquí encontrarás detalles sobre cómo transformé ideas en realidad, ayudando a los clientes y mostrando mi dedicación y habilidades creativas.</p>
+                <Button onclick="open1()" id="openButton">Ver más...</Button>
+            </div>
+            <div id="modal1">
+                <!-- Primer Carrusel -->
+                <section class="carrossel1">
+
+                    <!-- contenido -->
+                    <div class="car active"> <!-- activo -->
+                        <h3 class="project1">Analista de Calidad - Tester Práctico</h3>
+                        <img class="portImg" src="../img/asfalto.png" alt="logo noir de un juego en blanco y negro que parece una mujer fumando">
+                        <p>Este fue un juego electrónico para personas con discapacidad visual hecho con el motor Unity. Fui parte del equipo de pruebas del juego, buscando errores y problemas con la dirección de audio y el volumen que guían al jugador durante el juego. El juego ya no está disponible, pero puedes ver la jugabilidad en portugués en el enlace de abajo. El juego fue producido en asociación con el gobierno del estado de São Paulo a través del PROAC.</p>
+                        <p>Videos de Asfalto:</p>
+                        <p><a href="https://www.youtube.com/watch?v=LRIzo_MT2z0">https://www.youtube.com/watch?v=LRIzo_MT2z0</a>
+                        </p><a href="https://www.youtube.com/watch?v=Ryr22ZZwKHo">https://www.youtube.com/watch?v=Ryr22ZZwKHo</a>
+                        <p><a href="https://asfalto.dreamhosters.com">Juega el juego haciendo clic aquí (solo PT-BR)</a></p>
+                    </div>
+
+
+                    <div class="car">
+                        <h3 class="project1">App de Inventario y Stock</h3>
+                        <img class="portImg" src="" alt="">
+                        <p>EN DESARROLLO: Una aplicación utilizando JavaScript y SQL para gestionar el inventario y stock del CTI de la Secretaría de Desarrollo del Estado de São Paulo, una oficina gubernamental donde trabajo. La aplicación funcionará en una IP privada, permitiendo el acceso solo a usuarios autorizados. Tiene un área de inicio de sesión y puede gestionar artículos (CRUD), así como generar e imprimir informes y cartas oficiales para transferencias de equipos.</p>
+                        <p>Código en GitHub: Aún no disponible<a href=""></a></p>
+                    </div>
+
+
+                    <div class="car">
+                        <h3 class="project1">Intranet de la Secretaría del Estado de São Paulo</h3>
+                        <img class="portImg" src="../img/sde.webp" alt="un gif de un sitio de intranet">
+                        <p>Cambios Ocasionales: Durante mi trabajo como técnico, ocasionalmente recibo solicitudes para modificar detalles de apariencia. Estas tareas incluyen cambiar imágenes específicas, agregar o quitar íconos, ajustar CSS después de cambios realizados por otros y responsabilidades similares. Esencialmente, trabajo ocasionalmente en algunos ajustes de HTML y CSS.</p>
+                        <p>No hay enlace para el código ni se permite el acceso a esta herramienta debido a la confidencialidad.</p>
+                    </div>
+
+
+
+                    <div class="car">
+                        <h3 class="project1">Reloj y temperatura</h3>
+                        <img class="portImg" src="../img/clock.gif" alt="imagen de una aplicación de reloj">
+                        <p>Esta aplicación comenzó como un proyecto personal para mis estudios de JavaScript y CSS responsivo, comenzando con un reloj simple. Luego, agregué una función de búsqueda de clima y se lo mostré a mi hermana. A ella le gustó y pidió una función de alarma con sonidos divertidos y una IA para locución. Implementé la alarma, necesito hacer algunos ajustes en CSS y estoy trabajando en la IA de locución. Algunos amigos se interesaron y pidieron probar la aplicación también. En este momento, 7 personas la están utilizando y esperando la actualización de la IA.</p>
+                        <p>Código en GitHub: <a href="https://github.com/JazzoCordeiro/clock-n-temp">HAZ CLIC AQUÍ</a>
+                        </p>
+                        <p>Prueba mi trabajo <a href="https://jazzocordeiro.github.io/clock-n-temp/">HAZ CLIC AQUÍ</a></p>
+                    </div>
+
+
+                    <div class="car">
+                        <h3 class="project1">Landing pages</h3>
+                        <img class="portImg" src="https://img.icons8.com/3d-fluency/375/wordpress.png" alt="wordpress">
+                        <p>Creé y personalicé plantillas preexistentes para hacer landing pages para varios productos a petición de un afiliado de Hotmart. En total, diseñé alrededor de 15 páginas diferentes, pero solo pude encontrar 2 de ellas guardadas en mi computadora.</p>
+                        <p>Ver el <a href="">primer enlace</a></p>
+                        <p>Ver el <a href="">segundo enlace</a></p>
+                    </div>
+                    <!-- Botones -->
+                    <div class="arrow1">
+                        <button id="prev1"> &lt; </button>
+                        <button id="next1"> &gt; </button>
+                    </div>
+                </section>
+                <button onclick="close1()" id="closeModal">Cerrar</button>
+            </div>
+        
+
+
+        <!-- INSERTAR TÍTULO DEL PROYECTO A MOSTRAR -->
+
+        <div class="separate">
+            <h2 class="projects">Proyectos Personales y de Estudio</h2>
+            <p class="description">Haz clic en el botón para descubrir los proyectos en los que he estado trabajando a lo largo de mis cursos, así como proyectos personales. Estos incluyen ayudar a amigos o cumplir solicitudes de otras personas, que estoy realizando principalmente como parte de mi proceso de aprendizaje.</p>
+            <Button onclick="open2()" id="openButton2">Ver más...</Button>
+        </div>
+        <div id="modal2">
+            <!-- Segundo Carrusel -->
+            <section class="carrossel2">
+                <div class="carro active2">
+                    <h3 class="project2">Landing page de soda</h3>
+                    <img class="portImg" src="../img/refri.gif" alt="una página naranja con una lata de refresco de naranja y pedazos de frutas flotando">
+                    <p>Hice esta simple landing page basada en un video de youtube mientras estudiaba sobre CSS y animación. Es simple pero bonita. También fue donde aprendí a hacer un carrusel de imágenes.</p>
+                    <p>Código en GitHub: <a href="https://github.com/JazzoCordeiro/refri">HAZ CLIC AQUÍ</a></p>
+                    <p>Prueba mi trabajo <a href="https://jazzocordeiro.github.io/refri/">HAZ CLIC AQUÍ</a></p>
+                </div>
+
+
+                <div class="carro">
+                    <h3 class="project2">Lista de Empleados</h3>
+                    <img class="portImg" src="../img/todo.gif" alt="un gif de una lista de tareas">
+                    <p>Para mejorar mis habilidades en JavaScript, especialmente con operaciones CRUD, construí una lista de empleados que guarda nombres, salarios y cargos en el almacenamiento local. Puedes editar y eliminar todas las entradas. La misma estructura podría adaptarse para una lista de tareas o una aplicación de notas.</p>
+                    <p>Código en GitHub: <a href="https://github.com/JazzoCordeiro/ListCRUD">HAZ CLIC AQUÍ</a></p>
+                    <p>Prueba mi trabajo <a href="https://jazzocordeiro.github.io/ListCRUD/">HAZ CLIC AQUÍ</a></p>
+                </div>
+
+
+                <div class="carro">
+                    <h3 class="project2">Pokédex</h3>
+                    <img class="portImg" src="../img/pokedex.gif" alt="imagen de una pokédex mostrando un bulbasaur">
+                    <p>Cualquier principiante hoy en día ha creado una Pokédex mientras aprende JavaScript, especialmente para practicar con solicitudes de API y operaciones CRUD. Fue mi primer proyecto mientras estudiaba en el Bootcamp Front End de Pan Bank.</p>
+                    <p>Código en GitHub: <a href="https://github.com/JazzoCordeiro/pokedex">HAZ CLIC AQUÍ</a></p>
+                    <p>Prueba mi trabajo <a href="https://jazzocordeiro.github.io/pokedex/">HAZ CLIC AQUÍ</a></p>
+                </div>
+
+
+                <div class="carro">
+                    <h3 class="project2">Landing page de Cafetería</h3>
+                    <img class="portImg" src="/img/cafe.webp" alt="un gif de un sitio de cafetería desplazándose hacia abajo">
+                    <p>Hice esta landing page simple basada en un video de youtube mientras estudiaba sobre CSS y responsividad. También deberías abrir mis proyectos en tu celular y revisarlos.</p>
+                    <p>Código en GitHub:<a href="https://github.com/JazzoCordeiro/coffeeshop">HAZ CLIC AQUÍ</a></p>
+                    <p>Prueba mi trabajo <a href="https://jazzocordeiro.github.io/coffeeshop/">HAZ CLIC AQUÍ</a></p>
+                </div>
+                <!-- Botones -->
+                <div class="arrow2">
+                    <button id="prev2"> &lt; </button>
+                    <button id="next2"> &gt; </button>
+                </div>
+            </section>
+            <button onclick="close2()" id="closeModal2">Cerrar</button>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Insertar el material que falta aquí y corregir abajo -->
+
+<div class="bigBox">
+        <div class="separate">
+            <h2 class="projects">Proyectos de UX y UI</h2>
+            <p class="description">Actualmente estoy estudiando UI y UX, perfeccionando constantemente mis habilidades y preparando todo para compartir contenido de calidad en esta sección. Sin embargo, no está disponible en este momento.</p>
+    </div>
+    <div class="separate">
+        <h2 class="projects">Ingeniería Web y Código</h2>
+        <p class="description">Estoy trabajando en organizar mi material para presentarlo de la mejor manera posible. Esto lleva algo de tiempo, así que por favor ten paciencia y vuelve a revisar más tarde.</p>
+    </div>
+
+
+        </div>
+        </main>
+    <footer class="footer">
+    <div id="footer-placeholder"></div>
+    <script src="../main.js"></script>
+    <script>
+        fetch('../footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+    <script src="../carrossel.js"></script>
+    </footer> 
+  </body>
+</html>
