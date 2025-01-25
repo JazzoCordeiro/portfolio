@@ -753,6 +753,14 @@ body.light .tooltip {
         padding: 0 1.5rem; /* Reduz o padding */
     }
 
+    #prev1, #next1, #prev2, #next2 {
+        width: 35px; /* Diminuir a largura dos botões */
+        height: 35px; /* Diminuir a altura dos botões */
+        font-size: 2rem; /* Diminuir o tamanho da fonte */
+        margin-left: -4rem; /* Aumentar o espaçamento entre os botões */
+        margin-right: -5.5rem;
+    }
+
     .navbar {
         gap: 1rem; /* Reduz o espaçamento entre os itens */
     }
@@ -798,11 +806,28 @@ body.light .tooltip {
         margin-top: 0.5rem; /* Ajusta o espaçamento dos textos */
     }
 }
+.portImg {
+    max-width: 350px;
+    max-height: auto;
+}
+
 
 /* Para telas de até 480px */
 @media (max-width: 480px) {
     body {
         font-size: 0.9rem; /* Ajusta o tamanho da fonte para telas muito pequenas */
+    }
+
+    .bigBox {
+        grid-template-columns: 1fr; /* Isso fará com que o grid tenha apenas 1 coluna */
+    }
+
+    #prev1, #next1, #prev2, #next2 {
+        width: 30px; /* Diminuir a largura dos botões */
+        height: 30px; /* Diminuir a altura dos botões */
+        font-size: 1.5rem; /* Diminuir o tamanho da fonte */
+        margin-left: -4rem; /* Aumentar o espaçamento entre os botões */
+        margin-right: -5.5rem;
     }
 
     .groupHead {
@@ -854,6 +879,11 @@ body.light .tooltip {
     .footerP {
         font-size: 0.9rem; /* Ajusta o tamanho da fonte no rodapé */
     }
+}
+
+.portImg {
+    max-width: 250px;
+    max-height: auto;
 }
  
 /*teste apenas para comitar.
