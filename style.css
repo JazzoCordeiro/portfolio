@@ -224,6 +224,7 @@ footer p {
 /* Estilo para fotos pessoais */
 .personalPhoto {
     max-width: 200px; /* Limita a largura da imagem */
+    max-height: auto;
     margin-bottom: 2rem; /* Espaçamento abaixo da imagem */
     margin-right: 2rem; /* Espaçamento à direita da imagem */
     margin-top: 0;
@@ -241,7 +242,7 @@ article {
 
 /* Estilo para o título principal (h1) */
 .h1 {
-    font-size: x-large; /* Tamanho maior para h1 */
+    font-size: 1.75rem; /* Tamanho maior para h1 */
     color: var(--letter-b-bright); /* Cor do título */
     align-self: flex-start; /* Alinha à esquerda */
  
@@ -270,7 +271,7 @@ h3 {
     display: none; /* Inicialmente escondido */
     position: absolute; /* Posicionamento absoluto */
     pointer-events: none; /* Impede interação com a tooltip */
-    font-size: small; /* Tamanho de fonte pequeno */
+    font-size: 0.75rem; /* Tamanho de fonte pequeno */
     color: var(--letter-b-light); /* Cor do texto */
 }
 
@@ -302,9 +303,9 @@ body.light .tooltip {
   .portName {
     margin-bottom: 2rem;
     margin-top: 1rem;
-    font-size: x-large; /* Tamanho maior para h1 */
+    font-size: 1.75rem; /* Tamanho maior para h1 */
     color: var(--letter-b-bright); /* Cor do título */
-    text-align: center;https://www.reed.co.uk/career-advice/why-you-need-the-reed-co-uk-app/
+    text-align: center;
     margin-bottom: 2rem;
     transform: translateX(-1rem);
 
@@ -362,7 +363,7 @@ body.light .tooltip {
       transform: translateY(-50%); 
       width: 50px;
       height: 50px;
-      font-size:xx-large;
+      font-size:2.5rem;
       font-weight:bolder;
       border-radius: 50%;
       cursor: pointer;
@@ -407,7 +408,7 @@ body.light .tooltip {
         transform: translateY(-50%); 
         width: 50px;
         height: 50px;
-        font-size:xx-large;
+        font-size:2.5rem;
         font-weight:bolder;
         border-radius: 50%;
         cursor: pointer;
@@ -459,7 +460,7 @@ body.light .tooltip {
     cursor: pointer;
     background-color: var(--pinkish);
     color: var(--bg-dark);
-    font-size: large;
+    font-size: 1.25rem;
     border-radius: 10px;
     width: 120px;
     height: 30px;
@@ -469,7 +470,7 @@ body.light .tooltip {
   #openButton:hover, #openButton2:hover, #closeModal:hover, #closeModal2:hover {
     background-color: var(--pinkish);
     color: var(--bg-dark);
-    font-size: larger;
+    font-size: 1.25rem;
     width: 125px;
     height: 32px;
   }
@@ -506,7 +507,7 @@ body.light .tooltip {
 .socialMedia {
     text-align: center; 
     max-width: 60vw; /* Define uma largura máxima para o h1, se necessário */
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-top: 1rem;
 }
 
@@ -524,19 +525,12 @@ body.light .tooltip {
 
 .aboutPic {
     max-width: 200px;
+    max-height: auto;
     margin-left: 0;
     margin-right: 2rem;
 }
 
-.topName {
-    text-align: left;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    padding-top: 0;
-    color: var(--letter-b-bright);
-    font-size: x-large;
 
-}
 
 #botao {
     border: none;        /* Remove a borda */
@@ -652,13 +646,13 @@ body.light .tooltip {
     margin-bottom: 1rem;
     margin-top: 1rem;
     color: var(--letter-b-bright);
-    font-size: x-large; /* Tamanho maior para h1 */
+    font-size: 1.75rem; /* Tamanho maior para h1 */
 }
 
 .articleP {
     margin-top: 0;
     margin-left: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 
 }
 
@@ -676,7 +670,7 @@ body.light .tooltip {
 }
 
 .subtitulo {
-    font-size: x-large; /* Tamanho maior para h1 */
+    font-size: 1.5rem; /* Tamanho maior para h1 */
     color: var(--letter-b-bright); /* Cor do título */
     text-align: center; 
     margin-top: 3rem;
@@ -704,3 +698,162 @@ body.light .tooltip {
 .highlight-word.highlighted {
     color: #d81c5c; /* Cor de destaque */
 }
+
+/* Para telas de até 1024px */
+@media (max-width: 1024px) {
+    .groupHead {
+        padding: 0 2rem; /* Reduz o padding do cabeçalho */
+    }
+
+    .mylogo {
+        max-width: 60px; /* Reduz o tamanho do logo */
+    }
+
+    .navbar {
+        gap: 1.5rem; /* Reduz o espaçamento entre os itens */
+    }
+
+    .homeContainer {
+        flex-direction: column; /* Muda de linha para coluna em telas menores */
+    }
+
+    .personalPhoto {
+        max-width: 150px; /* Ajusta o tamanho da imagem */
+        margin-bottom: 1rem; /* Ajusta o espaçamento */
+    }
+
+    .h1 {
+        font-size: 1.5rem; /* Reduz o tamanho da fonte do título */
+    }
+
+    .h2 {
+        transform: translateX(0); /* Ajusta o subtítulo */
+    }
+
+    .aboutPic {
+        max-width: 180px; /* Reduz o tamanho da imagem na seção "about" */
+    }
+
+    .social {
+        gap: 2rem; /* Reduz o espaçamento entre ícones de redes sociais */
+    }
+
+    .bigContainer {
+        flex-direction: column; /* Muda a direção de linha para coluna */
+    }
+
+    .big-contact {
+        padding-top: 2rem; /* Ajusta o padding do contato */
+    }
+}
+
+/* Para telas de até 768px */
+@media (max-width: 768px) {
+    .groupHead {
+        padding: 0 1.5rem; /* Reduz o padding */
+    }
+
+    .navbar {
+        gap: 1rem; /* Reduz o espaçamento entre os itens */
+    }
+
+    .mylogo {
+        max-width: 50px; /* Reduz ainda mais o tamanho do logo */
+    }
+
+    .homeContainer {
+        flex-direction: column; /* Muda a direção de linha para coluna */
+        justify-content: center; /* Centraliza os elementos */
+    }
+
+    .personalPhoto {
+        max-width: 130px; /* Ajusta o tamanho da imagem */
+    }
+
+    .h1 {
+        font-size: 1.5rem; /* Ajusta o tamanho do título */
+    }
+
+    .h2 {
+        transform: translateX(0); /* Ajusta a posição do subtítulo */
+    }
+
+    .aboutPic {
+        max-width: 150px; /* Ajusta o tamanho da imagem */
+    }
+
+    .bigContainer {
+        flex-direction: column; /* Muda a direção de linha para coluna */
+    }
+
+    .social {
+        gap: 1.5rem; /* Reduz o espaçamento entre os ícones */
+    }
+
+    .socialMedia {
+        font-size: 1.5rem; /* Reduz o tamanho da fonte */
+    }
+
+    .social p {
+        margin-top: 0.5rem; /* Ajusta o espaçamento dos textos */
+    }
+}
+
+/* Para telas de até 480px */
+@media (max-width: 480px) {
+    body {
+        font-size: 0.9rem; /* Ajusta o tamanho da fonte para telas muito pequenas */
+    }
+
+    .groupHead {
+        padding: 0 1rem; /* Ajusta o padding do cabeçalho */
+    }
+
+    .mylogo {
+        max-width: 40px; /* Reduz o tamanho do logo */
+    }
+
+    .navbar {
+        gap: 0.5rem; /* Reduz ainda mais o espaçamento */
+    }
+
+    .homeContainer {
+        flex-direction: column; /* Muda a direção de linha para coluna */
+        justify-content: center; /* Centraliza os elementos */
+    }
+
+    .personalPhoto {
+        max-width: 120px; /* Ajusta o tamanho da imagem */
+        margin-bottom: 1rem; /* Ajusta o espaçamento */
+    }
+
+    .h1 {
+        font-size: 1.25rem; /* Ajusta o tamanho do título */
+    }
+
+    .h2 {
+        font-size: 1.25rem; /* Ajusta o tamanho do subtítulo */
+    }
+
+    .aboutPic {
+        max-width: 120px; /* Ajusta o tamanho da imagem */
+    }
+
+    .social {
+        gap: 1rem; /* Reduz o espaçamento entre os ícones */
+    }
+
+    .socialMedia {
+        font-size: 1.25rem; /* Ajusta o tamanho da fonte */
+    }
+
+    .social p {
+        font-size: 0.9rem; /* Ajusta o tamanho do texto */
+    }
+
+    .footerP {
+        font-size: 0.9rem; /* Ajusta o tamanho da fonte no rodapé */
+    }
+}
+ 
+/*teste apenas para comitar.
