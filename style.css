@@ -415,7 +415,7 @@ body.light .tooltip {
     max-height: 80%;
     background-color: var(--letter-b-dark);
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: none;
