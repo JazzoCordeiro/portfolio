@@ -1,28 +1,42 @@
-// Este código deve ir no arquivo JavaScript principal (main.js ou script.js)
 document.addEventListener('DOMContentLoaded', function () {
-    // Carregar o header primeiro
     const headerPlaceholder = document.getElementById('header-placeholder');
-    if (headerPlaceholder) {
-        fetch('./header.html')
-            .then(response => response.text())
-            .then(data => {
-                headerPlaceholder.innerHTML = data;
-                
-                // Somente após o header ser carregado, inicializamos os outros componentes
-                initializeHamburgerMenu();
-                initializeThemeSwitcher();
-                initializeAudioHighlighter();
-            })
-            .catch(error => {
-                console.error('Erro ao carregar o header:', error);
-            });
-    } else {
-        // Se não houver header placeholder, inicialize os componentes diretamente
+
+    if (!headerPlaceholder) {
+        console.warn('header-placeholder não encontrado.');
+        initializeComponents();
+        return;
+    }
+
+    // Detecta o idioma com base no caminho da URL
+    const path = window.location.pathname;
+    let headerFile = './header.html';
+
+    if (path.includes('/pt-br/')) {
+        headerFile = 'header-pt.html';
+    } else if (path.includes('/es/')) {
+        headerFile = 'header-es.html';
+    }
+
+    fetch(headerFile)
+        .then(response => response.text())
+        .then(data => {
+            headerPlaceholder.innerHTML = data;
+            initializeComponents();
+        })
+        .catch(error => {
+            console.error('Erro ao carregar o header:', error);
+            initializeComponents(); // Inicializa mesmo se o header falhar
+        });
+
+    function initializeComponents() {
         initializeHamburgerMenu();
         initializeThemeSwitcher();
         initializeAudioHighlighter();
     }
 });
+
+
+
 
 // Função para inicializar o menu hambúrguer
 function initializeHamburgerMenu() {

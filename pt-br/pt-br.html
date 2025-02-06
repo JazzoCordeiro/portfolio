@@ -11,16 +11,6 @@
 <body>
     <header class="header">
         <div id="header-placeholder"></div>
-        <script> fetch('./header-pt.html').then(response => response.text()).then(data => {
-                document.getElementById('header-placeholder').innerHTML = data; initializeThemeSwitcher(); // Chama a função para inicializar o botão de modo 
-            }); function initializeThemeSwitcher() {
-                let trilho = document.getElementById('trilho'); if (!trilho) { console.error('Elemento "trilho" não encontrado'); return; } let body = document.querySelector('body'); let header = document.querySelector('.header'); let tooltips = document.querySelectorAll('.tooltip'); // Verificar se o modo light foi salvo no localStorage e aplicar
-                if (localStorage.getItem('theme') === 'light') { body.classList.add('light'); header.classList.add('light'); trilho.classList.add('light'); tooltips.forEach(function (tooltip) { tooltip.classList.add('light'); }); } // Alterna entre o modo normal e o modo light 
-                trilho.addEventListener('click', function () {
-                    trilho.classList.toggle('light'); body.classList.toggle('light'); header.classList.toggle('light'); tooltips.forEach(function (tooltip) { tooltip.classList.toggle('light'); }); // Salva a preferência no localStorage (modo light ou normal) 
-                    if (body.classList.contains('light')) { localStorage.setItem('theme', 'light'); } else { localStorage.removeItem('theme'); }
-                });
-            } </script>
     </header>
 
     <main>
@@ -71,7 +61,7 @@
             </section>
         </main>
     <footer class="footer">
-        <script src="main.js"></script>
+        <script src="../main.js"></script>
         <div id="footer-placeholder"></div>
         <script>
             fetch('../footer.html')
