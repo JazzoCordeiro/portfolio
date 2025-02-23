@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio de Jazão</title>
     <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-  <header class="header">
-    <div id="header-placeholder"></div>
-</header>
-<main>
-    <h1>En Construción</h1>
-</main>
-<footer class="footer">
 
-    <div id="footer-placeholder"></div>
-    <script src="../main.js"></script>
-    <script>
-        fetch('../footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
-    </script>
-    </footer> 
-  </body>
+<body>
+    <header class="header">
+        <div id="header-placeholder"></div>
+    </header>
+    <main>
+        <h1>En Construción</h1>
+    </main>
+    <footer class="footer">
+
+        <div id="footer-placeholder"></div>
+        <script src="../main.js"></script>
+        <script>
+            fetch('../footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        </script>
+    </footer>
+</body>
+
 </html>

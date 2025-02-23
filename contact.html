@@ -1,73 +1,54 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jazao's Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <div id="header-placeholder"></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jazao's Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <div id="header-placeholder"></div>
   </header>
-<main>
-      <h1 class="socialMedia"><span style="color: var(--pinkish)">ATTENTION:</span> Since I'm not an
-        avid social media user, here you will see the social networks I use the
-        most, but the best way to contact me is still via email.
-      </h1>
-      <br /><br /><br />
-      <div class="big-contact">
-        <div class="social">
-          <a href="www.linkedin.com/in/jazzocordeiro"
-            ><img
-              width="48"
-              height="48"
-              src="https://img.icons8.com/color/48/linkedin.png"
-              alt="linkedin"
-            />
-            <p>LinkedIn</p></a
-          >
-          <a href="https://github.com/JazzoCordeiro"
-            ><img
-              width="48"
-              height="48"
-              src="https://img.icons8.com/color/48/github--v1.png"
-              alt="github--v1"
-            />
-            <p>GitHub</p></a
-          >
-          <a href="https://stackexchange.com/users/36493907/jazzo-cordeiro-rosa"
-            ><img
-              width="48"
-              height="48"
-              src="https://img.icons8.com/color/48/stackoverflow.png"
-              alt="stackoverflow"
-            />
-            <p>Stack Overflow</p></a
-          >
-        </div>
-        <img 
-              width="48"
-              height="48"
-              src="https://img.icons8.com/emoji/48/e-mail.png"
-              alt="e-mail"
-              class="email"
-            />
-            <a href="mailto:jazao.cordeiro@gmail.com">jazao.cordeiro@gmail.com</a>
+  <main>
+    <h1 class="socialMedia">
+      <span style="color: var(--pinkish)">ATTENTION:</span> Since I'm not an
+      avid social media user, here you will see the social networks I use the
+      most, but the best way to contact me is still via email.
+    </h1>
+    <br /><br /><br />
+    <div class="big-contact">
+      <div class="social">
+        <a href="www.linkedin.com/in/jazzocordeiro"><img width="48" height="48"
+            src="https://img.icons8.com/color/48/linkedin.png" alt="linkedin" />
+          <p>LinkedIn</p>
+        </a>
+        <a href="https://github.com/JazzoCordeiro"><img width="48" height="48"
+            src="https://img.icons8.com/color/48/github--v1.png" alt="github--v1" />
+          <p>GitHub</p>
+        </a>
+        <a href="https://stackexchange.com/users/36493907/jazzo-cordeiro-rosa"><img width="48" height="48"
+            src="https://img.icons8.com/color/48/stackoverflow.png" alt="stackoverflow" />
+          <p>Stack Overflow</p>
+        </a>
       </div>
-    </main>
-    <footer class="footer">
-      
-      <div id="footer-placeholder"></div>
-      <script src="main.js"></script>
-      <script>
-          fetch('./footer.html')
-              .then(response => response.text())
-              .then(data => {
-                  document.getElementById('footer-placeholder').innerHTML = data;
-              });
-      </script>
-      </footer>
-     
-  </body>
+      <img width="48" height="48" src="https://img.icons8.com/emoji/48/e-mail.png" alt="e-mail" class="email" />
+      <a href="mailto:jazao.cordeiro@gmail.com">jazao.cordeiro@gmail.com</a>
+    </div>
+  </main>
+  <footer class="footer">
+    <div id="footer-placeholder"></div>
+    <script src="main.js"></script>
+    <script>
+      fetch("./footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
+    </script>
+  </footer>
+</body>
+
 </html>

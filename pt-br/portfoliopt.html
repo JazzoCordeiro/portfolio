@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio do Jazão</title>
     <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
     <header class="header">
         <div id="header-placeholder"></div>
@@ -15,7 +17,9 @@
         <div class="bigBox">
             <div class="separate">
                 <h2 class="projects">Projetos Freelancer</h2>
-                <p class="description">Clique no botão para explorar os projetos freelancer nos quais trabalhei e outros projetos pessoais que vendi com sucesso. Aqui, você encontrará detalhes sobre como transformei ideias em realidade, ajudando clientes e mostrando minha dedicação e habilidades criativas.</p>
+                <p class="description">Clique no botão para explorar os projetos freelancer nos quais trabalhei e outros
+                    projetos pessoais que vendi com sucesso. Aqui, você encontrará detalhes sobre como transformei
+                    ideias em realidade, ajudando clientes e mostrando minha dedicação e habilidades criativas.</p>
                 <Button onclick="open1()" id="openButton">Ver mais...</Button>
             </div>
             <div id="modal1">
@@ -25,11 +29,18 @@
                     <!-- conteúdo -->
                     <div class="car active"> <!-- ativo -->
                         <h3 class="project1">Analista de Qualidade - Tester Prático</h3>
-                        <img class="portImg" src="../img/asfalto.png" alt="logo noir de um jogo preto e branco que lembra uma mulher fumando">
-                        <p>Este foi um jogo eletrônico para deficientes visuais feito com o motor Unity. Eu fiz parte da equipe de teste do jogo, procurando bugs e problemas com a direção de áudio e volume que guiam o jogador durante o gameplay. O jogo não está mais disponível, mas você pode ver a jogabilidade em português no link abaixo. O jogo foi produzido em parceria com o governo do estado de São Paulo através do PROAC.</p>
+                        <img class="portImg" src="../img/asfalto.png"
+                            alt="logo noir de um jogo preto e branco que lembra uma mulher fumando">
+                        <p>Este foi um jogo eletrônico para deficientes visuais feito com o motor Unity. Eu fiz parte da
+                            equipe de teste do jogo, procurando bugs e problemas com a direção de áudio e volume que
+                            guiam o jogador durante o gameplay. O jogo não está mais disponível, mas você pode ver a
+                            jogabilidade em português no link abaixo. O jogo foi produzido em parceria com o governo do
+                            estado de São Paulo através do PROAC.</p>
                         <p>Vídeos do Asfalto:</p>
-                        <p><a href="https://www.youtube.com/watch?v=LRIzo_MT2z0">https://www.youtube.com/watch?v=LRIzo_MT2z0</a>
-                        </p><a href="https://www.youtube.com/watch?v=Ryr22ZZwKHo">https://www.youtube.com/watch?v=Ryr22ZZwKHo</a>
+                        <p><a
+                                href="https://www.youtube.com/watch?v=LRIzo_MT2z0">https://www.youtube.com/watch?v=LRIzo_MT2z0</a>
+                        </p><a
+                            href="https://www.youtube.com/watch?v=Ryr22ZZwKHo">https://www.youtube.com/watch?v=Ryr22ZZwKHo</a>
                         <p><a href="https://asfalto.dreamhosters.com">Jogue o jogo clicando aqui (somente PT-BR)</a></p>
                     </div>
 
@@ -37,17 +48,22 @@
                     <div class="car">
                         <h3 class="project1">Intranet da Secretaria do Estado de São Paulo</h3>
                         <img class="portImg" src="../img/sde.webp" alt="uma gif de um site de intranet">
-                        <p>Alterações ocasionalmente feitas na página em HTML, PHP e CSS: Durante meu trabalho como técnico, ocasionalmente recebia 
-                            solicitações para modificar detalhes de aparência. Essas tarefas incluem trocar imagens específicas, adicionar 
-                            ou remover ícones e responsabilidades semelhantes. Essencialmente, ocasionalmente trabalho em alguns ajustes de HTML, PHP e CSS.</p><br>
-                        <p>Não há link para o código e o acesso a essa ferramenta não é permitido devido a confidencialidade.</p>
+                        <p>Alterações ocasionalmente feitas na página em HTML, PHP e CSS: Durante meu trabalho como
+                            técnico, ocasionalmente recebia
+                            solicitações para modificar detalhes de aparência. Essas tarefas incluem trocar imagens
+                            específicas, adicionar
+                            ou remover ícones e responsabilidades semelhantes. Essencialmente, ocasionalmente trabalho
+                            em alguns ajustes de HTML, PHP e CSS.</p><br>
+                        <p>Não há link para o código e o acesso a essa ferramenta não é permitido devido a
+                            confidencialidade.</p>
                     </div>
 
 
                     <div class="car">
                         <h3 class="project1">Landing pages</h3>
                         <img class="portImg" src="https://img.icons8.com/3d-fluency/375/wordpress.png" alt="wordpress">
-                        <p>Durante a pandemia, eu criei e customizei templates preexistentes para fazer landing pages de diversos produtos a pedido de afiliados da Hotmart.</p>
+                        <p>Durante a pandemia, eu criei e customizei templates preexistentes para fazer landing pages de
+                            diversos produtos a pedido de afiliados da Hotmart.</p>
                     </div>
 
                     <!-- Botões -->
@@ -58,116 +74,147 @@
                 </section>
                 <button onclick="close1()" id="closeModal">Fechar</button>
             </div>
-        
 
 
-        <!-- INSERIR TÍTULO DO PROJETO A SER EXIBIDO -->
 
-        <div class="separate">
-            <h2 class="projects">Projetos Pessoais e de Estudo</h2>
-            <p class="description">Clique no botão para descobrir os projetos nos quais estou trabalhando durante meus cursos, assim como projetos pessoais. Isso inclui ajudar amigos ou atender pedidos de outras pessoas, que estou realizando principalmente como parte da minha jornada de aprendizado.</p>
-            <Button onclick="open2()" id="openButton2">Ver mais...</Button>
-        </div>
-        <div id="modal2">
-            <!-- Segundo Carrossel -->
-            <section class="carrossel2">
-                <div class="carro active2">
-                    <h3 class="project2">Be the Hero</h3>
-                    <img class="portImg" src="../img/hero.webp" alt="Uma tela de login que leva a um site com casos que podem ser escolhidos">
-                    <p>Site e app de uma iniciativa onde ONGs podem postar casos e pessoas podem ajudar.<br>
-Projeto fullstack multiplataforma feito com REACT, REACT NATIVE e NODEJS, utilizando express e axios. Banco de dados local apenas para testes.<br>
-WEB: Feita para as ONGS - Tela de login seguida de tela com os casos ja cadastrados, botão para abrir a tela de cadastro de novo caso e botão para deslogar.<br>
-MOBILE: Feito para usuários doadores - onde o usuário pode ver os casos cadastrados e enviar email ou mensagem de whatsapp para ter mais informações e ajudar a ONG.</p>
-                    <p>Código no GitHub: <a href="https://github.com/JazzoCordeiro/omniStack">CLIQUE AQUI</a></p>
-                </div>
+            <!-- INSERIR TÍTULO DO PROJETO A SER EXIBIDO -->
 
-
-                         <div class="carro">
-                    <h3 class="project2">Estoque de loja de roupa</h3>
-                    <img class="portImg" src="../img/loja.webp" alt="Um campo para cadastrar produtos e uma lista com os produtos.">
-                    <p>Site que funciona como estoque de loja de roupas.
-Projeto fullstack WEB feito com REACT, NODEJS, BOOTSTRAP, utilizando express, mySQL, express-handlebars.
-Trata-se de uma tela onde é possível cadastrar um produto, é possível ver o produto, alterar informações, deleta-lo ou dar baixa em apenas um item que estava a venda.</p>
-                    <p>Código no GitHub: <a href="https://github.com/JazzoCordeiro/Estoque-Loja">CLOQUE AQUI:</a></p>
-                </div>
-
-
-                   <div class="carro">
-                    <h3 class="project2">Pokédex</h3>
-                    <img class="portImg" src="../img/pokedex.gif" alt="imagem de uma pokédex mostrando um bulbasaur">
-                    <p>Todo iniciante hoje em dia cria uma Pokédex enquanto aprende JavaScript, especialmente para praticar requisições de API e operações CRUD. Foi meu primeiro projeto enquanto estudava no Bootcamp Front End do Pan Bank.</p>
-                    <p>Código no GitHub: <a href="https://github.com/JazzoCordeiro/pokedex">CLIQUE AQUI</a></p>
-                    <p>Teste meu trabalho <a href="https://jazzocordeiro.github.io/pokedex/">CLIQUE AQUI</a></p>
-                </div>
-
-
-                <div class="carro">
-                    <h3 class="project2">Lista de Funcionários</h3>
-                    <img class="portImg" src="../img/todo.gif" alt="um gif de uma lista de tarefas">
-                    <p>Para melhorar minhas habilidades em JavaScript, especialmente com operações CRUD, eu criei uma lista de funcionários que armazena nomes, salários e cargos no armazenamento local. Você pode editar e excluir todas as entradas. A mesma estrutura poderia ser adaptada para uma lista de tarefas ou um app de anotações.</p>
-                    <p>Código no GitHub: <a href="https://github.com/JazzoCordeiro/ListCRUD">CLIQUE AQUI</a></p>
-                    <p>Teste meu trabalho <a href="https://jazzocordeiro.github.io/ListCRUD/">CLIQUE AQUI</a></p>
-                </div>
-
-
-                                    <div class="carro">
-                        <h3 class="project2">Relógio e temperatura</h3>
-                        <img class="portImg" src="../img/clock.gif" alt="imagem de um app de relógio">
-                        <p>Este app começou como um projeto pessoal para meus estudos de JavaScript e CSS responsivo, começando com um relógio simples. Depois, adicionei uma funcionalidade de pesquisa de clima e mostrei para minha irmã. Ela gostou e pediu uma função de alarme com sons engraçados e uma IA para locução. Implementei o alarme, preciso fazer alguns ajustes de CSS e estou trabalhando na IA de locução. Alguns amigos ficaram interessados e pediram para testar o app também. No momento, 7 pessoas estão usando e aguardando pela atualização da IA.</p>
-                        <p>Código no GitHub: <a href="https://github.com/JazzoCordeiro/clock-n-temp">CLIQUE AQUI</a>
-                        </p>
-                        <p>Teste meu trabalho <a href="https://jazzocordeiro.github.io/clock-n-temp/">CLIQUE AQUI</a></p>
+            <div class="separate">
+                <h2 class="projects">Projetos Pessoais e de Estudo</h2>
+                <p class="description">Clique no botão para descobrir os projetos nos quais estou trabalhando durante
+                    meus cursos, assim como projetos pessoais. Isso inclui ajudar amigos ou atender pedidos de outras
+                    pessoas, que estou realizando principalmente como parte da minha jornada de aprendizado.</p>
+                <Button onclick="open2()" id="openButton2">Ver mais...</Button>
+            </div>
+            <div id="modal2">
+                <!-- Segundo Carrossel -->
+                <section class="carrossel2">
+                    <div class="carro active2">
+                        <h3 class="project2">Be the Hero</h3>
+                        <img class="portImg" src="../img/hero.webp"
+                            alt="Uma tela de login que leva a um site com casos que podem ser escolhidos">
+                        <p>Site e app de uma iniciativa onde ONGs podem postar casos e pessoas podem ajudar.<br>
+                            Projeto fullstack multiplataforma feito com REACT, REACT NATIVE e NODEJS, utilizando express
+                            e axios. Banco de dados local apenas para testes.<br>
+                            WEB: Feita para as ONGS - Tela de login seguida de tela com os casos ja cadastrados, botão
+                            para abrir a tela de cadastro de novo caso e botão para deslogar.<br>
+                            MOBILE: Feito para usuários doadores - onde o usuário pode ver os casos cadastrados e enviar
+                            email ou mensagem de whatsapp para ter mais informações e ajudar a ONG.</p>
+                        <p>Código no GitHub: <a href="https://github.com/JazzoCordeiro/omniStack">CLIQUE AQUI</a></p>
                     </div>
 
 
-                <div class="carro">
-                    <h3 class="project2">Landing page de Cafeteria</h3>
-                    <img class="portImg" src="../img/cafe.webp" alt="um gif de um site de cafeteria rolando para baixo">
-                    <p>Eu fiz esta landing page simples com base em um vídeo do youtube enquanto estudava sobre CSS e responsividade. Você também deve abrir meus projetos no seu celular e conferir.</p>
-                    <p>Código no GitHub:<a href="https://github.com/JazzoCordeiro/coffeeshop">CLIQUE AQUI</a></p>
-                    <p>Teste meu trabalho <a href="https://jazzocordeiro.github.io/coffeeshop/">CLIQUE AQUI</a></p>
-                </div>
+                    <div class="carro">
+                        <h3 class="project2">Estoque de loja de roupa</h3>
+                        <img class="portImg" src="../img/loja.webp"
+                            alt="Um campo para cadastrar produtos e uma lista com os produtos.">
+                        <p>Site que funciona como estoque de loja de roupas.
+                            Projeto fullstack WEB feito com REACT, NODEJS, BOOTSTRAP, utilizando express, mySQL,
+                            express-handlebars.
+                            Trata-se de uma tela onde é possível cadastrar um produto, é possível ver o produto, alterar
+                            informações, deleta-lo ou dar baixa em apenas um item que estava a venda.</p>
+                        <p>Código no GitHub: <a href="https://github.com/JazzoCordeiro/Estoque-Loja">CLOQUE AQUI:</a>
+                        </p>
+                    </div>
 
 
-                <div class="carro">
-                    <h3 class="project2">Landing page de refrigerante</h3>
-                    <img class="portImg" src="../img/refri.gif" alt="uma página laranja com uma lata de refrigerante e pedaços de frutas flutuando">
-                    <p>Eu fiz esta landing page simples com base em um vídeo do youtube enquanto estudava sobre CSS e animação. É simples, mas bonita. Foi também onde aprendi a fazer um carrossel de imagens.</p>
-                    <p>Código no GitHub: <a href="https://github.com/JazzoCordeiro/refri">CLIQUE AQUI</a></p>
-                    <p>Teste meu trabalho <a href="https://jazzocordeiro.github.io/refri/">CLIQUE AQUI</a></p>
-                </div>
+                    <div class="carro">
+                        <h3 class="project2">Pokédex</h3>
+                        <img class="portImg" src="../img/pokedex.gif"
+                            alt="imagem de uma pokédex mostrando um bulbasaur">
+                        <p>Todo iniciante hoje em dia cria uma Pokédex enquanto aprende JavaScript, especialmente para
+                            praticar requisições de API e operações CRUD. Foi meu primeiro projeto enquanto estudava no
+                            Bootcamp Front End do Pan Bank.</p>
+                        <p>Código no GitHub: <a href="https://github.com/JazzoCordeiro/pokedex">CLIQUE AQUI</a></p>
+                        <p>Teste meu trabalho <a href="https://jazzocordeiro.github.io/pokedex/">CLIQUE AQUI</a></p>
+                    </div>
 
 
-                <!-- Botões -->
-                <div class="arrow2">
-                    <button id="prev2"> &lt; </button>
-                    <button id="next2"> &gt; </button>
-                </div>
-            </section>
-            <button onclick="close2()" id="closeModal2">Fechar</button>
+                    <div class="carro">
+                        <h3 class="project2">Lista de Funcionários</h3>
+                        <img class="portImg" src="../img/todo.gif" alt="um gif de uma lista de tarefas">
+                        <p>Para melhorar minhas habilidades em JavaScript, especialmente com operações CRUD, eu criei
+                            uma lista de funcionários que armazena nomes, salários e cargos no armazenamento local. Você
+                            pode editar e excluir todas as entradas. A mesma estrutura poderia ser adaptada para uma
+                            lista de tarefas ou um app de anotações.</p>
+                        <p>Código no GitHub: <a href="https://github.com/JazzoCordeiro/ListCRUD">CLIQUE AQUI</a></p>
+                        <p>Teste meu trabalho <a href="https://jazzocordeiro.github.io/ListCRUD/">CLIQUE AQUI</a></p>
+                    </div>
+
+
+                    <div class="carro">
+                        <h3 class="project2">Relógio e temperatura</h3>
+                        <img class="portImg" src="../img/clock.gif" alt="imagem de um app de relógio">
+                        <p>Este app começou como um projeto pessoal para meus estudos de JavaScript e CSS responsivo,
+                            começando com um relógio simples. Depois, adicionei uma funcionalidade de pesquisa de clima
+                            e mostrei para minha irmã. Ela gostou e pediu uma função de alarme com sons engraçados e uma
+                            IA para locução. Implementei o alarme, preciso fazer alguns ajustes de CSS e estou
+                            trabalhando na IA de locução. Alguns amigos ficaram interessados e pediram para testar o app
+                            também. No momento, 7 pessoas estão usando e aguardando pela atualização da IA.</p>
+                        <p>Código no GitHub: <a href="https://github.com/JazzoCordeiro/clock-n-temp">CLIQUE AQUI</a>
+                        </p>
+                        <p>Teste meu trabalho <a href="https://jazzocordeiro.github.io/clock-n-temp/">CLIQUE AQUI</a>
+                        </p>
+                    </div>
+
+
+                    <div class="carro">
+                        <h3 class="project2">Landing page de Cafeteria</h3>
+                        <img class="portImg" src="../img/cafe.webp"
+                            alt="um gif de um site de cafeteria rolando para baixo">
+                        <p>Eu fiz esta landing page simples com base em um vídeo do youtube enquanto estudava sobre CSS
+                            e responsividade. Você também deve abrir meus projetos no seu celular e conferir.</p>
+                        <p>Código no GitHub:<a href="https://github.com/JazzoCordeiro/coffeeshop">CLIQUE AQUI</a></p>
+                        <p>Teste meu trabalho <a href="https://jazzocordeiro.github.io/coffeeshop/">CLIQUE AQUI</a></p>
+                    </div>
+
+
+                    <div class="carro">
+                        <h3 class="project2">Landing page de refrigerante</h3>
+                        <img class="portImg" src="../img/refri.gif"
+                            alt="uma página laranja com uma lata de refrigerante e pedaços de frutas flutuando">
+                        <p>Eu fiz esta landing page simples com base em um vídeo do youtube enquanto estudava sobre CSS
+                            e animação. É simples, mas bonita. Foi também onde aprendi a fazer um carrossel de imagens.
+                        </p>
+                        <p>Código no GitHub: <a href="https://github.com/JazzoCordeiro/refri">CLIQUE AQUI</a></p>
+                        <p>Teste meu trabalho <a href="https://jazzocordeiro.github.io/refri/">CLIQUE AQUI</a></p>
+                    </div>
+
+
+                    <!-- Botões -->
+                    <div class="arrow2">
+                        <button id="prev2"> &lt; </button>
+                        <button id="next2"> &gt; </button>
+                    </div>
+                </section>
+                <button onclick="close2()" id="closeModal2">Fechar</button>
+
+            </div>
+        </div>
+        </div>
+
+
+
+        <!-- Inserir o material que falta aqui e corrigir abaixo -->
+
+        <div class="bigBox">
+            <div class="separate">
+                <h2 class="projects">Projetos de UX e UI</h2>
+                <p class="description">Atualmente estou estudando UI e UX, aprimorando constantemente minhas habilidades
+                    e preparando tudo para compartilhar conteúdo de qualidade nesta seção. No entanto, não está
+                    disponível no momento.</p>
+            </div>
+            <div class="separate">
+                <h2 class="projects">Engenharia de Web e Código</h2>
+                <p class="description">Estou trabalhando na organização do meu material para apresentá-lo a vocês da
+                    melhor maneira possível. Isso leva algum tempo, então por favor, seja paciente e confira novamente
+                    mais tarde.</p>
+            </div>
+
 
         </div>
-    </div>
-</div>
-
-
-
-<!-- Inserir o material que falta aqui e corrigir abaixo -->
-
-<div class="bigBox">
-        <div class="separate">
-            <h2 class="projects">Projetos de UX e UI</h2>
-            <p class="description">Atualmente estou estudando UI e UX, aprimorando constantemente minhas habilidades e preparando tudo para compartilhar conteúdo de qualidade nesta seção. No entanto, não está disponível no momento.</p>
-    </div>
-    <div class="separate">
-        <h2 class="projects">Engenharia de Web e Código</h2>
-        <p class="description">Estou trabalhando na organização do meu material para apresentá-lo a vocês da melhor maneira possível. Isso leva algum tempo, então por favor, seja paciente e confira novamente mais tarde.</p>
-    </div>
-
-
-        </div>
-        </main>
-        <footer class="footer">
+    </main>
+    <footer class="footer">
         <div id="footer-placeholder"></div>
         <script src="../main.js"></script>
         <script>
@@ -178,6 +225,7 @@ Trata-se de uma tela onde é possível cadastrar um produto, é possível ver o 
                 });
         </script>
         <script src="../carrossel.js"></script>
-        </footer> 
-      </body>
+    </footer>
+</body>
+
 </html>

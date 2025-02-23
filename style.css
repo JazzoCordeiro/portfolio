@@ -116,13 +116,13 @@ body.light #next2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 3rem;
+    padding: 0 2rem;
     max-width: 95%;
 }
 
 .mylogo {
-    margin-right: 2rem;
-    max-width: 80px;
+    margin-right: 1rem;
+    max-width: 75px;
 }
 
 .navbar {
@@ -415,7 +415,7 @@ body.light .tooltip {
     max-height: 80%;
     background-color: var(--letter-b-dark);
     position: absolute;
-    top: 55%;
+    top: 53%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: none;
