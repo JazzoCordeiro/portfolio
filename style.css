@@ -242,11 +242,10 @@ footer p {
 
 .personalPhoto {
     max-width: 200px;
-    max-height: auto;
-    margin-bottom: 2rem;
+    height: 100%;
+    margin-left: 0;
     margin-right: 2rem;
-    margin-top: 0;
-    transform: translateY(-0.2rem);
+    transform: translateY(-2rem);
 }
 
 article {
@@ -821,7 +820,6 @@ body.light .tooltip {
         height: 100%;
         margin-left: 0;
         margin-right: 2rem;
-        transform: translateY(-1rem);
     }
 
     .h1,
