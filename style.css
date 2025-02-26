@@ -284,9 +284,9 @@ body.light .tooltip {
     color: var(--bg-dark);
 }
 
-.img1:hover + .tooltip1,
-.img2:hover + .tooltip2,
-.img3:hover + .tooltip3 {
+.img1:hover+.tooltip1,
+.img2:hover+.tooltip2,
+.img3:hover+.tooltip3 {
     display: block;
 }
 
@@ -316,7 +316,8 @@ body.light .tooltip {
     color: var(--letter-b-bright);
 }
 
-.project1, .project2 {
+.project1,
+.project2 {
     text-align: center;
     margin-bottom: 1rem;
 }
@@ -342,7 +343,8 @@ body.light .tooltip {
     background-color: var(--bg-dark);
 }
 
-#prev1, #next1 {
+#prev1,
+#next1 {
     position: absolute;
     background-color: var(--letter-b-bright);
     color: var(--bg-dark);
@@ -350,8 +352,8 @@ body.light .tooltip {
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
-    font-size:2.5rem;
-    font-weight:bolder;
+    font-size: 2.5rem;
+    font-weight: bolder;
     border-radius: 50%;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
@@ -386,16 +388,17 @@ body.light .tooltip {
     background-color: var(--bg-dark);
 }
 
-#prev2, #next2 {
+#prev2,
+#next2 {
     position: absolute;
-  background-color: var(--letter-b-bright);
-        color: var(--bg-light);
+    background-color: var(--letter-b-bright);
+    color: var(--bg-light);
     top: 55%;
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
-    font-size:2.5rem;
-    font-weight:bolder;
+    font-size: 2.5rem;
+    font-weight: bolder;
     border-radius: 50%;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
@@ -410,7 +413,8 @@ body.light .tooltip {
     right: 100px;
 }
 
-#modal1, #modal2 {
+#modal1,
+#modal2 {
     width: 80%;
     max-height: 80%;
     background-color: var(--letter-b-dark);
@@ -428,8 +432,13 @@ body.light .tooltip {
 }
 
 @keyframes animate {
-    from{opacity: 0;}
-    to{opacity: 1;}
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .portImg {
@@ -441,7 +450,10 @@ body.light .tooltip {
     margin: 0 auto;
 }
 
-#openButton, #openButton2, #closeModal, #closeModal2 {
+#openButton,
+#openButton2,
+#closeModal,
+#closeModal2 {
     cursor: pointer;
     background-color: var(--pinkish);
     color: var(--bg-dark);
@@ -452,11 +464,15 @@ body.light .tooltip {
 
 }
 
-#closeModal, #closeModal2{
+#closeModal,
+#closeModal2 {
     transform: translateY(-1.7rem);
 }
 
-#openButton:hover, #openButton2:hover, #closeModal:hover, #closeModal2:hover {
+#openButton:hover,
+#openButton2:hover,
+#closeModal:hover,
+#closeModal2:hover {
     background-color: var(--pinkish);
     color: var(--bg-dark);
     font-size: 1.25rem;
@@ -666,10 +682,12 @@ body.light .tooltip {
 .highlight-word.highlighted {
     color: #d81c5c;
 }
+
 /* Estilos para telas menores - Menu Hamburguer */
 @media (max-width: 768px) {
     .groupHead {
-        position: relative; /* Importante para posicionar o navbar absolutamente dentro dele */
+        position: relative;
+        /* Importante para posicionar o navbar absolutamente dentro dele */
         padding: 0 1.5rem;
         display: flex;
         align-items: center;
@@ -679,7 +697,8 @@ body.light .tooltip {
     .navbar {
         display: none;
         position: absolute;
-        top: 100%; /* Posiciona abaixo do groupHead */
+        top: 100%;
+        /* Posiciona abaixo do groupHead */
         left: 0;
         right: 0;
         background-color: var(--bg-dark);
@@ -691,11 +710,13 @@ body.light .tooltip {
     }
 
     body.light .navbar {
-        background-color: var(--bg-light); /* Estilo para o modo claro */
+        background-color: var(--bg-light);
+        /* Estilo para o modo claro */
     }
 
     .navbar.active {
-        display: flex; /* Correto para exibir o menu */
+        display: flex;
+        /* Correto para exibir o menu */
     }
 
     .navbar a {
@@ -706,7 +727,8 @@ body.light .tooltip {
     }
 
     body.light .navbar a {
-        color: var(--bg-dark); /* Cor do link no modo claro */
+        color: var(--bg-dark);
+        /* Cor do link no modo claro */
     }
 
     .navbar .separador {
@@ -720,7 +742,8 @@ body.light .tooltip {
         height: 25px;
         cursor: pointer;
         z-index: 101;
-        margin-left: 1rem; /* Adiciona margem para separá-lo dos ícones */
+        margin-left: 1rem;
+        /* Adiciona margem para separá-lo dos ícones */
     }
 
     .hamburger .line {
@@ -733,7 +756,8 @@ body.light .tooltip {
     }
 
     body.light .hamburger .line {
-        background-color: var(--bg-dark); /* Cor das linhas no modo claro */
+        background-color: var(--bg-dark);
+        /* Cor das linhas no modo claro */
     }
 
     .hamburger.active .line1 {
@@ -748,9 +772,11 @@ body.light .tooltip {
         transform: translateY(-10px) rotate(-45deg);
     }
 
-    #closeModal, #closeModal2 {
+    #closeModal,
+    #closeModal2 {
         transform: translateY(0.5rem);
-        z-index: 10; /* Defina um valor de z-index alto o suficiente */
+        z-index: 10;
+        /* Defina um valor de z-index alto o suficiente */
         position: relative;
     }
 
@@ -759,18 +785,22 @@ body.light .tooltip {
     }
 
     .icons {
-        display: flex; /* Exibe os ícones novamente */
+        display: flex;
+        /* Exibe os ícones novamente */
         margin-top: 0;
-        gap: 0.5rem; /* Adiciona um pequeno espaço entre os ícones */
+        gap: 0.5rem;
+        /* Adiciona um pequeno espaço entre os ícones */
     }
 
     .icons img {
-        width: 30px; /* Reduz o tamanho dos ícones */
+        width: 30px;
+        /* Reduz o tamanho dos ícones */
         height: 30px;
     }
 
     .tooltip {
-        font-size: 0.65rem; /* Reduz o tamanho do tooltip */
+        font-size: 0.65rem;
+        /* Reduz o tamanho do tooltip */
     }
 
     .mylogo {
@@ -787,9 +817,11 @@ body.light .tooltip {
     }
 
     .personalPhoto {
-        max-width: 150px;
-        margin-bottom: 1rem;
-        margin-right: 0;
+        max-width: 200px;
+        height: 100%;
+        margin-left: 0;
+        margin-right: 2rem;
+        transform: translateY(-1rem);
     }
 
     .h1,
@@ -804,15 +836,19 @@ body.light .tooltip {
         margin-bottom: 20px;
     }
 
-    #prev1, #prev2 {
+    #prev1,
+    #prev2 {
         display: none;
     }
 
     #next1,
     #next2 {
-        left: 10px; /* Corrigindo o posicionamento para a esquerda */
-        right: 10px; /* Corrigindo o posicionamento para a direita */
-        transform: translateY(-50%); /* Mantendo o alinhamento vertical */
+        left: 10px;
+        /* Corrigindo o posicionamento para a esquerda */
+        right: 10px;
+        /* Corrigindo o posicionamento para a direita */
+        transform: translateY(-50%);
+        /* Mantendo o alinhamento vertical */
         margin-left: 0;
         margin-right: 0;
         transform: translateX(4px);
@@ -821,7 +857,7 @@ body.light .tooltip {
     .car,
     .carro {
         width: 80%;
-        
+
     }
 
     body.light .car,
@@ -895,7 +931,8 @@ body.light .tooltip {
 
     #modal1,
     #modal2 {
-        top: calc(50% + 8vh); /* Ajustando o top para começar abaixo do header em telas menores */
+        top: calc(50% + 8vh);
+        /* Ajustando o top para começar abaixo do header em telas menores */
         max-width: 80%;
     }
 }
@@ -918,23 +955,27 @@ body.light .tooltip {
     }
 
     .icons {
-        gap: 0.3rem; /* Reduz ainda mais o espaço entre os ícones */
+        gap: 0.3rem;
+        /* Reduz ainda mais o espaço entre os ícones */
     }
 
     .icons img {
-        width: 25px; /* Reduz ainda mais o tamanho dos ícones */
+        width: 25px;
+        /* Reduz ainda mais o tamanho dos ícones */
         height: 27px;
     }
 
     .tooltip {
-        display: none !important; /* Oculta os tooltips em telas muito pequenas */
+        display: none !important;
+        /* Oculta os tooltips em telas muito pequenas */
     }
 
     .hamburger {
         width: 25px;
         height: 20px;
         right: 1rem;
-        margin-left: 0.5rem; /* Ajusta a margem para equilibrar */
+        margin-left: 0.5rem;
+        /* Ajusta a margem para equilibrar */
     }
 
     .navbar.active {
@@ -969,13 +1010,17 @@ body.light .tooltip {
         grid-template-columns: 1fr;
     }
 
-    #prev1, #prev2 {
+    #prev1,
+    #prev2 {
         display: none;
     }
 
-    #next1, #next2 {
-        left: 5px; /* Ajustando ainda mais para as bordas em telas menores */
-        right: 5px; /* Ajustando ainda mais para as bordas em telas menores */
+    #next1,
+    #next2 {
+        left: 5px;
+        /* Ajustando ainda mais para as bordas em telas menores */
+        right: 5px;
+        /* Ajustando ainda mais para as bordas em telas menores */
         transform: translate(-4px, -150%);
         margin-left: 0;
         margin-right: 0;
@@ -991,7 +1036,8 @@ body.light .tooltip {
     #modal1,
     #modal2 {
         width: 95%;
-        top: calc(36% + 8vh); /* Ajustando o top para começar abaixo do header em telas muito pequenas */
+        top: calc(36% + 8vh);
+        /* Ajustando o top para começar abaixo do header em telas muito pequenas */
     }
 
     .aboutPic {
